@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LMML — Rome Movie Tour</title>
+  <meta name="description" content="Explore iconic movie locations in Rome with an interactive map and tailored content, perfect for film enthusiasts and scholars seeking a cinematic journey." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <div class="home">
+    <div class="home__bg"></div>
+    <div class="home__overlay"></div>
+
+    <div class="home__content fade-up">
+      <img class="home__logo" src="img/lmml-logo.png" alt="LMML — Live Museum of Movie Locations logo" />
+      <div class="home__title-block">
+        <h1 class="home__title">Live Museum of Movie Locations</h1>
+        <div class="home__divider"></div>
+        <h2 class="home__subtitle">Rome Movie Tour</h2>
+        <p class="home__lead">
+          An exploration of Rome's cinematic landscape.
+          Journey through 20 iconic locations where cinema and history converge.
+        </p>
+      </div>
+
+      <div class="home__route-form">
+        <p class="home__route-label">Choose how you'd like to begin</p>
+        <div class="route-picker">
+          <label class="route-option is-selected" id="mapOption">
+            <input type="radio" name="route" value="map-overview" checked />
+            <span class="route-option__title">Map</span>
+            <span class="route-option__desc">Browse all 20 locations on an interactive map and pick where to start.</span>
+          </label>
+
+          <div class="route-dropdown" id="routeDropdown">
+            <button type="button" class="route-dropdown__toggle" id="routeDropdownToggle" aria-haspopup="true" aria-expanded="false">
+              <span class="route-dropdown__toggle-row">
+                <span class="route-dropdown__title">Routes</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon route-dropdown__chevron"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+              <span class="route-dropdown__desc" id="routeDropdownDesc">Pick a themed route through the city.</span>
+            </button>
+            <ul class="route-dropdown__menu" id="routeDropdownMenu">
+              <li><button type="button" data-value="timeline">
+                <span class="route-dropdown__item-title">Timeline</span>
+                <span class="route-dropdown__item-desc">Locations ordered chronologically by their historical construction.</span>
+              </button></li>
+              <li><button type="button" data-value="city-tour">
+                <span class="route-dropdown__item-title">City Tour</span>
+                <span class="route-dropdown__item-desc">Rome's most famous and iconic attractions laid out in a logical walking sequence.</span>
+              </button></li>
+              <li><button type="button" data-value="art-tour">
+                <span class="route-dropdown__item-title">Art Tour</span>
+                <span class="route-dropdown__item-desc">A curated route for art lovers, focusing on museums and architectural masterpieces.</span>
+              </button></li>
+              <li><button type="button" data-value="cinema-tour">
+                <span class="route-dropdown__item-title">Film Tour</span>
+                <span class="route-dropdown__item-desc">Only the locations that have repeatedly served as cinematic backdrops.</span>
+              </button></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <a class="home__cta" id="beginTourBtn" href="tour.html?view=map-overview">
+        <span>Begin Tour</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" class="icon">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </a>
+
+      <div class="home__footer">
+        <p>20 Locations & 6 Films · DHDK — Università di Bologna</p>
+        
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      "use strict";
+      var ROUTE_DESCRIPTIONS = {
+        "timeline": "Locations ordered chronologically by their historical construction.",
+        "city-tour": "Rome's most famous and iconic attractions laid out in a logical walking sequence.",
+        "art-tour": "A curated route for art lovers, focusing on museums and architectural masterpieces.",
+        "cinema-tour": "Only the locations that have repeatedly served as cinematic backdrops."
+      };
+
+      var mapOption = document.getElementById('mapOption');
+      var mapInput = mapOption.querySelector('input[name="route"]');
+      var beginBtn = document.getElementById('beginTourBtn');
+
+      var dropdown = document.getElementById('routeDropdown');
+      var toggle = document.getElementById('routeDropdownToggle');
+      var desc = document.getElementById('routeDropdownDesc');
+      var menu = document.getElementById('routeDropdownMenu');
+      var defaultDesc = desc.textContent;
+
+      function selectMap() {
+        mapInput.checked = true;
+        mapOption.classList.add('is-selected');
+        dropdown.classList.remove('is-selected');
+        desc.textContent = defaultDesc;
+        menu.querySelectorAll('button').forEach(function (b) { b.classList.remove('is-active'); });
+        beginBtn.href = 'tour.html?view=map-overview';
+      }
+
+      function selectNarrativeRoute(narrativeId) {
+        mapInput.checked = false;
+        mapOption.classList.remove('is-selected');
+        dropdown.classList.add('is-selected');
+        desc.textContent = ROUTE_DESCRIPTIONS[narrativeId] || defaultDesc;
+        menu.querySelectorAll('button').forEach(function (b) {
+          b.classList.toggle('is-active', b.dataset.value === narrativeId);
+        });
+        beginBtn.href = 'tour.html?view=tour&narrative=' + narrativeId;
+      }
+
+      function closeMenu() {
+        dropdown.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+      function openMenu() {
+        dropdown.classList.add('is-open');
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+
+      mapInput.addEventListener('change', selectMap);
+
+      toggle.addEventListener('click', function (e) {
+        e.stopPropagation();
+        if (dropdown.classList.contains('is-open')) closeMenu(); else openMenu();
+      });
+
+      menu.querySelectorAll('button').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          selectNarrativeRoute(btn.dataset.value);
+          closeMenu();
+        });
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!dropdown.contains(e.target)) closeMenu();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeMenu();
+      });
+
+      selectMap(); // initial state
+    })();
+  </script>
+</body>
+</html>
