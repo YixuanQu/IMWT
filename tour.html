@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LMML — Rome Movie Tour</title>
+  <meta name="description" content="Interactive tour of iconic movie locations in Rome. An academic project for DHDK, University of Bologna." />
+
+  <!-- Leaflet map library (loaded from CDN) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Era theme typefaces: IM Fell English, Playfair Display, EB Garamond, Oswald, Dancing Script, Bodoni Moda, Jost, Courier Prime, Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400&family=Dancing+Script:wght@700&family=Oswald:wght@500;700&family=Jost:wght@400;500;600&family=IM+Fell+English:ital@0;1&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <!-- data-theme drives the visual look; data-view drives the SPA routing -->
+  <div class="tour" id="tour" data-theme="classic" data-view="map-overview">
+
+    <!-- ============ MAIN APPARATUS NAVIGATION ============ -->
+    <nav class="lmml-main-nav">
+      <div class="nav-brand"><img class="nav-brand__logo" src="img/lmml-logo.png" alt="LMML" /></div>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link-item">Home</a>
+        <button type="button" class="nav-link-item is-active" data-target="map-overview">Map</button>
+        <button type="button" class="nav-link-item" data-target="tour">Tour</button>
+
+        <div class="era-dropdown" id="aboutDropdown">
+          <button type="button" class="era-dropdown__toggle nav-link-item" id="aboutDropdownToggle" aria-haspopup="true" aria-expanded="false">
+            <span>About</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon era-dropdown__chevron"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <ul class="era-dropdown__menu" id="aboutDropdownMenu">
+            <li><button type="button" data-section="documentation-section">Documentation</button></li>
+            <li><button type="button" data-section="disclaimer-section">Disclaimer</button></li>
+            <li><button type="button" data-section="about-us-section">About Us</button></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="nav-dropdowns">
+        <!-- Narrative route switcher, top-right dropdown -->
+        <div class="era-dropdown" id="narrativeDropdown">
+          <button type="button" class="era-dropdown__toggle" id="narrativeDropdownToggle" aria-haspopup="true" aria-expanded="false">
+            <span class="era-dropdown__label" id="narrativeDropdownLabel">By Narratives</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon era-dropdown__chevron"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <ul class="era-dropdown__menu" id="narrativeDropdownMenu">
+            <li><button type="button" data-value="timeline" class="is-active">Timeline</button></li>
+            <li><button type="button" data-value="city-tour">City Tour</button></li>
+            <li><button type="button" data-value="art-tour">Art Tour</button></li>
+            <li><button type="button" data-value="cinema-tour">Film Tour</button></li>
+          </ul>
+        </div>
+
+        <!-- Era theme switcher, top-right dropdown -->
+        <div class="era-dropdown" id="eraDropdown">
+          <button type="button" class="era-dropdown__toggle" id="eraDropdownToggle" aria-haspopup="true" aria-expanded="false">
+            <span class="era-dropdown__label" id="eraDropdownLabel">By Themes</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon era-dropdown__chevron"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <ul class="era-dropdown__menu" id="eraDropdownMenu" data-group="theme">
+            <li><button type="button" data-value="expressionist">The Expressionist</button></li>
+            <li><button type="button" data-value="classic" class="is-active">The Classic Studio</button></li>
+            <li><button type="button" data-value="new-wave">The New Wave</button></li>
+            <li><button type="button" data-value="digital">The Digital Seamless</button></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ============ 1. MAP OVERVIEW VIEW ============ -->
+    <div class="main lmml-map-view" id="view-panel-map-overview">
+      <div class="sidebar" id="map-sidebar">
+        <h2 class="sidebar__title" id="sidebarTitle">All Locations</h2>
+        <p class="sidebar__subtitle" id="sidebarSubtitle">Showing: Timeline (20 locations)</p>
+        <ul class="sidebar__list" id="sidebar-list">
+          <!-- List items injected via JS -->
+        </ul>
+      </div>
+      <div id="overview-map" class="map" style="flex: 1;"></div>
+    </div>
+
+    <!-- ============ 2. TOUR VIEW (Interactive Story) ============ -->
+    <div class="main" id="view-panel-tour">
+      <div class="map-pane">
+        <div id="tour-map" class="map"></div>
+        <div class="nav">
+          <button type="button" id="prevBtn" class="nav__btn" title="Previous location (←)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" class="icon">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            <span>Previous</span>
+          </button>
+          <div class="nav__counter">
+            <span id="navCurrent">1</span>
+            <span class="nav__counter-total"> / <span id="navTotal">20</span></span>
+          </div>
+          <button type="button" id="nextBtn" class="nav__btn" title="Next location (→)">
+            <span>Next</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" class="icon">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="content-pane">
+        <div class="content" id="content">
+          <!-- Content dynamically rendered via tour.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 3. ABOUT VIEW ============ -->
+    <div class="lmml-static-view" id="view-panel-about">
+      <!-- ============ DOCUMENTATION SECTION ============ -->
+      <div class="static-card" id="documentation-section">
+        <h2>Documentation</h2>
+
+        <!-- 1. THE IDEA -->
+        <section class="doc-chunk">
+          <h3>1. The Idea & Cultural Context</h3>
+          <p>The <strong>Live Museum of Movie Locations (LMML) — Rome Cinema Walk</strong> is an interactive digital humanities web application that explores the cinematic geography of Rome. Developed for the <em>Information Modeling and Web Technologies</em> course in the Digital Humanities and Digital Knowledge (DHDK) Master's degree program at the University of Bologna, the project examines how physical urban monuments transform into cinematic mythologies. By interweaving physical topography with narrative film history across 20 monumental landmarks and 6 iconic films (spanning from 1953 to 2023), LMML provides an educational, multi-layered journey that caters to casual tourists, cinephiles, and academic researchers alike.</p>
+        </section>
+
+        <!-- 2. THE SOURCE & METADATA -->
+        <section class="doc-chunk">
+          <h3>2. The Source & Metadata Architecture</h3>
+
+          <div class="about-films">
+            <p class="about-films__label">Featuring locations from</p>
+            <div class="about-films__grid">
+              <div class="about-film-card">
+                <div class="about-film-card__still"><img src="img/posters/roman-holiday.jpg" alt="Roman Holiday" /></div>
+                <p class="about-film-card__title">Roman Holiday</p>
+                <p class="about-film-card__meta">William Wyler · 1953</p>
+              </div>
+              <div class="about-film-card">
+                <div class="about-film-card__still"><img src="img/posters/la-dolce-vita.jpg" alt="La Dolce Vita" /></div>
+                <p class="about-film-card__title">La Dolce Vita</p>
+                <p class="about-film-card__meta">Federico Fellini · 1960</p>
+              </div>
+              <div class="about-film-card">
+                <div class="about-film-card__still"><img src="img/posters/the-talented-mr-ripley.jpg" alt="The Talented Mr. Ripley" /></div>
+                <p class="about-film-card__title">The Talented Mr. Ripley</p>
+                <p class="about-film-card__meta">Anthony Minghella · 1999</p>
+              </div>
+              <div class="about-film-card">
+                <div class="about-film-card__still"><img src="img/posters/to-rome-with-love.jpg" alt="To Rome with Love" /></div>
+                <p class="about-film-card__title">To Rome with Love</p>
+                <p class="about-film-card__meta">Woody Allen · 2012</p>
+              </div>
+              <div class="about-film-card">
+                <div class="about-film-card__still"><img src="img/posters/the-great-beauty.jpg" alt="La Grande Bellezza" /></div>
+                <p class="about-film-card__title">La Grande Bellezza</p>
+                <p class="about-film-card__meta">Paolo Sorrentino · 2013</p>
+              </div>
+              <div class="about-film-card">
+                <div class="about-film-card__still"><img src="img/posters/there-s-still-tomorrow.jpg" alt="C'è ancora domani" /></div>
+                <p class="about-film-card__title">C'è ancora domani</p>
+                <p class="about-film-card__meta">Paola Cortellesi · 2023</p>
+              </div>
+            </div>
+          </div>
+
+          <p>The system operates on an object-oriented, highly structured unified metadata architecture defined in <code>data.js</code>. This data layer fulfills the strict <em>Rich, Structured, Typed, and Uniform (RSTU)</em> design constraints through two complementary layers:</p>
+          <ul style="margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 0.75rem;">
+            <li><strong>Relational & Granular Model:</strong> The core data model defines a Many-to-Many architecture. Each location entity is indexed with geographic coordinates (latitude/longitude), exact street addresses, historical construction periods (from 509 BC to 2002 AD), seasonal visiting hours, architectural classifications, and curated multi-tier descriptive narratives. Furthermore, each location links to an array of cinematic appearances, specifying director, release year, diegetic status, scene descriptions, specific camera orientations (e.g., tracking low-angle shot, static symmetric composition), and high-resolution still frames.</li>
+            <li><strong>Semantic Web & Linked Open Data (JSON-LD):</strong> In parallel with frontend JavaScript execution, the data is formally grounded in <strong>Schema.org</strong> vocabularies. The application semantically maps physical architectural monuments (<code>LandmarksOrHistoricalBuildings</code>, <code>TouristAttraction</code>) to creative works (<code>Movie</code>) and spatial actions (<code>FilmAction</code>), establishing the application as an open, machine-readable linked data node.</li>
+          </ul>
+        </section>
+
+        <!-- 3. OVERALL LAYOUT & VIEWPORT FLOW -->
+        <section class="doc-chunk">
+          <h3>3. Overall Layout & Viewport Architecture</h3>
+          <p>The interface avoids default browser scrolling through a strict <strong><code>100vh</code> viewport constraint canvas</strong>. The layout is architected into dedicated, isolated scroll zones that replicate native app-like responsiveness:</p>
+          <ul style="margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 0.75rem;">
+            <li><strong>Spatial Division (Golden Ratio):</strong> In desktop view, the main screen splits horizontally following an optimized ratio — <code>38.2%</code> dedicated to the interactive Leaflet map and control apparatus, and <code>61.8%</code> dedicated to the scrollable narrative content canvas. On mobile viewports, this gracefully degrades into balanced vertical touch zones.</li>
+            <li><strong>Predictable Vertical Flow:</strong> While visual styling shifts across eras, the structural layout remains strictly vertical and uniform across all themes: Location Profile (monument photo + technical metadata table + historical timeline) &rarr; Featured In (movie frame + film production table + flipbook navigator) &rarr; Three-Axis Content (interactive narrative passage) &rarr; On-Site Practicalities (Google Maps QR code and directions).</li>
+            <li><strong>SPA State Routing:</strong> The application features a lightweight, zero-dependency client-side SPA router supporting three distinct views: Map Overview, Interactive Narrative Tour, and About/Documentation.</li>
+          </ul>
+        </section>
+
+        <!-- 4. TOUR DESIGN & DYNAMIC INTERACTIONS -->
+        <section class="doc-chunk">
+          <h3>4. Tour Design & Dynamic Content Synthesis</h3>
+          <p>The visitor experience is dynamically computed based on two core interactive systems:</p>
+          <ul style="margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 0.75rem;">
+            <li><strong>Four Curated Narrative Routes:</strong> Visitors can explore Rome through four distinct walking orders selected via the top-right header menu. <strong>Historical Timeline</strong> organizes all 20 locations chronologically from Antiquity to Modernity; <strong>City Tour</strong> provides a geographic walking sequence through quintessential landmarks; <strong>Art Tour</strong> curates masterworks, museums, and palazzi; and <strong>Film Tour</strong> isolates iconic sets that have repeatedly hosted major productions. The route engine re-indexes map markers ($1 \dots N$), hides out-of-scope locations, updates chapter banners, and recalculates step navigation dynamically without data duplication.</li>
+            <li><strong>Three-Axis Text Grid Synthesis:</strong> Rather than forcing static articles, each location features a synthesized text block computed along three independent pedagogical axes ($3 \times 3 \times 3 = 27$ variations per landmark):
+              <ul style="margin-left: 1.2rem; margin-top: 0.25rem;">
+                <li><em>Detail Length:</em> Step-cycled via <code>Read More / Read Less</code> buttons (Brief &rarr; Mid &rarr; Long).</li>
+                <li><em>Audience Tone:</em> Selected via inline tags (Kid / Young &rarr; Adult &rarr; Scholar).</li>
+                <li><em>Competence Level:</em> Step-cycled via <code>Too Easy / Too Difficult</code> buttons (Introductory &rarr; Average &rarr; Advanced).</li>
+              </ul>
+            </li>
+            <li><strong>3D Flipbook Carousel:</strong> Locations hosting multiple film productions (e.g., Trevi Fountain in <em>Roman Holiday</em>, <em>La Dolce Vita</em>, and <em>To Rome with Love</em>) feature a perspective-transformed 3D flip card system, allowing users to flip between film appearances in place.</li>
+            <li><strong>On-Site Dynamic QR Generator:</strong> Each stop dynamically generates an on-the-fly QR code linking directly to Google Maps place queries using verified Italian names and addresses for physical walking navigation.</li>
+          </ul>
+        </section>
+
+        <!-- 5. FOUR THEMES & INSPIRATION -->
+        <section class="doc-chunk">
+          <h3>5. Four Cinematic Era Themes</h3>
+          <p>The visual design does not mimic architectural eras, but rather celebrates the aesthetic history of world cinema itself. Driven by a single CSS Custom Property token architecture (<code>--t-*</code>), switching themes instantly recalculates typography, aspect ratios, color palettes, card frames, and map cartography:</p>
+          <ul style="margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 0.75rem;">
+            <li><strong>1. The Expressionist (1890s–1920s):</strong> Rooted in German Expressionism and early silent cinema. Characterized by extreme chiaroscuro contrast, pure black-and-white canvas, thick 3px brutalist bounding lines, zero corner radii, and a high-contrast B&W map tile filter. Stills adhere strictly to the classic <strong>1.33:1 (4:3) Academy Ratio</strong>, and screenshot filters are completely disabled to preserve original production framing. Typography is set in <em>IM Fell English</em>.</li>
+            <li><strong>2. The Classic Studio (1930s–1950s):</strong> Inspired by vintage Hollywood and Italian cine-posters (e.g., Chaplin's <em>Modern Times</em> and <em>The Kid</em>). Utilizes warm aged-paper backgrounds (<code>#eedc9a</code>), rich scarlet accents (<code>#d32215</code>), heavy ink borders, and hard-edged 6px drop shadows. Stills are framed in <strong>16:9 widescreen</strong>. Metadata tables are styled like vintage poster billing blocks, pairing bold condensed <em>Oswald</em> with elegant <em>Dancing Script</em> signatures.</li>
+            <li><strong>3. The New Wave (1960s–1980s):</strong> Drawing inspiration from French New Wave (Godard, Truffaut, Varda) and 1960s pop-art street poster collages. Features high-saturation primaries (Godard Red, mustard yellow, and cobalt blue), solid border frames with colorful offset shadows, and a saturated pop-art map filter. Stills adopt the standard theatrical <strong>1.85:1 widescreen ratio</strong>. Typography pairs <em>Oswald</em> headings with clean <em>Jost</em> body text.</li>
+            <li><strong>4. The Digital Seamless (1990s–Present):</strong> Reflects contemporary sci-fi, VR holographic interfaces, and deep space aesthetics (e.g., <em>Interstellar</em>, <em>Avatar</em>). Built on deep void black (<code>#030407</code>), glowing cyan neon accents (<code>#00f0ff</code>), and high-contrast translucent glassmorphic panels (<code>backdrop-filter: blur(16px)</code>). Stills stretch into the expansive <strong>2.35:1 Anamorphic CinemaScope Ratio</strong>. Typography pairs monospace HUD telemetry (<em>Courier Prime</em>) with ultra-clean modern sans-serif (<em>Inter</em>).</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- ============ DISCLAIMER SECTION ============ -->
+      <div class="static-card" id="disclaimer-section">
+        <h2>Disclaimer</h2>
+        <p>The purpose of this web site is to explore various types of typographic and layout style for specialized tourist visits, as an end-of-course project for the "Information Modeling and Web technologies" course of the Master's Degree in Digital Humanities and Digital Knowledge of the University of Bologna, under the supervision of prof. Fabio Vitali.</p>
+        <p>The documents contained in this web site have been selected for their length and complexity from various sources. Their publication here is not intended to be an alternative to or a replacement for their original locations.</p>
+        
+        <table class="source-table">
+          <thead>
+            <tr>
+              <th>Source Asset</th>
+              <th>Original URL Location Reference</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>File 1: Roman Forum Profile</td>
+              <td><a href="https://en.wikipedia.org/wiki/Roman_Forum" target="_blank">https://en.wikipedia.org/wiki/Roman_Forum</a></td>
+            </tr>
+            <tr>
+              <td>File 2: Parco degli Acquedotti Profile</td>
+              <td><a href="https://en.wikipedia.org/wiki/Parco_degli_Acquedotti" target="_blank">https://en.wikipedia.org/wiki/Parco_degli_Acquedotti</a></td>
+            </tr>
+            <tr>
+              <td>File 3: Colosseum Profile</td>
+              <td><a href="https://en.wikipedia.org/wiki/Colosseum" target="_blank">https://en.wikipedia.org/wiki/Colosseum</a></td>
+            </tr>
+            <tr>
+              <td>File 4: Piazza Navona Profile</td>
+              <td><a href="https://en.wikipedia.org/wiki/Piazza_Navona" target="_blank">https://en.wikipedia.org/wiki/Piazza_Navona</a></td>
+            </tr>
+            <tr>
+              <td>File 5: Pantheon Profile</td>
+              <td><a href="https://en.wikipedia.org/wiki/Pantheon,_Rome" target="_blank">https://en.wikipedia.org/wiki/Pantheon,_Rome</a></td>
+            </tr>
+            <tr>
+              <td>File 6: Ponte Sant'Angelo Profile</td>
+              <td><a href="https://en.wikipedia.org/wiki/Ponte_Sant%27Angelo" target="_blank">https://en.wikipedia.org/wiki/Ponte_Sant%27Angelo</a></td>
+            </tr>
+            <tr>
+              <td>File 7: Baths of Caracalla Profile</td>
+              <td><a href="https://en.wikipedia.org/wiki/Baths_of_Caracalla" target="_blank">https://en.wikipedia.org/wiki/Baths_of_Caracalla</a></td>
+            </tr>
+            <tr>
+              <td>File 8: Bocca della Verità Profile</td>
+              <td><a href="https://en.wikipedia.org/wiki/Bocca_della_Verit%C3%A0" target="_blank">https://en.wikipedia.org/wiki/Bocca_della_Verit%C3%A0</a></td>
+            </tr>
+            <tr>
+              <td>File 9: Tempietto del Bramante Profile</td>
+              <td><a href="https://en.wikipedia.org/wiki/Tempietto_del_Bramante" target="_blank">https://en.wikipedia.org/wiki/Tempietto_del_Bramante</a></td>
+            </tr>
+            <tr>
+              <td>File 10: Capitoline Museums Profile</td>
+              <td><a href="https://en.wikipedia.org/wiki/Capitoline_Museums" target="_blank">https://en.wikipedia.org/wiki/Capitoline_Museums</a></td>
+            </tr>
+            <tr>
+              <td>File 11: Villa Medici Profile</td>
+              <td><a href="https://en.wikipedia.org/wiki/Villa_Medici" target="_blank">https://en.wikipedia.org/wiki/Villa_Medici</a></td>
+            </tr>
+            <tr>
+              <td>File 12: Church of the Gesù Profile</td>
+              <td><a href="https://en.wikipedia.org/wiki/Church_of_the_Ges%C3%B9" target="_blank">https://en.wikipedia.org/wiki/Church_of_the_Ges%C3%B9</a></td>
+            </tr>
+            <tr>
+              <td>File 13: Villa Borghese Gardens Profile</td>
+              <td><a href="https://en.wikipedia.org/wiki/Villa_Borghese_gardens" target="_blank">https://en.wikipedia.org/wiki/Villa_Borghese_gardens</a></td>
+            </tr>
+            <tr>
+              <td>File 14: Palazzo Barberini Profile</td>
+              <td><a href="https://en.wikipedia.org/wiki/Palazzo_Barberini" target="_blank">https://en.wikipedia.org/wiki/Palazzo_Barberini</a></td>
+            </tr>
+            <tr>
+              <td>File 15: Piazza di Spagna Profile</td>
+              <td><a href="https://en.wikipedia.org/wiki/Piazza_di_Spagna" target="_blank">https://en.wikipedia.org/wiki/Piazza_di_Spagna</a></td>
+            </tr>
+            <tr>
+              <td>File 16: Trevi Fountain Profile</td>
+              <td><a href="https://en.wikipedia.org/wiki/Trevi_Fountain" target="_blank">https://en.wikipedia.org/wiki/Trevi_Fountain</a></td>
+            </tr>
+            <tr>
+              <td>File 17: Piazza del Popolo Profile</td>
+              <td><a href="https://en.wikipedia.org/wiki/Piazza_del_Popolo" target="_blank">https://en.wikipedia.org/wiki/Piazza_del_Popolo</a></td>
+            </tr>
+            <tr>
+              <td>File 18: Piazza Venezia Profile</td>
+              <td><a href="https://en.wikipedia.org/wiki/Piazza_Venezia" target="_blank">https://en.wikipedia.org/wiki/Piazza_Venezia</a></td>
+            </tr>
+            <tr>
+              <td>File 19: Palazzo della Civiltà Italiana Profile</td>
+              <td><a href="https://en.wikipedia.org/wiki/Palazzo_della_Civilt%C3%A0_Italiana" target="_blank">https://en.wikipedia.org/wiki/Palazzo_della_Civilt%C3%A0_Italiana</a></td>
+            </tr>
+            <tr>
+              <td>File 20: Auditorium Parco della Musica Profile</td>
+              <td><a href="https://en.wikipedia.org/wiki/Parco_della_Musica" target="_blank">https://en.wikipedia.org/wiki/Parco_della_Musica</a></td>
+            </tr>
+            <tr>
+              <td>File 21: <i>Roman Holiday</i></td>
+              <td><a href="https://www.imdb.com/title/tt0046250/locations/" target="_blank">https://www.imdb.com/title/tt0046250/locations/</a></td>
+            </tr>
+            <tr>
+              <td>File 22: <i>La Dolce Vita</i></td>
+              <td><a href="https://www.imdb.com/title/tt0053779/locations/" target="_blank">https://www.imdb.com/title/tt0053779/locations/</a></td>
+            </tr>
+            <tr>
+              <td>File 23: <i>The Talented Mr. Ripley</i></td>
+              <td><a href="https://www.imdb.com/title/tt0134119/locations/" target="_blank">https://www.imdb.com/title/tt0134119/locations/</a></td>
+            </tr>
+            <tr>
+              <td>File 24: <i>To Rome with Love</i></td>
+              <td><a href="https://www.imdb.com/title/tt1859650/locations/" target="_blank">https://www.imdb.com/title/tt1859650/locations/</a></td>
+            </tr>
+            <tr>
+              <td>File 25: <i>La Grande Bellezza</i></td>
+              <td><a href="https://www.imdb.com/title/tt2358891/locations/" target="_blank">https://www.imdb.com/title/tt2358891/locations/</a></td>
+            </tr>
+            <tr>
+              <td>File 26: <i>C'è ancora domani</i></td>
+              <td><a href="https://www.imdb.com/it/title/tt21800162/locations/?ref_=tt_dt_loc" target="_blank">https://www.imdb.com/it/title/tt21800162/locations/?ref_=tt_dt_loc</a></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <p class="copyright">Copyright and related rights on the content remain with their original owners. Copyright on the typographic and layout choices are 2026 © LMML Team.</p>
+      </div>
+
+      <!-- ============ ABOUT US SECTION ============ -->
+      <div class="static-card" id="about-us-section">
+        <h2>About the Project & Team</h2>
+        <p class="lead-text">Developed for the "Information Modeling and Web Technologies" course at the Master's Degree in Digital Humanities and Digital Knowledge (DHDK), Alma Mater Studiorum – Università di Bologna.</p>
+        <div class="team-meta">
+          <h3>Academic Group Members</h3>
+          <ul>
+            <li><strong>Polyxeni Chasanai</strong> — polikseni.hasanaj@studio.unibo.it</li>
+            <li><strong>Yixuan Qu</strong> — yixuan.qu@studio.unibo.it</li>
+          </ul>
+          <p style="margin-top: 1.5rem; color: var(--neutral-600);">Course Professor: <em>Fabio Vitali</em> <br> Academic Year: 2025-26</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/tour.js"></script>
+</body>
+</html>
