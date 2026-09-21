@@ -101,12 +101,21 @@
     order.forEach(function (id, idx) {
       const loc = locations.find(function (l) { return l.id === id; });
       if (!loc) return;
+<<<<<<< HEAD
       // Single click jumps straight into the Tour page for this location — no
       // separate "View More" step, since a filmstrip chip has no room for one.
       html += '<button type="button" class="filmstrip-chip" style="background-image: url(\'' + loc.imageUrl + '\')" onclick="enterTour(' + loc.id + ')" title="' + escapeHtml(loc.name) + '">' +
                 '<span class="filmstrip-chip__num">' + (idx + 1) + '</span>' +
                 '<span class="filmstrip-chip__label">' + escapeHtml(loc.name) + '</span>' +
               '</button>';
+=======
+      html += '<li class="sidebar__item">' +
+                '<span class="sidebar__item-title">' + (idx + 1) + '. ' + escapeHtml(loc.name) +
+                (loc.builtYearLabel ? ' <span class="sidebar__item-year">' + escapeHtml(loc.builtYearLabel) + '</span>' : '') +
+                '</span>' +
+                '<button class="sidebar__btn" onclick="enterTour(' + loc.id + ')">View More</button>' +
+              '</li>';
+>>>>>>> 5565b9e48e6efc8f6bbb2647d53c42fe8b05a0e3
     });
     listEl.innerHTML = html;
   }
