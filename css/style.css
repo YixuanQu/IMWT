@@ -381,6 +381,9 @@ body {
 [data-theme="expressionist"] .static-card { background: #fff; border: 3px solid #000; border-radius: 0; }
 [data-theme="expressionist"] .static-card h2 { font-family: 'IM Fell English', 'Times New Roman', serif; text-transform: uppercase; letter-spacing: 0.04em; }
 [data-theme="expressionist"] .source-table th, [data-theme="expressionist"] .source-table td { border-bottom: 3px solid #000; }
+[data-theme="expressionist"] .doc-figure__frame { color: #000; }
+[data-theme="expressionist"] .doc-figure__frame:not(:has(img)) { border: 3px solid #000; background: #fff; }
+[data-theme="expressionist"] .doc-figure__caption { color: #000; }
 
 
 /* ---------------------------------------------------------
@@ -498,6 +501,9 @@ body {
 [data-theme="classic"] .doc-chunk h3 { font-family: 'Dancing Script', cursive; font-size: 2rem; color: #1a1a1a; margin-bottom: 1rem; }
 [data-theme="classic"] .source-table th { background: #1a1a1a; color: #eedc9a; font-family: 'Oswald', sans-serif; text-transform: uppercase; font-size: 1.1rem; padding: 1rem; border: none; }
 [data-theme="classic"] .source-table td { border-bottom: 2px solid #1a1a1a; padding: 1rem; }
+[data-theme="classic"] .doc-figure__frame { color: #1a1a1a; }
+[data-theme="classic"] .doc-figure__frame:not(:has(img)) { border: 2px dashed #1a1a1a; background: rgba(26,26,26,0.05); }
+[data-theme="classic"] .doc-figure__caption { color: #1a1a1a; font-family: 'EB Garamond', Georgia, serif; }
 
 
 /* ---------------------------------------------------------
@@ -661,6 +667,9 @@ body {
 [data-theme="new-wave"] .doc-chunk h3 { font-family: 'Dancing Script', cursive; font-size: 2rem; color: #2b3a67; }
 [data-theme="new-wave"] .source-table th { background: #e2b438; color: #1a1c29; font-family: 'Oswald', sans-serif; text-transform: uppercase; font-size: 1.1rem; border-bottom: 3px solid #1a1c29; }
 [data-theme="new-wave"] .source-table td { border-bottom: 3px solid #1a1c29; }
+[data-theme="new-wave"] .doc-figure__frame { color: #2b3a67; }
+[data-theme="new-wave"] .doc-figure__frame:not(:has(img)) { border: 2px dashed #e32934; background: rgba(43,58,103,0.06); }
+[data-theme="new-wave"] .doc-figure__caption { color: #2b3a67; font-family: 'Jost', sans-serif; }
 
 
 /* ---------------------------------------------------------
@@ -799,6 +808,9 @@ body {
 [data-theme="digital"] .static-card { background: rgba(0, 240, 255, 0.08); backdrop-filter: blur(16px); border: 1px solid rgba(0, 240, 255, 0.3); border-radius: 16px; padding: 2.5rem; box-shadow: inset 0 0 20px rgba(0, 240, 255, 0.1), 0 8px 32px rgba(0, 240, 255, 0.15); }
 [data-theme="digital"] .static-card h2 { font-family: 'Courier Prime', monospace; font-weight: 400; letter-spacing: 0.15em; color: #fff; text-shadow: 0 0 10px rgba(0, 240, 255, 0.5); }
 [data-theme="digital"] .source-table th, [data-theme="digital"] .source-table td { border-bottom: 1px solid rgba(0, 240, 255, 0.3); }
+[data-theme="digital"] .doc-figure__frame { color: #00f0ff; }
+[data-theme="digital"] .doc-figure__frame:not(:has(img)) { border: 1px dashed rgba(0, 240, 255, 0.5); background: rgba(0, 240, 255, 0.05); }
+[data-theme="digital"] .doc-figure__caption { color: #cfe9ee; font-family: 'Inter', sans-serif; }
 [data-theme="digital"] a { color: #00f0ff; text-decoration: none; }
 [data-theme="digital"] a:hover { text-shadow: 0 0 8px rgba(0, 240, 255, 0.8); }
 
@@ -963,8 +975,51 @@ body {
 .lead-text { font-size: 1.15rem; margin-bottom: 2rem; opacity: 0.8; line-height: 1.6; }
 .doc-chunk { margin-bottom: 2rem; }
 .doc-chunk h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+.doc-chunk h4 { margin-top: 1.5rem; }
 .team-meta ul { margin-left: 1.5rem; margin-top: 0.5rem; }
 .team-meta li { margin-bottom: 0.5rem; }
+
+/* Documentation inspiration-image placeholders (Layout section + each Theme) */
+.doc-figure { margin: 1rem 0 1.5rem; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.doc-figure__frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  overflow: hidden;
+  color: var(--neutral-500);
+}
+.doc-figure__frame svg { width: 28px; height: 28px; opacity: 0.6; }
+.doc-figure__frame span { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.7; }
+.doc-figure__caption { margin: 0.5rem auto 0; max-width: 480px; font-size: 0.8rem; line-height: 1.5; font-style: italic; opacity: 0.75; }
+.doc-figure--theme .doc-figure__frame { aspect-ratio: 4 / 3; max-width: 360px; }
+.doc-figure--theme .doc-figure__caption { max-width: 360px; }
+
+/* Still-empty placeholder: show the dashed hint box only when no <img> is inside */
+.doc-figure__frame:not(:has(img)) {
+  border: 1px dashed rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.03);
+}
+
+/* Any <img> dropped inside .doc-figure__frame (with or without the
+   .doc-figure__img class) fills the frame's controlled aspect ratio —
+   no visible border/background once a real image is present. */
+.doc-figure__frame img,
+.doc-figure__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  aspect-ratio: auto;
+  border: none;
+  object-fit: cover;
+  object-position: center;
+}
 
 .source-table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 14px; }
 .source-table th, .source-table td { padding: 0.75rem; text-align: left; border-bottom: 1px solid rgba(0,0,0,0.1); }

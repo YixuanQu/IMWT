@@ -66,10 +66,10 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon era-dropdown__chevron"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
           <ul class="era-dropdown__menu" id="eraDropdownMenu" data-group="theme">
-            <li><button type="button" data-value="expressionist">The Expressionist</button></li>
-            <li><button type="button" data-value="classic" class="is-active">The Classic Studio</button></li>
-            <li><button type="button" data-value="new-wave">The New Wave</button></li>
-            <li><button type="button" data-value="digital">The Digital Seamless</button></li>
+            <li><button type="button" data-value="expressionist">Black and White</button></li>
+            <li><button type="button" data-value="classic" class="is-active">Classic Studio</button></li>
+            <li><button type="button" data-value="new-wave">New Wave</button></li>
+            <li><button type="button" data-value="digital">Digital Seamless</button></li>
           </ul>
         </div>
       </div>
@@ -127,13 +127,29 @@
 
         <!-- 1. THE IDEA -->
         <section class="doc-chunk">
-          <h3>1. The Idea & Cultural Context</h3>
-          <p>The <strong>Live Museum of Movie Locations (LMML) — Rome Cinema Walk</strong> is an interactive digital humanities web application that explores the cinematic geography of Rome. Developed for the <em>Information Modeling and Web Technologies</em> course in the Digital Humanities and Digital Knowledge (DHDK) Master's degree program at the University of Bologna, the project examines how physical urban monuments transform into cinematic mythologies. By interweaving physical topography with narrative film history across 20 monumental landmarks and 6 iconic films (spanning from 1953 to 2023), LMML provides an educational, multi-layered journey that caters to casual tourists, cinephiles, and academic researchers alike.</p>
+          <h3>1. Introduction</h3>
+          <p>The <strong>Live Museum of Movie Locations (LMML) — Rome Cinema Walk</strong> is an interactive web application that explores the cinematic geography of Rome. Developed for the <em>Information Modeling and Web Technologies</em> course in the Digital Humanities and Digital Knowledge (DHDK) Master's degree program at the University of Bologna. The project chooses Rome, the city deeply beloved by both group members and by the artists across time, as the starting point to examine how physical locations interact with cinematic scenes. By interweaving physical topography with narrative film history across 20 monumental landmarks and 6 iconic films (spanning 70 years from 1953 to 2023), LMML provides an educational, multi-layered journey that caters to children, adult tourists and academic researchers or cinephiles.</p>
+          <p><strong>What the site contains.</strong> The application is a static site including one landing page, one tour application, one stylesheet, and two JavaScript modules — with no build step and no server-side dependency. It offers three ways to engage with the material: a <strong>Map Overview</strong> that lays out all 20 locations on an interactive Leaflet map with a photographic filmstrip index; an <strong>Interactive Tour</strong> that walks visitors through each location one at a time along one of four curated narrative routes, pairing a historical/technical profile with a synthesized narrative passage, a film still, and an on-site QR code for navigation; and a merged <strong>About</strong> page collecting the project's documentation, source disclaimer, and team credits. Four selectable visual themes and four selectable narrative routes recombine freely across all 20 locations, so the same underlying data can be experienced as a chronological history walk, a classic sightseeing itinerary, an art-and-architecture tour, or a film-location pilgrimage — each rendered in a visual language drawn from a different era of cinema history.</p>
+          <p><strong>AI Disclaimer — use of LLMs.</strong> A large language model (Claude) was used as a development assistant throughout the project mainly in two roles: (1) <em>coding assistance</em> — iterating on the coding implementation, especially with the application of leaflet to build up the interactive map; (2) <em>QR code generation</em> — producing the Google Maps deep links embedded at each stop. The underlying research, the selection of locations and films, the information architecture, the metadata structure, and all editorial and design decisions were carried out and verified by the group members.</p>
         </section>
 
-        <!-- 2. THE SOURCE & METADATA -->
+        <!-- 2. PROJECT ARCHITECTURE -->
         <section class="doc-chunk">
-          <h3>2. The Source & Metadata Architecture</h3>
+          <h3>2. Project Architecture</h3>
+          <p>LMML is deliberately built as a lightweight, dependency-free static application rather than a framework-driven site, so that its structure stays legible as a teaching artifact. The codebase is organized into five files with a strict separation of concerns:</p>
+          <ul style="margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 0.75rem;">
+            <li><strong>index.html</strong> — the home/landing page: hero, logo, and the route-picker form used to choose a starting view.</li>
+            <li><strong>tour.html</strong> — the single-page application shell. One root element carries two state attributes, <code>data-theme</code> (visual era) and <code>data-view</code> (active screen), and three view panels — Map Overview, Tour, and About — are shown or hidden by CSS rules keyed to <code>data-view</code>.</li>
+            <li><strong>css/style.css</strong> — all presentation, organized around the <code>--t-*</code> custom-property token system described in Section 5.</li>
+            <li><strong>js/data.js</strong> — the pure data layer: the 20-location, 6-film dataset plus narrative-route and metadata definitions, with no DOM logic.</li>
+            <li><strong>js/tour.js</strong> — all behavior: the SPA router, state management (<code>state.narrativeId</code>, active location index), the content-synthesis engine, map rendering, and event wiring.</li>
+          </ul>
+          <p>The application features a lightweight, zero-dependency client-side router: navigation never triggers a page reload inside <code>tour.html</code>, it only swaps the <code>data-view</code> attribute and re-renders the affected panel, while the narrative-route selection and theme selection are held as shared state so that choosing a route on the Home page, the Map page, or the Tour page keeps every view in sync. This keeps the whole application inspectable in five files with no compilation step, consistent with the project's brief of producing a clear, directly readable demonstration of information-modeling principles rather than a production framework build.</p>
+        </section>
+
+        <!-- 3. METADATA STRUCTURE AND REFERENCE SOURCES -->
+        <section class="doc-chunk">
+          <h3>3. Metadata Structure and Reference Sources</h3>
 
           <div class="about-films">
             <p class="about-films__label">Featuring locations from</p>
@@ -174,49 +190,82 @@
           <p>The system operates on an object-oriented, highly structured unified metadata architecture defined in <code>data.js</code>. This data layer fulfills the strict <em>Rich, Structured, Typed, and Uniform (RSTU)</em> design constraints through two complementary layers:</p>
           <ul style="margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 0.75rem;">
             <li><strong>Relational & Granular Model:</strong> The core data model defines a Many-to-Many architecture. Each location entity is indexed with geographic coordinates (latitude/longitude), exact street addresses, historical construction periods (from 509 BC to 2002 AD), seasonal visiting hours, architectural classifications, and curated multi-tier descriptive narratives. Furthermore, each location links to an array of cinematic appearances, specifying director, release year, diegetic status, scene descriptions, specific camera orientations (e.g., tracking low-angle shot, static symmetric composition), and high-resolution still frames.</li>
-            <li><strong>Semantic Web & Linked Open Data (JSON-LD):</strong> In parallel with frontend JavaScript execution, the data is formally grounded in <strong>Schema.org</strong> vocabularies. The application semantically maps physical architectural monuments (<code>LandmarksOrHistoricalBuildings</code>, <code>TouristAttraction</code>) to creative works (<code>Movie</code>) and spatial actions (<code>FilmAction</code>), establishing the application as an open, machine-readable linked data node.</li>
+            <li><strong>Semantic Web & Linked Open Data:</strong> In parallel with frontend JavaScript execution, the data is formally grounded in <strong>Schema.org</strong> vocabularies. The application semantically maps physical architectural monuments (<code>LandmarksOrHistoricalBuildings</code>, <code>TouristAttraction</code>) to creative works (<code>Movie</code>) and spatial actions (<code>FilmAction</code>), establishing the application as an open, machine-readable linked data node.</li>
           </ul>
+          <p>Every fact recorded in <code>data.js</code> — coordinates, addresses, construction dates, opening hours, and film-appearance details — is grounded in a verifiable public source rather than invented. Location profiles are compiled chiefly from Wikipedia entries for each landmark, cross-checked against official tourism and municipal listings; film-appearance details (director, year, scene description, filming locations) are compiled chiefly from each film's IMDb "Filming Locations" page. The complete, file-by-file reference table — all 20 location sources and all 6 film sources — is published in the <strong>Disclaimer</strong> section of this page, immediately below.</p>
         </section>
 
-        <!-- 3. OVERALL LAYOUT & VIEWPORT FLOW -->
+        <!-- 4. LAYOUT & USER FLOW -->
         <section class="doc-chunk">
-          <h3>3. Overall Layout & Viewport Architecture</h3>
-          <p>The interface avoids default browser scrolling through a strict <strong><code>100vh</code> viewport constraint canvas</strong>. The layout is architected into dedicated, isolated scroll zones that replicate native app-like responsiveness:</p>
+          <h3>4. Layout Design & User Flow</h3>
+          <h4>Prototype Design in Figma</h4>
+          <figure class="doc-figure">
+            <div class="doc-figure__frame">
+              <img src="img/design/home.png" alt="Design of Home page" class="doc-figure__img" />
+            </div>
+          </figure>
+          <figure class="doc-figure">
+            <div class="doc-figure__frame">
+              <img src="img/design/tour.png" alt="Design of Tour page" class="doc-figure__img" />
+            </div>
+            <figcaption class="doc-figure__caption">[Original Design of Home Page and Tour Page in Figma]</figcaption>
+          </figure>
+          <p><strong>Refinements over the original Figma prototype.</strong> Some changes were made to the initial design during implementation. First, the <strong>Home page</strong> was expanded from a single "Begin Tour" entry point into two distinct interactive options — <strong>Map</strong> (browse all locations freely) and <strong>Tour</strong> (follow one of four narrative routes) — so visitors commit to how they want to explore before ever leaving the landing page. Second, the <strong>content-level controls</strong> (Level of Detail, Audience Tone, Competence Level) were moved out of the top header and relocated inline within the content pane itself, next to the text they affect. This keeps the top This keeps the top navigation bar brief and user-friendly, while the specific reading controls live beside the content they control, making both the global navigation and the content reading experience easier to scan.</p>
+          <p>Every screen in the application shares one layout discipline: avoid default browser scrolling in favor of a strict <strong><code>100vh</code> viewport constraint canvas</strong>, divided into dedicated, isolated scroll zones that behave like a native app rather than a document. How that discipline plays out, and how a visitor moves between screens, differs by page:</p>
           <ul style="margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 0.75rem;">
-            <li><strong>Spatial Division (Golden Ratio):</strong> In desktop view, the main screen splits horizontally following an optimized ratio — <code>38.2%</code> dedicated to the interactive Leaflet map and control apparatus, and <code>61.8%</code> dedicated to the scrollable narrative content canvas. On mobile viewports, this gracefully degrades into balanced vertical touch zones.</li>
-            <li><strong>Predictable Vertical Flow:</strong> While visual styling shifts across eras, the structural layout remains strictly vertical and uniform across all themes: Location Profile (monument photo + technical metadata table + historical timeline) &rarr; Featured In (movie frame + film production table + flipbook navigator) &rarr; Three-Axis Content (interactive narrative passage) &rarr; On-Site Practicalities (Google Maps QR code and directions).</li>
-            <li><strong>SPA State Routing:</strong> The application features a lightweight, zero-dependency client-side SPA router supporting three distinct views: Map Overview, Interactive Narrative Tour, and About/Documentation.</li>
+            <li><strong>Home (<code>index.html</code>):</strong> A single full-bleed hero screen — background photograph, logo, title block, and a route-picker form offering either "Map" (browse freely) or one of four narrative routes via a dropdown. Selecting an option updates the "Begin Tour" call-to-action's destination live, so the visitor commits to a starting mode before the single click that enters the application.</li>
+            <li><strong>Map Overview:</strong> A two-pane screen — a vertical photographic filmstrip sidebar on the left (one chip per location, numbered and filtered according to the active narrative route) and the interactive Leaflet map filling the remainder. Clicking a filmstrip chip or a map marker jumps straight into the Tour view at that location, so this page functions as both an overview and an entry point.</li>
+            <li><strong>Tour (Interactive Narrative):</strong> The primary content screen, split by the <strong>Golden Ratio</strong> — <code>38.2%</code> given to a map pane (showing the current stop with Previous/Next controls and a position counter) and <code>61.8%</code> to a scrollable content pane. Within the content pane the vertical flow is fixed across every location and every theme: Location Profile &rarr; Featured In (film still + flipbook, for multi-film locations) &rarr; the synthesized Three-Axis narrative passage &rarr; On-Site Practicalities (Google Maps QR code). On mobile, the two panes stack vertically instead of splitting horizontally. Users arrive here either directly from the Home route-picker or by picking a stop from the Map Overview, and move forward with Previous/Next, the on-screen counter, or by switching narrative route from the header dropdown at any point without losing their place in the underlying data.</li>
+            <li><strong>About:</strong> A single scrollable page merging three sections — Documentation, Disclaimer, and About Us — behind one "About" dropdown in the main navigation. Choosing a dropdown item switches into the About view and smooth-scrolls directly to that section's anchor, so the three sections read as one continuous document but remain independently addressable from the nav.</li>
           </ul>
-        </section>
+          <p>Across all pages, the main navigation bar (logo, Home/Map/Tour links, the About dropdown, and the Narrative/Theme dropdowns on the right) stays persistent and in sync: changing the narrative route or the visual theme from anywhere immediately re-renders the Map and Tour views without reloading, so a visitor's place in the tour, their chosen route, and their chosen theme are preserved as they move between Map, Tour, and About.</p>
 
-        <!-- 4. TOUR DESIGN & DYNAMIC INTERACTIONS -->
-        <section class="doc-chunk">
-          <h3>4. Tour Design & Dynamic Content Synthesis</h3>
-          <p>The visitor experience is dynamically computed based on two core interactive systems:</p>
-          <ul style="margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 0.75rem;">
-            <li><strong>Four Curated Narrative Routes:</strong> Visitors can explore Rome through four distinct walking orders selected via the top-right header menu. <strong>Historical Timeline</strong> organizes all 20 locations chronologically from Antiquity to Modernity; <strong>City Tour</strong> provides a geographic walking sequence through quintessential landmarks; <strong>Art Tour</strong> curates masterworks, museums, and palazzi; and <strong>Film Tour</strong> isolates iconic sets that have repeatedly hosted major productions. The route engine re-indexes map markers ($1 \dots N$), hides out-of-scope locations, updates chapter banners, and recalculates step navigation dynamically without data duplication.</li>
-            <li><strong>Three-Axis Text Grid Synthesis:</strong> Rather than forcing static articles, each location features a synthesized text block computed along three independent pedagogical axes ($3 \times 3 \times 3 = 27$ variations per landmark):
-              <ul style="margin-left: 1.2rem; margin-top: 0.25rem;">
-                <li><em>Detail Length:</em> Step-cycled via <code>Read More / Read Less</code> buttons (Brief &rarr; Mid &rarr; Long).</li>
-                <li><em>Audience Tone:</em> Selected via inline tags (Kid / Young &rarr; Adult &rarr; Scholar).</li>
-                <li><em>Competence Level:</em> Step-cycled via <code>Too Easy / Too Difficult</code> buttons (Introductory &rarr; Average &rarr; Advanced).</li>
-              </ul>
-            </li>
-            <li><strong>3D Flipbook Carousel:</strong> Locations hosting multiple film productions (e.g., Trevi Fountain in <em>Roman Holiday</em>, <em>La Dolce Vita</em>, and <em>To Rome with Love</em>) feature a perspective-transformed 3D flip card system, allowing users to flip between film appearances in place.</li>
-            <li><strong>On-Site Dynamic QR Generator:</strong> Each stop dynamically generates an on-the-fly QR code linking directly to Google Maps place queries using verified Italian names and addresses for physical walking navigation.</li>
-          </ul>
+          
         </section>
 
         <!-- 5. FOUR THEMES & INSPIRATION -->
         <section class="doc-chunk">
-          <h3>5. Four Cinematic Era Themes</h3>
+          <h3>5. CSS Theme Design — Four Cinematic Era Themes</h3>
           <p>The visual design does not mimic architectural eras, but rather celebrates the aesthetic history of world cinema itself. Driven by a single CSS Custom Property token architecture (<code>--t-*</code>), switching themes instantly recalculates typography, aspect ratios, color palettes, card frames, and map cartography:</p>
-          <ul style="margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 0.75rem;">
-            <li><strong>1. The Expressionist (1890s–1920s):</strong> Rooted in German Expressionism and early silent cinema. Characterized by extreme chiaroscuro contrast, pure black-and-white canvas, thick 3px brutalist bounding lines, zero corner radii, and a high-contrast B&W map tile filter. Stills adhere strictly to the classic <strong>1.33:1 (4:3) Academy Ratio</strong>, and screenshot filters are completely disabled to preserve original production framing. Typography is set in <em>IM Fell English</em>.</li>
-            <li><strong>2. The Classic Studio (1930s–1950s):</strong> Inspired by vintage Hollywood and Italian cine-posters (e.g., Chaplin's <em>Modern Times</em> and <em>The Kid</em>). Utilizes warm aged-paper backgrounds (<code>#eedc9a</code>), rich scarlet accents (<code>#d32215</code>), heavy ink borders, and hard-edged 6px drop shadows. Stills are framed in <strong>16:9 widescreen</strong>. Metadata tables are styled like vintage poster billing blocks, pairing bold condensed <em>Oswald</em> with elegant <em>Dancing Script</em> signatures.</li>
-            <li><strong>3. The New Wave (1960s–1980s):</strong> Drawing inspiration from French New Wave (Godard, Truffaut, Varda) and 1960s pop-art street poster collages. Features high-saturation primaries (Godard Red, mustard yellow, and cobalt blue), solid border frames with colorful offset shadows, and a saturated pop-art map filter. Stills adopt the standard theatrical <strong>1.85:1 widescreen ratio</strong>. Typography pairs <em>Oswald</em> headings with clean <em>Jost</em> body text.</li>
-            <li><strong>4. The Digital Seamless (1990s–Present):</strong> Reflects contemporary sci-fi, VR holographic interfaces, and deep space aesthetics (e.g., <em>Interstellar</em>, <em>Avatar</em>). Built on deep void black (<code>#030407</code>), glowing cyan neon accents (<code>#00f0ff</code>), and high-contrast translucent glassmorphic panels (<code>backdrop-filter: blur(16px)</code>). Stills stretch into the expansive <strong>2.35:1 Anamorphic CinemaScope Ratio</strong>. Typography pairs monospace HUD telemetry (<em>Courier Prime</em>) with ultra-clean modern sans-serif (<em>Inter</em>).</li>
-          </ul>
+
+          <h4 style="font-size: 0.95rem; margin-bottom: 0.4rem;">1. Black and White (1890s–1920s)</h4>
+          <figure class="doc-figure doc-figure--theme">
+            <div class="doc-figure__frame">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
+              <span>Image placeholder</span>
+            </div>
+          </figure>
+          <p>Rooted in German Expressionism and early silent cinema. Characterized by extreme chiaroscuro contrast, pure black-and-white canvas, thick 3px brutalist bounding lines, zero corner radii, and a high-contrast B&W map tile filter. Stills adhere strictly to the classic <strong>1.33:1 (4:3) Academy Ratio</strong>, and screenshot filters are completely disabled to preserve original production framing. Typography is set in <em>IM Fell English</em>.</p>
+          
+
+          <h4 style="font-size: 0.95rem; margin-bottom: 0.4rem;">2. Classic Studio (1930s–1950s)</h4>
+          <figure class="doc-figure doc-figure--theme">
+            <div class="doc-figure__frame">
+              <img class="doc-figure__img" src="img/design/cla.png" alt="Inspired by posters above."/>
+            </div>
+          </figure>
+          <p>Inspired by vintage Hollywood and Italian cine-posters (e.g., Chaplin's <em>Modern Times</em> and <em>The Kid</em>). Utilizes warm aged-paper backgrounds (<code>#eedc9a</code>), rich scarlet accents (<code>#d32215</code>), heavy ink borders, and hard-edged 6px drop shadows. Stills are framed in <strong>16:9 widescreen</strong>. Metadata tables are styled like vintage poster billing blocks, pairing bold condensed <em>Oswald</em> with elegant <em>Dancing Script</em> signatures.</p>
+          
+
+          <h4 style="font-size: 0.95rem; margin-bottom: 0.4rem;">3. New Wave (1960s–1980s)</h4>
+          <p>Drawing inspiration from French New Wave (Godard, Truffaut, Varda) and 1960s pop-art street poster collages. Features high-saturation primaries (Godard Red, mustard yellow, and cobalt blue), solid border frames with colorful offset shadows, and a saturated pop-art map filter. Stills adopt the standard theatrical <strong>1.85:1 widescreen ratio</strong>. Typography pairs <em>Oswald</em> headings with clean <em>Jost</em> body text.</p>
+          <figure class="doc-figure doc-figure--theme">
+            <div class="doc-figure__frame">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
+              <span>Image placeholder</span>
+            </div>
+            <figcaption class="doc-figure__caption">[Insert a French New Wave film still or a 1960s pop-art street-poster collage here and caption it to show the source of the offset-shadow frames and saturated primary palette.]</figcaption>
+          </figure>
+
+          <h4 style="font-size: 0.95rem; margin-bottom: 0.4rem;">4. Digital Seamless (1990s–Present)</h4>
+          <p>Reflects contemporary sci-fi, VR holographic interfaces, and deep space aesthetics (e.g., <em>Interstellar</em>, <em>Avatar</em>). Built on deep void black (<code>#030407</code>), glowing cyan neon accents (<code>#00f0ff</code>), and high-contrast translucent glassmorphic panels (<code>backdrop-filter: blur(16px)</code>). Stills stretch into the expansive <strong>2.35:1 Anamorphic CinemaScope Ratio</strong>. Typography pairs monospace HUD telemetry (<em>Courier Prime</em>) with ultra-clean modern sans-serif (<em>Inter</em>).</p>
+          <figure class="doc-figure doc-figure--theme">
+            <div class="doc-figure__frame">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
+              <span>Image placeholder</span>
+            </div>
+            <figcaption class="doc-figure__caption">[Insert a sci-fi/holographic-UI reference here (e.g. a frame from <em>Interstellar</em> or <em>Avatar</em>, or a HUD screenshot) and caption it to show the inspiration for the glassmorphic panels and neon-cyan accents.]</figcaption>
+          </figure>
         </section>
       </div>
 
