@@ -41,7 +41,7 @@
   function getStartTheme() {
     const params = new URLSearchParams(window.location.search);
     const th = params.get("theme") || "classic";
-    return ["expressionist", "classic", "new-wave", "digital"].includes(th) ? th : "classic";
+    return ["black-and-white", "classic", "new-wave", "digital"].includes(th) ? th : "classic";
   }
 
   /* Keep the address bar in step with the current view, route, stop and theme, so that a

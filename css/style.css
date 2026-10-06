@@ -276,9 +276,9 @@ body {
    ============================================================ */
 
 /* ---------------------------------------------------------
-   THE EXPRESSIONIST (1890s–1920s) - Early Cinema (1.33:1)
+   BLACK AND WHITE (1890s–1920s) - Early Cinema (1.33:1)
    --------------------------------------------------------- */
-.tour[data-theme="expressionist"] {
+.tour[data-theme="black-and-white"] {
   --t-bg: #ffffff;
   --t-text: #000000;
   --t-accent: #000000;
@@ -304,7 +304,7 @@ body {
   --t-body-align: left;
   --t-line-height: 1.35;
 
-  /* NO FILTERS on images for Expressionist to keep actual screenshot colors */
+  /* NO FILTERS on images for Black and White to keep actual screenshot colors */
   --t-img-filter: none;
   --t-img-radius: 0px;
   --t-img-border-w: 3px;
@@ -315,76 +315,76 @@ body {
 }
 
 /* 1.33:1 Academy Ratio */
-.tour[data-theme="expressionist"] .content__still, 
-.tour[data-theme="expressionist"] .content__still--sm { aspect-ratio: 1.33 / 1; }
+.tour[data-theme="black-and-white"] .content__still, 
+.tour[data-theme="black-and-white"] .content__still--sm { aspect-ratio: 1.33 / 1; }
 
-.tour[data-theme="expressionist"] .content__title { font-size: 3rem; line-height: 1; word-spacing: -0.1em; }
-.tour[data-theme="expressionist"] .content__text { border-left: 8px solid #000; padding-left: 1.5rem; text-align: justify; }
+.tour[data-theme="black-and-white"] .content__title { font-size: 3rem; line-height: 1; word-spacing: -0.1em; }
+.tour[data-theme="black-and-white"] .content__text { border-left: 8px solid #000; padding-left: 1.5rem; text-align: justify; }
 
 /* Global film noise avoiding images */
-.tour[data-theme="expressionist"]::before {
+.tour[data-theme="black-and-white"]::before {
   content: ""; position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: 0.09; mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   animation: filmFlicker 0.2s steps(3) infinite;
 }
 @keyframes filmFlicker { 0%, 100% { opacity: 0.07; } 33% { opacity: 0.11; } 66% { opacity: 0.08; } }
 
-.tour[data-theme="expressionist"] .content__still::after,
-.tour[data-theme="expressionist"] .content__still::before { display: none !important; }
-.tour[data-theme="expressionist"] .content__still { position: relative; z-index: 2;}
-.tour[data-theme="expressionist"] .content__still-caption { position: relative; z-index: 3; }
+.tour[data-theme="black-and-white"] .content__still::after,
+.tour[data-theme="black-and-white"] .content__still::before { display: none !important; }
+.tour[data-theme="black-and-white"] .content__still { position: relative; z-index: 2;}
+.tour[data-theme="black-and-white"] .content__still-caption { position: relative; z-index: 3; }
 
-.tour[data-theme="expressionist"] .content__sections { gap: 0; }
-.tour[data-theme="expressionist"] .content__section { border-width: 0 0 3px 0; padding: 1.5rem 0; }
-.tour[data-theme="expressionist"] .content__section:first-child { padding-top: 0; }
-.tour[data-theme="expressionist"] .content__section--profile .content__meta, .tour[data-theme="expressionist"] .content__appearance .content__meta { border-width: 3px; }
-.tour[data-theme="expressionist"] .content__meta, .tour[data-theme="expressionist"] .content__meta table, .tour[data-theme="expressionist"] .content__meta td, .tour[data-theme="expressionist"] .content__meta-value { font-family: 'IM Fell English', Georgia, 'Times New Roman', serif; }
+.tour[data-theme="black-and-white"] .content__sections { gap: 0; }
+.tour[data-theme="black-and-white"] .content__section { border-width: 0 0 3px 0; padding: 1.5rem 0; }
+.tour[data-theme="black-and-white"] .content__section:first-child { padding-top: 0; }
+.tour[data-theme="black-and-white"] .content__section--profile .content__meta, .tour[data-theme="black-and-white"] .content__appearance .content__meta { border-width: 3px; }
+.tour[data-theme="black-and-white"] .content__meta, .tour[data-theme="black-and-white"] .content__meta table, .tour[data-theme="black-and-white"] .content__meta td, .tour[data-theme="black-and-white"] .content__meta-value { font-family: 'IM Fell English', Georgia, 'Times New Roman', serif; }
 
-.tour[data-theme="expressionist"] .lmml-main-nav { background: #000; border-bottom: 3px solid #000; }
-.tour[data-theme="expressionist"] .nav-brand__logo { filter: invert(1); }
-.tour[data-theme="expressionist"] .nav-brand { color: #fff; font-family: 'IM Fell English', serif; letter-spacing: 0.15em; }
-.tour[data-theme="expressionist"] .nav-link-item { color: #999; font-family: 'IM Fell English', serif; letter-spacing: 0.04em; }
-.tour[data-theme="expressionist"] .nav-link-item:hover, .tour[data-theme="expressionist"] .nav-link-item.is-active { color: #fff; }
-.tour[data-theme="expressionist"] .era-dropdown__toggle { color: #fff; border-color: #fff; }
-.tour[data-theme="expressionist"] .era-dropdown__toggle:hover { background: #fff; color: #000; }
-.tour[data-theme="expressionist"] .era-dropdown__menu { background: #fff; }
-.tour[data-theme="expressionist"] .era-dropdown__menu button { color: #000; font-family: 'IM Fell English', serif; }
-.tour[data-theme="expressionist"] .era-dropdown__menu button:hover { background: #000; color: #fff; }
-.tour[data-theme="expressionist"] .header { background: #fff; border-bottom: 3px solid #000; }
-.tour[data-theme="expressionist"] .header .switcher__label { color: #000; font-family: 'IM Fell English', 'Times New Roman', serif; letter-spacing: 0.05em; }
-.tour[data-theme="expressionist"] .segmented, .tour[data-theme="expressionist"] .text-control-pair { background: #fff; border: 3px solid #000; border-radius: 0; }
-.tour[data-theme="expressionist"] .segmented button, .tour[data-theme="expressionist"] .text-control-btn { color: #000; font-family: 'IM Fell English', 'Times New Roman', serif; letter-spacing: 0.03em; }
-.tour[data-theme="expressionist"] .segmented button.is-active { background: #000; color: #fff; }
-.tour[data-theme="expressionist"] .text-control-indicator { color: #000; font-family: 'IM Fell English', 'Times New Roman', serif; border-color: #000; }
-.tour[data-theme="expressionist"] .era-dropdown__toggle, .tour[data-theme="expressionist"] .era-dropdown__menu { border-radius: 0; border-width: 3px; border-color: #000; }
-.tour[data-theme="expressionist"] .era-dropdown__menu button.is-active { background: #000; color: #fff; }
-.tour[data-theme="expressionist"] .header__inner-sep { background: #000; width: 3px; }
-.tour[data-theme="expressionist"] .map-pane, .tour[data-theme="expressionist"] .sidebar { border-right: 3px solid #000; }
-.tour[data-theme="expressionist"] .nav { background: #fff; border-top: 3px solid #000; }
-.tour[data-theme="expressionist"] .nav__btn { border: 3px solid #000; border-radius: 0; color: #000; }
-.tour[data-theme="expressionist"] .nav__btn:hover { background: #000; color: #fff; }
-.tour[data-theme="expressionist"] .content__number { border-radius: 0; border: 3px solid #000; background: #000; color: #fff; font-family: 'IM Fell English', 'Times New Roman', serif; }
-.tour[data-theme="expressionist"] .content__number-line { background: #000; height: 3px; }
-.tour[data-theme="expressionist"] .timeline__dot { background: #000; border-radius: 0; }
-.tour[data-theme="expressionist"] .timeline__line { background: #000; width: 3px; }
-.tour[data-theme="expressionist"] .chapter-banner { border-bottom: 3px solid #000; }
-.tour[data-theme="expressionist"] .chapter-banner__eyebrow { font-family: 'IM Fell English', 'Times New Roman', serif; letter-spacing: 0.08em; color: #000; }
-.tour[data-theme="expressionist"] .chapter-banner__intro { font-style: normal; color: #000; }
-.tour[data-theme="expressionist"] .content__qr { border-radius: 0; border: 3px solid #000; }
-.tour[data-theme="expressionist"] .flip-btn { border-radius: 0; border: 3px solid #000; color: #000; }
-.tour[data-theme="expressionist"] .flip-btn:hover { background: #000; color: #fff; }
-.tour[data-theme="expressionist"] .sidebar { background: #fff; }
-.tour[data-theme="expressionist"] .sidebar__item { border-bottom: 3px solid #000; }
-.tour[data-theme="expressionist"] .sidebar__btn { background: #000; color: #fff; border-radius: 0; font-family: 'IM Fell English', 'Times New Roman', serif; }
-.tour[data-theme="expressionist"] .sidebar__btn:hover { background: #fff; color: #000; border: 2px solid #000; }
+.tour[data-theme="black-and-white"] .lmml-main-nav { background: #000; border-bottom: 3px solid #000; }
+.tour[data-theme="black-and-white"] .nav-brand__logo { filter: invert(1); }
+.tour[data-theme="black-and-white"] .nav-brand { color: #fff; font-family: 'IM Fell English', serif; letter-spacing: 0.15em; }
+.tour[data-theme="black-and-white"] .nav-link-item { color: #999; font-family: 'IM Fell English', serif; letter-spacing: 0.04em; }
+.tour[data-theme="black-and-white"] .nav-link-item:hover, .tour[data-theme="black-and-white"] .nav-link-item.is-active { color: #fff; }
+.tour[data-theme="black-and-white"] .era-dropdown__toggle { color: #fff; border-color: #fff; }
+.tour[data-theme="black-and-white"] .era-dropdown__toggle:hover { background: #fff; color: #000; }
+.tour[data-theme="black-and-white"] .era-dropdown__menu { background: #fff; }
+.tour[data-theme="black-and-white"] .era-dropdown__menu button { color: #000; font-family: 'IM Fell English', serif; }
+.tour[data-theme="black-and-white"] .era-dropdown__menu button:hover { background: #000; color: #fff; }
+.tour[data-theme="black-and-white"] .header { background: #fff; border-bottom: 3px solid #000; }
+.tour[data-theme="black-and-white"] .header .switcher__label { color: #000; font-family: 'IM Fell English', 'Times New Roman', serif; letter-spacing: 0.05em; }
+.tour[data-theme="black-and-white"] .segmented, .tour[data-theme="black-and-white"] .text-control-pair { background: #fff; border: 3px solid #000; border-radius: 0; }
+.tour[data-theme="black-and-white"] .segmented button, .tour[data-theme="black-and-white"] .text-control-btn { color: #000; font-family: 'IM Fell English', 'Times New Roman', serif; letter-spacing: 0.03em; }
+.tour[data-theme="black-and-white"] .segmented button.is-active { background: #000; color: #fff; }
+.tour[data-theme="black-and-white"] .text-control-indicator { color: #000; font-family: 'IM Fell English', 'Times New Roman', serif; border-color: #000; }
+.tour[data-theme="black-and-white"] .era-dropdown__toggle, .tour[data-theme="black-and-white"] .era-dropdown__menu { border-radius: 0; border-width: 3px; border-color: #000; }
+.tour[data-theme="black-and-white"] .era-dropdown__menu button.is-active { background: #000; color: #fff; }
+.tour[data-theme="black-and-white"] .header__inner-sep { background: #000; width: 3px; }
+.tour[data-theme="black-and-white"] .map-pane, .tour[data-theme="black-and-white"] .sidebar { border-right: 3px solid #000; }
+.tour[data-theme="black-and-white"] .nav { background: #fff; border-top: 3px solid #000; }
+.tour[data-theme="black-and-white"] .nav__btn { border: 3px solid #000; border-radius: 0; color: #000; }
+.tour[data-theme="black-and-white"] .nav__btn:hover { background: #000; color: #fff; }
+.tour[data-theme="black-and-white"] .content__number { border-radius: 0; border: 3px solid #000; background: #000; color: #fff; font-family: 'IM Fell English', 'Times New Roman', serif; }
+.tour[data-theme="black-and-white"] .content__number-line { background: #000; height: 3px; }
+.tour[data-theme="black-and-white"] .timeline__dot { background: #000; border-radius: 0; }
+.tour[data-theme="black-and-white"] .timeline__line { background: #000; width: 3px; }
+.tour[data-theme="black-and-white"] .chapter-banner { border-bottom: 3px solid #000; }
+.tour[data-theme="black-and-white"] .chapter-banner__eyebrow { font-family: 'IM Fell English', 'Times New Roman', serif; letter-spacing: 0.08em; color: #000; }
+.tour[data-theme="black-and-white"] .chapter-banner__intro { font-style: normal; color: #000; }
+.tour[data-theme="black-and-white"] .content__qr { border-radius: 0; border: 3px solid #000; }
+.tour[data-theme="black-and-white"] .flip-btn { border-radius: 0; border: 3px solid #000; color: #000; }
+.tour[data-theme="black-and-white"] .flip-btn:hover { background: #000; color: #fff; }
+.tour[data-theme="black-and-white"] .sidebar { background: #fff; }
+.tour[data-theme="black-and-white"] .sidebar__item { border-bottom: 3px solid #000; }
+.tour[data-theme="black-and-white"] .sidebar__btn { background: #000; color: #fff; border-radius: 0; font-family: 'IM Fell English', 'Times New Roman', serif; }
+.tour[data-theme="black-and-white"] .sidebar__btn:hover { background: #fff; color: #000; border: 2px solid #000; }
 
-[data-theme="expressionist"] .lmml-static-view { background: #ffffff; color: #000000; font-family: 'IM Fell English', Georgia, 'Times New Roman', serif; }
-[data-theme="expressionist"] .static-card { background: #fff; border: 3px solid #000; border-radius: 0; }
-[data-theme="expressionist"] .static-card h2 { font-family: 'IM Fell English', 'Times New Roman', serif; text-transform: uppercase; letter-spacing: 0.04em; }
-[data-theme="expressionist"] .source-table th, [data-theme="expressionist"] .source-table td { border-bottom: 3px solid #000; }
-[data-theme="expressionist"] .doc-figure__frame { color: #000; }
-[data-theme="expressionist"] .doc-figure__frame:not(:has(img)) { border: 3px solid #000; background: #fff; }
-[data-theme="expressionist"] .doc-figure__caption { color: #000; }
+[data-theme="black-and-white"] .lmml-static-view { background: #ffffff; color: #000000; font-family: 'IM Fell English', Georgia, 'Times New Roman', serif; }
+[data-theme="black-and-white"] .static-card { background: #fff; border: 3px solid #000; border-radius: 0; }
+[data-theme="black-and-white"] .static-card h2 { font-family: 'IM Fell English', 'Times New Roman', serif; text-transform: uppercase; letter-spacing: 0.04em; }
+[data-theme="black-and-white"] .source-table th, [data-theme="black-and-white"] .source-table td { border-bottom: 3px solid #000; }
+[data-theme="black-and-white"] .doc-figure__frame { color: #000; }
+[data-theme="black-and-white"] .doc-figure__frame:not(:has(img)) { border: 3px solid #000; background: #fff; }
+[data-theme="black-and-white"] .doc-figure__caption { color: #000; }
 
 
 /* ---------------------------------------------------------
@@ -861,8 +861,8 @@ body {
 /* Theming logic for navs */
 .tour[data-theme="classic"] #aboutDropdownToggle { color: #eedc9a; }
 .tour[data-theme="classic"] #aboutDropdownToggle:hover, .tour[data-theme="classic"] #aboutDropdownToggle.is-active { color: #d32215; background: #eedc9a; }
-.tour[data-theme="expressionist"] #aboutDropdownToggle { color: #999; }
-.tour[data-theme="expressionist"] #aboutDropdownToggle:hover, .tour[data-theme="expressionist"] #aboutDropdownToggle.is-active { color: #fff; }
+.tour[data-theme="black-and-white"] #aboutDropdownToggle { color: #999; }
+.tour[data-theme="black-and-white"] #aboutDropdownToggle:hover, .tour[data-theme="black-and-white"] #aboutDropdownToggle.is-active { color: #fff; }
 .tour[data-theme="new-wave"] #aboutDropdownToggle { color: #f5f2eb; opacity: 0.7; font-family: 'Oswald', sans-serif;}
 .tour[data-theme="new-wave"] #aboutDropdownToggle:hover, .tour[data-theme="new-wave"] #aboutDropdownToggle.is-active { color: #e2b438; opacity: 1; }
 .tour[data-theme="digital"] #aboutDropdownToggle { color: rgba(255,255,255,0.6); background: transparent; border-radius: 0; backdrop-filter: none; letter-spacing: 0.1em; font-family: 'Inter', sans-serif;}
@@ -921,7 +921,7 @@ body {
 }
 /* Film stills keep their original colours in every theme except Black and White,
    which stays fully desaturated (hover only adds the ring and the nudge). */
-.tour[data-theme="expressionist"] .filmstrip-chip { filter: grayscale(1); }
+.tour[data-theme="black-and-white"] .filmstrip-chip { filter: grayscale(1); }
 /* Sprocket-hole perforation strips, left and right — a solid black bar with
    opaque white dots painted on top (not a transparency mask, which would have
    let the photo underneath show through the "holes" instead of true white). */
@@ -1036,10 +1036,10 @@ body {
 .vocab-table th:nth-child(3), .vocab-table td:nth-child(3) { width: 20%; }
 .vocab-table code { font-size: 0.85em; background: rgba(0,0,0,0.05); padding: 0.1em 0.3em; border-radius: 3px; white-space: normal; word-break: break-word; }
 [data-theme="digital"] .vocab-table code { background: rgba(0, 240, 255, 0.12); }
-[data-theme="expressionist"] .vocab-table code { background: rgba(0,0,0,0.08); }
+[data-theme="black-and-white"] .vocab-table code { background: rgba(0,0,0,0.08); }
 .metadata-table code { font-size: 0.85em; background: rgba(0,0,0,0.05); padding: 0.1em 0.3em; border-radius: 3px; white-space: normal; word-break: break-word; }
 [data-theme="digital"] .metadata-table code { background: rgba(0, 240, 255, 0.12); }
-[data-theme="expressionist"] .metadata-table code { background: rgba(0,0,0,0.08); }
+[data-theme="black-and-white"] .metadata-table code { background: rgba(0,0,0,0.08); }
 
 /* Safety net: on very narrow viewports let the table scroll instead of
    forcing the whole .static-card wider than its max-width. */
