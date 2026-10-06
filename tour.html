@@ -148,7 +148,7 @@
         <!-- 2. PROJECT ARCHITECTURE -->
         <section class="doc-chunk">
           <h3>2. Project Architecture</h3>
-          <p>LMML is deliberately built as a lightweight, static application. The necessary external dependencies are loaded at runtime: the <em>Leaflet</em> mapping library with CARTO Voyager map tiles, and the <em>api.qrserver.com</em> service that renders the QR codes. Presentation, behavior and data are kept in separate files:</p>
+          <p>LMML is deliberately built as a lightweight, static application. The necessary external dependencies are loaded at runtime: the <em>Leaflet</em> mapping library with MapTiler map tiles (data © OpenStreetMap contributors), and the <em>api.qrserver.com</em> service that renders the QR codes. Presentation, behavior and data are kept in separate files:</p>
           <ul style="margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 0.75rem;">
             <li><strong>index.html:</strong> the landing page that illustrate main idea of the project, leading users to choose among different routes.</li>
             <li><strong>tour.html:</strong> the application shell that carries three view panels (Map Overview, Tour, About), shown or hidden by CSS rules keyed to <code>data-view</code>.</li>
@@ -471,6 +471,8 @@
         
         <p><strong>AI Disclaimer — use of LLMs.</strong> A large language model (Claude) was used as a development assistant throughout the project mainly in following roles: (1) <em>coding assistance</em> — iterating on the coding implementation, especially with the application of leaflet to build up the interactive map; (2) tool files generation and implementation, used to convert metadata json file to the js form that would be visible on webpage; (3) <em>QR code generation</em> — producing the Google Maps deep links embedded at each stop. The underlying research, the selection of locations and films, the information architecture, the metadata structure, and all editorial and design decisions were carried out and verified by the group members.</p>
        
+        <p>Map tiles © MapTiler, map data © OpenStreetMap contributors (ODbL); the interactive map is rendered with Leaflet. Map tiles remain the property of their respective providers.</p>
+
         <p class="copyright">Copyright and related rights on the content remain with their original owners. Copyright on the typographic and layout choices are 2026 © LMML Team.</p>
 
       </div>

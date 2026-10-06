@@ -7,6 +7,9 @@
 (function () {
   "use strict";
 
+  /* MapTiler key — restricted to the site's domain in the MapTiler dashboard. */
+  const MAPTILER_KEY = "ya13fs0cN7BnicSDhAOd";
+
   /* ---------- State ---------- */
   const state = {
     currentId: getStartId(),   
@@ -134,6 +137,14 @@
     listEl.innerHTML = html;
   }
 
+  /* High-DPI aware raster basemap; {r} becomes "@2x" on retina screens. */
+  function addBaseLayer(map) {
+    L.tileLayer("https://api.maptiler.com/maps/streets-v2/256/{z}/{x}/{y}{r}.png?key=" + MAPTILER_KEY, {
+      attribution: '© <a href="https://www.maptiler.com/copyright/" target="_blank">MapTiler</a> © <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors',
+      maxZoom: 19
+    }).addTo(map);
+  }
+
   function initMaps() {
     // 1. Overview Map (standalone Map page) — markers are numbered by position in the
     //    currently selected "By Narratives" route, same as the Tour page's map. Locations
@@ -143,9 +154,7 @@
       zoom: 14
     });
     L.control.zoom({ position: "topright" }).addTo(overviewMap);
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
-      attribution: '©OpenStreetMap, ©CartoDB'
-    }).addTo(overviewMap);
+    addBaseLayer(overviewMap);
 
     locations.forEach(function (loc) {
       const marker = L.marker(loc.coordinates, {
@@ -168,9 +177,7 @@
       zoomControl: false 
     });
     L.control.zoom({ position: "topright" }).addTo(tourMap);
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
-      attribution: '©OpenStreetMap, ©CartoDB'
-    }).addTo(tourMap);
+    addBaseLayer(tourMap);
 
     locations.forEach(function (loc) {
       const marker = L.marker(loc.coordinates, {
