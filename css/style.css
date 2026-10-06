@@ -1024,6 +1024,22 @@ body {
 .source-table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 14px; }
 .source-table th, .source-table td { padding: 0.75rem; text-align: left; border-bottom: 1px solid rgba(0,0,0,0.1); }
 .source-table th { font-weight: bold; }
+
+/* Metadata-structure table (Documentation §3): data.js field reference */
+.metadata-table { table-layout: fixed; font-size: 13px; }
+.metadata-table th, .metadata-table td { vertical-align: top; overflow-wrap: break-word; word-break: break-word; }
+.metadata-table th:nth-child(1), .metadata-table td:nth-child(1) { width: 20%; }
+.metadata-table th:nth-child(2), .metadata-table td:nth-child(2) { width: 15%; }
+.metadata-table th:nth-child(3), .metadata-table td:nth-child(3) { width: 45%; }
+.metadata-table th:nth-child(4), .metadata-table td:nth-child(4) { width: 20%; }
+.metadata-table code { font-size: 0.85em; background: rgba(0,0,0,0.05); padding: 0.1em 0.3em; border-radius: 3px; white-space: normal; word-break: break-word; }
+[data-theme="digital"] .metadata-table code { background: rgba(0, 240, 255, 0.12); }
+[data-theme="expressionist"] .metadata-table code { background: rgba(0,0,0,0.08); }
+
+/* Safety net: on very narrow viewports let the table scroll instead of
+   forcing the whole .static-card wider than its max-width. */
+.doc-chunk { max-width: 100%; overflow-x: auto; }
+
 .copyright { font-style: italic; font-size: 12px; margin-top: 2rem; opacity: 0.6; }
 
 .header .switcher { display: flex; align-items: center; gap: 0.6rem; }

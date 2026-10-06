@@ -192,6 +192,35 @@
             <li><strong>Relational & Granular Model:</strong> The core data model defines a Many-to-Many architecture. Each location entity is indexed with geographic coordinates (latitude/longitude), exact street addresses, historical construction periods (from 509 BC to 2002 AD), seasonal visiting hours, architectural classifications, and curated multi-tier descriptive narratives. Furthermore, each location links to an array of cinematic appearances, specifying director, release year, diegetic status, scene descriptions, specific camera orientations (e.g., tracking low-angle shot, static symmetric composition), and high-resolution still frames.</li>
             <li><strong>Semantic Web & Linked Open Data:</strong> In parallel with frontend JavaScript execution, the data is formally grounded in <strong>Schema.org</strong> vocabularies. The application semantically maps physical architectural monuments (<code>LandmarksOrHistoricalBuildings</code>, <code>TouristAttraction</code>) to creative works (<code>Movie</code>) and spatial actions (<code>FilmAction</code>), establishing the application as an open, machine-readable linked data node.</li>
           </ul>
+
+          <p>Each of the 20 objects in the <code>locations</code> array in <code>data.js</code> follows the same fixed schema. The table below documents every field, grouped by the sub-object it belongs to:</p>
+          <table class="source-table metadata-table">
+            <thead>
+              <tr>
+                <th>Field</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><code>id</code></td><td>Number</td><td>Unique identifier for the location, used for routing and lookup.</td><td><code>1</code></td></tr>
+              <tr><td><code>name</code></td><td>String</td><td>Display name of the location (Italian).</td><td><code>"Terme di Caracalla"</code></td></tr>
+              <tr><td><code>coordinates</code></td><td>Array [lat, lng]</td><td>Geographic coordinates, consumed directly by Leaflet for map markers.</td><td><code>[41.8792, 12.4926]</code></td></tr>
+              <tr><td><code>address</code></td><td>String</td><td>Full street address, also used to build the Google Maps QR deep link.</td><td><code>"Viale delle Terme di Caracalla, 52, 00153 Roma RM"</code></td></tr>
+              <tr><td><code>openingHours</code></td><td>String</td><td>Visiting hours shown in the On-Site Practicalities block.</td><td><code>"9:00–19:00 (closed Mondays)"</code></td></tr>
+              <tr><td><code>builtYear</code> / <code>builtYearLabel</code></td><td>Number / String</td><td>Raw construction year (used for Timeline sorting) and its display form.</td><td><code>216</code> / <code>"AD 216"</code></td></tr>
+              <tr><td><code>builtEra</code></td><td>String (enum)</td><td>Historical-era bucket — one of a fixed set of era tags used by the Timeline narrative route.</td><td><code>"ancient"</code></td></tr>
+              <tr><td><code>imageUrl</code></td><td>String</td><td>Path to the location's main profile photograph.</td><td><code>"img/locations/Baths_of_Caracalla.jpg"</code></td></tr>
+              <tr><td><code>semanticMetadata.locationContext</code></td><td>Object</td><td>Schema.org-aligned descriptive block: <code>officialNameIT</code>, <code>officialNameEN</code>, <code>featureType</code>, <code>architecturalStyle</code>, <code>historicalSignificance</code>.</td><td><code>featureType: "Ancient Roman Public Baths"</code></td></tr>
+              <tr><td><code>appearances[]</code></td><td>Array of Objects</td><td>One entry per film the location appears in: <code>movieTitle</code>, <code>director</code>, <code>year</code>, <code>scene</code>, <code>specificImageUrl</code>, <code>cameraOrientation</code>, <code>diegeticStatus</code>.</td><td><code>movieTitle: "La Dolce Vita"</code></td></tr>
+              <tr><td><code>content</code></td><td>Object { brief, mid, long }</td><td>The three step-lengths of narrative text cycled by the <strong>Detail Length</strong> axis (Read More / Read Less).</td><td><code>content.brief</code></td></tr>
+              <tr><td><code>tone</code></td><td>Object { young, adult, scholar }</td><td>The three voice variants selected by the <strong>Audience Tone</strong> axis (inline tags).</td><td><code>tone.scholar</code></td></tr>
+              <tr><td><code>competence</code></td><td>Object { introductory, average, advanced }</td><td>The three framing levels cycled by the <strong>Competence Level</strong> axis (Too Easy / Too Difficult).</td><td><code>competence.advanced</code></td></tr>
+            </tbody>
+          </table>
+          <p class="copyright" style="margin-top: 0.75rem;">The <code>content</code>, <code>tone</code>, and <code>competence</code> objects together form the Three-Axis Text Grid described in Section 4 — every location stores all 3 × 3 × 3 = 27 text variants as plain pre-written fields, so the Tour page only ever selects and displays one, rather than generating text at runtime.</p>
+
           <p>Every fact recorded in <code>data.js</code> — coordinates, addresses, construction dates, opening hours, and film-appearance details — is grounded in a verifiable public source rather than invented. Location profiles are compiled chiefly from Wikipedia entries for each landmark, cross-checked against official tourism and municipal listings; film-appearance details (director, year, scene description, filming locations) are compiled chiefly from each film's IMDb "Filming Locations" page. The complete, file-by-file reference table — all 20 location sources and all 6 film sources — is published in the <strong>Disclaimer</strong> section of this page, immediately below.</p>
         </section>
 
