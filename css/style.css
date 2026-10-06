@@ -224,7 +224,8 @@ body {
 .desc-readmore { border: none; background: none; padding: 0; margin-left: 0.4em; color: #000; font-weight: 700; text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 2px; cursor: pointer; font-family: inherit; font-size: inherit; white-space: nowrap; transition: color 0.15s, text-decoration-color 0.15s; }
 .desc-readmore:hover { color: var(--t-accent, #8b2612); }
 
-.desc-difficulty { display: block; margin-top: 0.75rem; margin-left: auto; width: max-content; border: 1px solid var(--neutral-300); background: #fff; padding: 0.3rem 0.7rem; font-size: 0.75rem; cursor: pointer; color: var(--neutral-700); font-family: inherit; transition: box-shadow 0.2s, background 0.15s, border-color 0.15s; }
+.desc-difficulty-row { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.5rem; margin-top: 0.75rem; }
+.desc-difficulty { display: block; width: max-content; border: 1px solid var(--neutral-300); background: #fff; padding: 0.3rem 0.7rem; font-size: 0.75rem; cursor: pointer; color: var(--neutral-700); font-family: inherit; transition: box-shadow 0.2s, background 0.15s, border-color 0.15s; }
 .desc-difficulty:hover { background: var(--neutral-100); }
 
 .content__section--profile { display: flex; flex-direction: column; gap: 0.75rem; }
@@ -910,21 +911,17 @@ body {
   background-size: cover;
   background-position: center;
   cursor: pointer;
-  filter: grayscale(0.75) brightness(0.6);
   box-shadow: 0 0 0 2px #0d0d0d, 0 0 0 3px transparent;
   transition: filter 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   overflow: hidden;
 }
 .filmstrip-chip:hover {
-  filter: grayscale(0.1) brightness(1);
   box-shadow: 0 0 0 2px #0d0d0d, 0 0 0 3px var(--t-accent, #fff);
   transform: translateX(2px);
 }
-/* Expressionist theme is black-and-white by design — hovering shouldn't
-   introduce color back into the strip, so it stays fully desaturated. */
-.tour[data-theme="expressionist"] .filmstrip-chip:hover {
-  filter: grayscale(1) brightness(0.95);
-}
+/* Film stills keep their original colours in every theme except Black and White,
+   which stays fully desaturated (hover only adds the ring and the nudge). */
+.tour[data-theme="expressionist"] .filmstrip-chip { filter: grayscale(1); }
 /* Sprocket-hole perforation strips, left and right — a solid black bar with
    opaque white dots painted on top (not a transparency mask, which would have
    let the photo underneath show through the "holes" instead of true white). */
@@ -1032,6 +1029,14 @@ body {
 .metadata-table th:nth-child(2), .metadata-table td:nth-child(2) { width: 15%; }
 .metadata-table th:nth-child(3), .metadata-table td:nth-child(3) { width: 45%; }
 .metadata-table th:nth-child(4), .metadata-table td:nth-child(4) { width: 20%; }
+.vocab-table { table-layout: fixed; font-size: 13px; }
+.vocab-table th, .vocab-table td { vertical-align: top; overflow-wrap: break-word; word-break: break-word; }
+.vocab-table th:nth-child(1), .vocab-table td:nth-child(1) { width: 30%; }
+.vocab-table th:nth-child(2), .vocab-table td:nth-child(2) { width: 50%; }
+.vocab-table th:nth-child(3), .vocab-table td:nth-child(3) { width: 20%; }
+.vocab-table code { font-size: 0.85em; background: rgba(0,0,0,0.05); padding: 0.1em 0.3em; border-radius: 3px; white-space: normal; word-break: break-word; }
+[data-theme="digital"] .vocab-table code { background: rgba(0, 240, 255, 0.12); }
+[data-theme="expressionist"] .vocab-table code { background: rgba(0,0,0,0.08); }
 .metadata-table code { font-size: 0.85em; background: rgba(0,0,0,0.05); padding: 0.1em 0.3em; border-radius: 3px; white-space: normal; word-break: break-word; }
 [data-theme="digital"] .metadata-table code { background: rgba(0, 240, 255, 0.12); }
 [data-theme="expressionist"] .metadata-table code { background: rgba(0,0,0,0.08); }
@@ -1049,3 +1054,17 @@ body {
 .header__inner-sep { height: 1.5rem; width: 1px; background: var(--neutral-300); flex-shrink: 0; }
 .segmented--era button { padding: 0.4rem 0.9rem; }
 @media (max-width: 900px) { .header { padding: 0.6rem 1rem; } .header__row { gap: 0.75rem; } }
+/* Previous / Next bars on the Map and About pages (re-use the themed .nav / .nav__btn rules) */
+.map-col { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+.map-col .map { flex: 1; min-height: 0; }
+.about-pager { max-width: 800px; margin: 0 auto; display: flex; justify-content: space-between; gap: 1rem; text-decoration: none; }
+.about-pager .nav__btn { text-decoration: none; }
+.filmstrip-chip.is-current { outline: 3px solid var(--t-accent, #e2b438); outline-offset: -3px; }
+
+/* Persona table in Documentation §4 */
+.persona-table { table-layout: fixed; font-size: 13px; }
+.persona-table th, .persona-table td { vertical-align: top; overflow-wrap: break-word; word-break: break-word; }
+.persona-table th:nth-child(1), .persona-table td:nth-child(1) { width: 18%; }
+.persona-table th:nth-child(2), .persona-table td:nth-child(2) { width: 27%; }
+.persona-table th:nth-child(3), .persona-table td:nth-child(3) { width: 27%; }
+.persona-table th:nth-child(4), .persona-table td:nth-child(4) { width: 28%; }

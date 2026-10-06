@@ -10,11 +10,12 @@
   /* ---------- State ---------- */
   const state = {
     currentId: getStartId(),   
-    theme: "classic",     
+    theme: getStartTheme(),
     detailLevel: "mid",        
     audienceTone: "adult",     
     competence: "average",     
     narrativeId: getStartNarrative(), // "timeline" | "city-tour" | "art-tour" | "cinema-tour"
+    overviewId: null,          // stop highlighted on the Map page
     appearanceIndex: 0,        
     currentView: getStartView() // "map-overview" | "tour" | "about" | "documentation" | "disclaimer"
   };
@@ -34,6 +35,28 @@
     const view = params.get("view") || "map-overview";
     const validViews = ["map-overview", "tour", "about"];
     return validViews.includes(view) ? view : "map-overview";
+  }
+
+  /* Read ?theme=X from the URL (defaults to "classic") */
+  function getStartTheme() {
+    const params = new URLSearchParams(window.location.search);
+    const th = params.get("theme") || "classic";
+    return ["expressionist", "classic", "new-wave", "digital"].includes(th) ? th : "classic";
+  }
+
+  /* Keep the address bar in step with the current view, route, stop and theme, so that a
+     browser refresh (or a copied link) reopens exactly where the visitor is. replaceState
+     avoids filling the Back history; it is wrapped in try/catch because some browsers
+     restrict it on file:// pages. */
+  function syncUrl() {
+    try {
+      const params = new URLSearchParams();
+      params.set("view", state.currentView);
+      params.set("narrative", state.narrativeId);
+      if (state.currentId !== null) params.set("loc", state.currentId);
+      params.set("theme", state.theme);
+      history.replaceState(null, "", "?" + params.toString());
+    } catch (e) { /* ignore */ }
   }
 
   /* Read ?narrative=X from the URL (defaults to "timeline") — which route the Tour page follows */
@@ -103,7 +126,7 @@
       if (!loc) return;
       // Single click jumps straight into the Tour page for this location — no
       // separate "View More" step, since a filmstrip chip has no room for one.
-      html += '<button type="button" class="filmstrip-chip" style="background-image: url(\'' + loc.imageUrl + '\')" onclick="enterTour(' + loc.id + ')" title="' + escapeHtml(loc.name) + '">' +
+      html += '<button type="button" class="filmstrip-chip' + (loc.id === state.overviewId ? ' is-current' : '') + '" data-id="' + loc.id + '" style="background-image: url(\'' + loc.imageUrl + '\')" onclick="enterTour(' + loc.id + ')" title="' + escapeHtml(loc.name) + '">' +
                 '<span class="filmstrip-chip__num">' + (idx + 1) + '</span>' +
                 '<span class="filmstrip-chip__label">' + escapeHtml(loc.name) + '</span>' +
               '</button>';
@@ -174,8 +197,38 @@
         return;
       }
       if (!overviewMap.hasLayer(marker)) marker.addTo(overviewMap);
-      marker.setIcon(markerIcon(routePos + 1, false));
+      marker.setIcon(markerIcon(routePos + 1, loc.id === state.overviewId));
     });
+  }
+
+  /* Map page Previous/Next: highlight one stop of the active route at a time */
+  function setOverviewStop(id, fly) {
+    const order = getVisitOrder();
+    if (order.indexOf(id) === -1) id = order[0];
+    state.overviewId = id;
+    document.getElementById("mapCurrent").textContent = order.indexOf(id) + 1;
+    document.getElementById("mapTotal").textContent = order.length;
+    setEdgeLabel("mapPrevBtn", order.indexOf(id) === 0 ? "Home" : "Previous");
+    setEdgeLabel("mapNextBtn", order.indexOf(id) === order.length - 1 ? "Tour" : "Next");
+    document.querySelectorAll("#sidebar-list .filmstrip-chip").forEach(function (chip) {
+      const on = parseInt(chip.dataset.id, 10) === id;
+      chip.classList.toggle("is-current", on);
+      if (on && fly) chip.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    });
+    updateOverviewMap();
+    const c = document.getElementById("overview-map");
+    const loc = locations.find(function (l) { return l.id === id; });
+    if (fly && overviewMap && loc && c && c.offsetWidth > 0 && c.offsetHeight > 0) {
+      overviewMap.flyTo(loc.coordinates, 15, { animate: true, duration: 0.8 });
+    }
+  }
+  function stepOverview(delta) {
+    const order = getVisitOrder();
+    const pos = order.indexOf(state.overviewId);
+    if (pos === -1) { setOverviewStop(order[0], true); return; }
+    if (delta < 0 && pos === 0) { goHome(); return; }
+    if (delta > 0 && pos === order.length - 1) { switchView("tour"); return; }
+    setOverviewStop(order[pos + delta], true);
   }
 
   function updateMap() {
@@ -243,6 +296,7 @@
   /* ---------- Narrative route selection (Timeline / City / Art / Film Tour) ---------- */
   function selectNarrative(narrativeId) {
     state.narrativeId = narrativeId;
+    syncUrl();
 
     document.querySelectorAll("#narrativeDropdownMenu button").forEach(function (btn) {
       btn.classList.toggle("is-active", btn.dataset.value === narrativeId);
@@ -250,7 +304,7 @@
 
     // Keep the standalone Map page (sidebar list + markers) in sync with the same route
     renderSidebar();
-    updateOverviewMap();
+    setOverviewStop(state.overviewId, false);
 
     // Snap to the first location of the newly active route if the current one isn't in it
     const order = getVisitOrder();
@@ -259,40 +313,59 @@
     } else {
       navTotal.textContent = order.length;
       navCurrent.textContent = (order.indexOf(state.currentId) + 1);
+      updateTourEdges();
       renderContent();
       updateMap();
     }
   }
+
+  /* ---------- Page sequence: Home > Map > Tour > About ----------
+     Previous/Next step inside a page first; at the first/last item they continue into the
+     neighbouring page, and the button label changes to name the page it will open. */
+  function setEdgeLabel(btnId, text) {
+    const span = document.querySelector("#" + btnId + " span");
+    if (span) span.textContent = text;
+  }
+  function goHome() { window.location.href = "index.html"; }
 
   /* ---------- Navigation Control ---------- */
   function selectLocation(id) {
     if (!locations.find(function (l) { return l.id === id; })) return;
     state.currentId = id;
     state.appearanceIndex = 0; 
+    syncUrl();
     
     // Update counter text based on narrative size
     const order = getVisitOrder();
     navTotal.textContent = order.length;
     navCurrent.textContent = (order.indexOf(id) + 1);
+    updateTourEdges();
 
     renderContent();
     updateMap();
+  }
+
+  function updateTourEdges() {
+    const order = getVisitOrder();
+    const pos = order.indexOf(state.currentId);
+    setEdgeLabel("prevBtn", pos === 0 ? "Map" : "Previous");
+    setEdgeLabel("nextBtn", pos === order.length - 1 ? "About" : "Next");
   }
 
   function goNext() {
     const order = getVisitOrder();
     const pos = order.indexOf(state.currentId);
     if (pos === -1) { selectLocation(order[0]); return; }
-    const nextPos = pos === order.length - 1 ? 0 : pos + 1;
-    selectLocation(order[nextPos]);
+    if (pos === order.length - 1) { switchView("about"); return; }
+    selectLocation(order[pos + 1]);
   }
 
   function goPrevious() {
     const order = getVisitOrder();
     const pos = order.indexOf(state.currentId);
     if (pos === -1) { selectLocation(order[order.length - 1]); return; }
-    const prevPos = pos <= 0 ? order.length - 1 : pos - 1;
-    selectLocation(order[prevPos]);
+    if (pos === 0) { switchView("map-overview"); return; }
+    selectLocation(order[pos - 1]);
   }
 
   /* ---------- Content HTML Rendering ---------- */
@@ -342,31 +415,75 @@
   const TONE_LEVELS = ["young", "adult", "scholar"];
   const TONE_LABELS = { young: "Kid", adult: "Adult", scholar: "Scholar" };
 
-  function cycleDetail() {
-    const idx = DETAIL_LEVELS.indexOf(state.detailLevel);
-    state.detailLevel = idx >= DETAIL_LEVELS.length - 1 ? DETAIL_LEVELS[0] : DETAIL_LEVELS[idx + 1];
-    renderContent();
+  /* Detail and competence are stepped one level at a time (never wrapping), so every one of
+     the 3 x 3 x 3 = 27 combinations is reachable. The control row at the end of the text
+     offers only the directions that still exist at the current level. */
+  function stepLevel(levels, current, delta) {
+    const next = levels.indexOf(current) + delta;
+    return next < 0 || next >= levels.length ? current : levels[next];
   }
-  function cycleCompetence() {
-    const idx = COMPETENCE_LEVELS.indexOf(state.competence);
-    state.competence = idx >= COMPETENCE_LEVELS.length - 1 ? COMPETENCE_LEVELS[0] : COMPETENCE_LEVELS[idx + 1];
-    renderContent();
+  function stepDetail(delta) {
+    state.detailLevel = stepLevel(DETAIL_LEVELS, state.detailLevel, delta);
+    refreshTextSection();
+  }
+  function stepCompetence(delta) {
+    state.competence = stepLevel(COMPETENCE_LEVELS, state.competence, delta);
+    refreshTextSection();
   }
   function setTone(value) {
     state.audienceTone = value;
-    renderContent();
+    refreshTextSection();
   }
 
   function attachInlineControlHandlers() {
-    const readMoreBtn = contentEl.querySelector('[data-loc-control="detail"]');
-    if (readMoreBtn) readMoreBtn.addEventListener("click", cycleDetail);
-
-    const difficultyBtn = contentEl.querySelector('[data-loc-control="competence"]');
-    if (difficultyBtn) difficultyBtn.addEventListener("click", cycleCompetence);
-
+    contentEl.querySelectorAll('[data-loc-control="detail"]').forEach(function (btn) {
+      btn.addEventListener("click", function () { stepDetail(parseInt(btn.dataset.step, 10)); });
+    });
+    contentEl.querySelectorAll('[data-loc-control="competence"]').forEach(function (btn) {
+      btn.addEventListener("click", function () { stepCompetence(parseInt(btn.dataset.step, 10)); });
+    });
     contentEl.querySelectorAll('[data-loc-control="tone"]').forEach(function (btn) {
       btn.addEventListener("click", function () { setTone(btn.dataset.value); });
     });
+  }
+
+  /* Builds only the text block (tone tags, paragraph, Read More/Less, difficulty buttons). */
+  function buildTextSection(loc, animate) {
+    const toneTags = TONE_LEVELS.map(function (t) {
+      return '<button type="button" class="desc-tag' + (state.audienceTone === t ? ' is-active' : '') + '" data-loc-control="tone" data-value="' + t + '">' + TONE_LABELS[t] + '</button>';
+    }).join('');
+
+    const textParts = [loc.tone[state.audienceTone], loc.content[state.detailLevel]];
+    if (loc.competence) textParts.push(loc.competence[state.competence]);
+    const combinedText = textParts.filter(Boolean).map(escapeHtml).join(' ');
+
+    const dIdx = DETAIL_LEVELS.indexOf(state.detailLevel);
+    let detailBtns = "";
+    if (dIdx < DETAIL_LEVELS.length - 1) detailBtns += ' <button type="button" class="desc-readmore" data-loc-control="detail" data-step="1">Read More</button>';
+    if (dIdx > 0) detailBtns += ' <button type="button" class="desc-readmore" data-loc-control="detail" data-step="-1">Read Less</button>';
+
+    let difficultyBtns = "";
+    if (loc.competence) {
+      const cIdx = COMPETENCE_LEVELS.indexOf(state.competence);
+      if (cIdx > 0) difficultyBtns += '<button type="button" class="desc-difficulty" data-loc-control="competence" data-step="-1">Decrease language difficulty</button>';
+      if (cIdx < COMPETENCE_LEVELS.length - 1) difficultyBtns += '<button type="button" class="desc-difficulty" data-loc-control="competence" data-step="1">Increase language difficulty</button>';
+      difficultyBtns = '<div class="desc-difficulty-row">' + difficultyBtns + '</div>';
+    }
+
+    return '<section class="content__section content__section--meaning' + (animate ? ' fade-in' : '') + '"><div class="desc-tags">' + toneTags + '</div><h2 class="content__section-title">' + TONE_LABELS[state.audienceTone] + ' Text</h2><p class="content__text">' + combinedText + detailBtns + '</p>' + difficultyBtns + '</section>';
+  }
+
+  /* Re-renders only the text block in place: the rest of the page, and the scroll position
+     of the content pane, stay untouched when a text option is changed. */
+  function refreshTextSection() {
+    const loc = locations.find(l => l.id === state.currentId);
+    const old = contentEl.querySelector(".content__section--meaning");
+    if (!loc || !old) return;
+    const pane = contentEl.parentElement;
+    const top = pane ? pane.scrollTop : 0;
+    old.outerHTML = buildTextSection(loc, false);
+    attachInlineControlHandlers();
+    if (pane) pane.scrollTop = top;
   }
 
   function attachFlipHandlers(loc) {
@@ -427,8 +544,7 @@
           : (lc.officialNameIT || lc.officialNameEN),
         built: loc.builtYearLabel,
         featureType: lc.featureType,
-        architecturalStyle: lc.architecturalStyle,
-        historicalSignificance: lc.historicalSignificance
+        architecturalStyle: lc.architecturalStyle
       };
       html += renderMetaTable(profileData);
     }
@@ -444,29 +560,9 @@
     // 2. Featured In — movie screenshot immediately followed by its movie info table
     html += buildFeaturedInSection(loc);
 
-    // 3. Text — merged into a single block. Tone tags sit top-left (select the framing
-    //    and heading), the paragraph itself joins tone + description + in-depth text so
-    //    it reads as one continuous passage, Read More/Less sits at its true end, and the
-    //    difficulty tag sits bottom-right. Three independent axes, one shared text.
-    const detailIdx = DETAIL_LEVELS.indexOf(state.detailLevel);
-    const readMoreLabel = detailIdx >= DETAIL_LEVELS.length - 1 ? "Read Less" : "Read More";
-
-    const toneTags = TONE_LEVELS.map(function (t) {
-      return '<button type="button" class="desc-tag' + (state.audienceTone === t ? ' is-active' : '') + '" data-loc-control="tone" data-value="' + t + '">' + TONE_LABELS[t] + '</button>';
-    }).join('');
-
-    const textParts = [loc.tone[state.audienceTone], loc.content[state.detailLevel]];
-    if (loc.competence) textParts.push(loc.competence[state.competence]);
-    const combinedText = textParts.filter(Boolean).map(escapeHtml).join(' ');
-
-    let difficultyBtn = '';
-    if (loc.competence) {
-      const competenceIdx = COMPETENCE_LEVELS.indexOf(state.competence);
-      const difficultyLabel = competenceIdx >= COMPETENCE_LEVELS.length - 1 ? "Too Difficult" : "Too Easy";
-      difficultyBtn = '<button type="button" class="desc-difficulty" data-loc-control="competence">' + difficultyLabel + '</button>';
-    }
-
-    html += '<section class="content__section content__section--meaning fade-in"><div class="desc-tags">' + toneTags + '</div><h2 class="content__section-title">' + TONE_LABELS[state.audienceTone] + ' Text</h2><p class="content__text">' + combinedText + ' <button type="button" class="desc-readmore" data-loc-control="detail">' + readMoreLabel + '</button></p>' + difficultyBtn + '</section>';
+    // 3. Text — tone tags, one combined paragraph (tone + length + competence), and the
+    //    stepping controls; see buildTextSection().
+    html += buildTextSection(loc, true);
 
     // 4. On-Site — QR code linking to Google Maps, plus address and hours, last
     {
@@ -510,6 +606,7 @@
       menu.querySelectorAll("button").forEach(function (btn) {
         btn.classList.toggle("is-active", btn.dataset.value === value);
       });
+      syncUrl();
     }
 
     toggle.addEventListener("click", function (e) {
@@ -647,6 +744,7 @@
   function switchView(viewName) {
     state.currentView = viewName;
     tourEl.setAttribute("data-view", viewName);
+    syncUrl();
 
     document.querySelectorAll(".nav-link-item").forEach(function (btn) {
       if (btn.dataset.target) {
@@ -655,6 +753,10 @@
     });
     const aboutToggle = document.getElementById("aboutDropdownToggle");
     if (aboutToggle) aboutToggle.classList.toggle("is-active", viewName === "about");
+
+    if (viewName === "about") {
+      document.getElementById("view-panel-about").scrollTop = 0;
+    }
 
     if (viewName === "tour" && tourMap) {
       setTimeout(function () {
@@ -666,6 +768,12 @@
         overviewMap.invalidateSize();
       }, 100);
     }
+  }
+
+  function setupPageNavs() {
+    document.getElementById("mapPrevBtn").addEventListener("click", function () { stepOverview(-1); });
+    document.getElementById("mapNextBtn").addEventListener("click", function () { stepOverview(1); });
+    document.getElementById("aboutPrevBtn").addEventListener("click", function () { switchView("tour"); });
   }
 
   function setupViewRouting() {
@@ -699,6 +807,7 @@
       else if (e.key === "ArrowRight") goNext();
     });
 
+    setupPageNavs();
     setupViewRouting();
   }
 

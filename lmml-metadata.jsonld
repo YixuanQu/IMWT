@@ -1,0 +1,2043 @@
+{
+ "@context": {
+  "@version": 1.1,
+  "@base": "https://yixuanqu.github.io/IMWT/",
+  "@vocab": "https://schema.org/",
+  "schema": "https://schema.org/",
+  "dcterms": "http://purl.org/dc/terms/",
+  "skos": "http://www.w3.org/2004/02/skos/core#",
+  "xsd": "http://www.w3.org/2001/XMLSchema#",
+  "lmml": "https://yixuanqu.github.io/IMWT/vocab#",
+  "id": "https://yixuanqu.github.io/IMWT/id/",
+  "loc": "https://yixuanqu.github.io/IMWT/id/location/",
+  "film": "https://yixuanqu.github.io/IMWT/id/film/",
+  "act": "https://yixuanqu.github.io/IMWT/id/appearance/",
+  "person": "https://yixuanqu.github.io/IMWT/id/person/",
+  "era": "https://yixuanqu.github.io/IMWT/id/era/",
+  "image": {
+   "@id": "schema:image",
+   "@type": "@id"
+  },
+  "sameAs": {
+   "@id": "schema:sameAs",
+   "@type": "@id"
+  }
+ },
+ "@graph": [
+  {
+   "@id": "id:dataset",
+   "@type": "Dataset",
+   "name": "LMML — Rome Cinema Walk: location and film metadata",
+   "description": "20 Rome landmarks and the 6 films shot at them. Derived from js/data.js.",
+   "inLanguage": "en",
+   "dateModified": "2026-10-06",
+   "creator": [
+    {
+     "@type": "Person",
+     "name": "Polyxeni Chasanai"
+    },
+    {
+     "@type": "Person",
+     "name": "Yixuan Qu"
+    }
+   ],
+   "spatialCoverage": {
+    "@type": "Place",
+    "name": "Rome, Italy"
+   },
+   "isBasedOn": [
+    {
+     "@id": "https://en.wikipedia.org/wiki/Baths_of_Caracalla"
+    },
+    {
+     "@id": "https://en.wikipedia.org/wiki/Trevi_Fountain"
+    },
+    {
+     "@id": "https://en.wikipedia.org/wiki/Capitoline_Museums"
+    },
+    {
+     "@id": "https://en.wikipedia.org/wiki/Parco_degli_Acquedotti"
+    },
+    {
+     "@id": "https://en.wikipedia.org/wiki/Bocca_della_Verit%C3%A0"
+    },
+    {
+     "@id": "https://en.wikipedia.org/wiki/Villa_Medici"
+    },
+    {
+     "@id": "https://en.wikipedia.org/wiki/Palazzo_della_Civilt%C3%A0_Italiana"
+    },
+    {
+     "@id": "https://en.wikipedia.org/wiki/Piazza_del_Popolo"
+    },
+    {
+     "@id": "https://en.wikipedia.org/wiki/Church_of_the_Ges%C3%B9"
+    },
+    {
+     "@id": "https://en.wikipedia.org/wiki/Colosseum"
+    },
+    {
+     "@id": "https://en.wikipedia.org/wiki/Roman_Forum"
+    },
+    {
+     "@id": "https://en.wikipedia.org/wiki/Palazzo_Barberini"
+    },
+    {
+     "@id": "https://en.wikipedia.org/wiki/Pantheon,_Rome"
+    },
+    {
+     "@id": "https://en.wikipedia.org/wiki/Piazza_di_Spagna"
+    },
+    {
+     "@id": "https://en.wikipedia.org/wiki/Ponte_Sant%27Angelo"
+    },
+    {
+     "@id": "https://en.wikipedia.org/wiki/Piazza_Venezia"
+    },
+    {
+     "@id": "https://en.wikipedia.org/wiki/Piazza_Navona"
+    },
+    {
+     "@id": "https://en.wikipedia.org/wiki/Parco_della_Musica"
+    },
+    {
+     "@id": "https://en.wikipedia.org/wiki/Villa_Borghese_gardens"
+    },
+    {
+     "@id": "https://en.wikipedia.org/wiki/Tempietto_del_Bramante"
+    },
+    {
+     "@id": "https://www.imdb.com/title/tt0046250/locations/"
+    },
+    {
+     "@id": "https://www.imdb.com/title/tt0053779/locations/"
+    },
+    {
+     "@id": "https://www.imdb.com/title/tt0134119/locations/"
+    },
+    {
+     "@id": "https://www.imdb.com/title/tt1859650/locations/"
+    },
+    {
+     "@id": "https://www.imdb.com/title/tt2358891/locations/"
+    },
+    {
+     "@id": "https://www.imdb.com/it/title/tt21800162/locations/?ref_=tt_dt_loc"
+    }
+   ]
+  },
+  {
+   "@id": "era:scheme",
+   "@type": "skos:ConceptScheme",
+   "skos:prefLabel": {
+    "@value": "LMML construction-era buckets",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "era:ancient",
+   "@type": "skos:Concept",
+   "skos:inScheme": {
+    "@id": "era:scheme"
+   },
+   "skos:prefLabel": {
+    "@value": "Ancient",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "era:renaissance",
+   "@type": "skos:Concept",
+   "skos:inScheme": {
+    "@id": "era:scheme"
+   },
+   "skos:prefLabel": {
+    "@value": "Renaissance",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "era:baroque",
+   "@type": "skos:Concept",
+   "skos:inScheme": {
+    "@id": "era:scheme"
+   },
+   "skos:prefLabel": {
+    "@value": "Baroque",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "era:contemporary",
+   "@type": "skos:Concept",
+   "skos:inScheme": {
+    "@id": "era:scheme"
+   },
+   "skos:prefLabel": {
+    "@value": "Contemporary",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "person:federico-fellini",
+   "@type": "Person",
+   "name": "Federico Fellini"
+  },
+  {
+   "@id": "person:paolo-sorrentino",
+   "@type": "Person",
+   "name": "Paolo Sorrentino"
+  },
+  {
+   "@id": "person:william-wyler",
+   "@type": "Person",
+   "name": "William Wyler"
+  },
+  {
+   "@id": "person:woody-allen",
+   "@type": "Person",
+   "name": "Woody Allen"
+  },
+  {
+   "@id": "person:anthony-minghella",
+   "@type": "Person",
+   "name": "Anthony Minghella"
+  },
+  {
+   "@id": "person:paola-cortellesi",
+   "@type": "Person",
+   "name": "Paola Cortellesi"
+  },
+  {
+   "@id": "film:la-dolce-vita",
+   "@type": "Movie",
+   "name": "La Dolce Vita",
+   "director": {
+    "@id": "person:federico-fellini"
+   },
+   "datePublished": {
+    "@value": "1960",
+    "@type": "xsd:gYear"
+   },
+   "image": "img/posters/la-dolce-vita.jpg",
+   "sameAs": "https://www.imdb.com/title/tt0053779/",
+   "subjectOf": [
+    {
+     "@id": "https://www.imdb.com/title/tt0053779/locations/",
+     "@type": "WebPage"
+    }
+   ],
+   "locationCreated": [
+    {
+     "@id": "loc:1"
+    },
+    {
+     "@id": "loc:2"
+    },
+    {
+     "@id": "loc:7"
+    },
+    {
+     "@id": "loc:8"
+    }
+   ]
+  },
+  {
+   "@id": "film:la-grande-bellezza",
+   "@type": "Movie",
+   "name": "La Grande Bellezza",
+   "director": {
+    "@id": "person:paolo-sorrentino"
+   },
+   "datePublished": {
+    "@value": "2013",
+    "@type": "xsd:gYear"
+   },
+   "image": "img/posters/the-great-beauty.jpg",
+   "sameAs": "https://www.imdb.com/title/tt2358891/",
+   "subjectOf": [
+    {
+     "@id": "https://www.imdb.com/title/tt2358891/locations/",
+     "@type": "WebPage"
+    }
+   ],
+   "locationCreated": [
+    {
+     "@id": "loc:1"
+    },
+    {
+     "@id": "loc:3"
+    },
+    {
+     "@id": "loc:4"
+    },
+    {
+     "@id": "loc:6"
+    },
+    {
+     "@id": "loc:20"
+    }
+   ]
+  },
+  {
+   "@id": "film:roman-holiday",
+   "@type": "Movie",
+   "name": "Roman Holiday",
+   "director": {
+    "@id": "person:william-wyler"
+   },
+   "datePublished": {
+    "@value": "1953",
+    "@type": "xsd:gYear"
+   },
+   "image": "img/posters/roman-holiday.jpg",
+   "sameAs": "https://www.imdb.com/title/tt0046250/",
+   "subjectOf": [
+    {
+     "@id": "https://www.imdb.com/title/tt0046250/locations/",
+     "@type": "WebPage"
+    }
+   ],
+   "locationCreated": [
+    {
+     "@id": "loc:2"
+    },
+    {
+     "@id": "loc:5"
+    },
+    {
+     "@id": "loc:9"
+    },
+    {
+     "@id": "loc:10"
+    },
+    {
+     "@id": "loc:11"
+    },
+    {
+     "@id": "loc:12"
+    },
+    {
+     "@id": "loc:13"
+    },
+    {
+     "@id": "loc:14"
+    },
+    {
+     "@id": "loc:15"
+    },
+    {
+     "@id": "loc:16"
+    }
+   ]
+  },
+  {
+   "@id": "film:to-rome-with-love",
+   "@type": "Movie",
+   "name": "To Rome with Love",
+   "director": {
+    "@id": "person:woody-allen"
+   },
+   "datePublished": {
+    "@value": "2012",
+    "@type": "xsd:gYear"
+   },
+   "image": "img/posters/to-rome-with-love.jpg",
+   "sameAs": "https://www.imdb.com/title/tt1859650/",
+   "subjectOf": [
+    {
+     "@id": "https://www.imdb.com/title/tt1859650/locations/",
+     "@type": "WebPage"
+    }
+   ],
+   "locationCreated": [
+    {
+     "@id": "loc:2"
+    },
+    {
+     "@id": "loc:4"
+    },
+    {
+     "@id": "loc:8"
+    },
+    {
+     "@id": "loc:10"
+    },
+    {
+     "@id": "loc:14"
+    },
+    {
+     "@id": "loc:16"
+    },
+    {
+     "@id": "loc:17"
+    },
+    {
+     "@id": "loc:18"
+    },
+    {
+     "@id": "loc:19"
+    }
+   ]
+  },
+  {
+   "@id": "film:the-talented-mr-ripley",
+   "@type": "Movie",
+   "name": "The Talented Mr. Ripley",
+   "director": {
+    "@id": "person:anthony-minghella"
+   },
+   "datePublished": {
+    "@value": "1999",
+    "@type": "xsd:gYear"
+   },
+   "image": "img/posters/the-talented-mr-ripley.jpg",
+   "sameAs": "https://www.imdb.com/title/tt0134119/",
+   "subjectOf": [
+    {
+     "@id": "https://www.imdb.com/title/tt0134119/locations/",
+     "@type": "WebPage"
+    }
+   ],
+   "locationCreated": [
+    {
+     "@id": "loc:3"
+    },
+    {
+     "@id": "loc:4"
+    },
+    {
+     "@id": "loc:11"
+    },
+    {
+     "@id": "loc:14"
+    },
+    {
+     "@id": "loc:15"
+    },
+    {
+     "@id": "loc:17"
+    }
+   ]
+  },
+  {
+   "@id": "film:ce-ancora-domani",
+   "@type": "Movie",
+   "name": "C'è ancora domani",
+   "director": {
+    "@id": "person:paola-cortellesi"
+   },
+   "datePublished": {
+    "@value": "2023",
+    "@type": "xsd:gYear"
+   },
+   "image": "img/posters/there-s-still-tomorrow.jpg",
+   "sameAs": "https://www.imdb.com/title/tt21800162/",
+   "subjectOf": [
+    {
+     "@id": "https://www.imdb.com/it/title/tt21800162/locations/?ref_=tt_dt_loc",
+     "@type": "WebPage"
+    }
+   ],
+   "locationCreated": [
+    {
+     "@id": "loc:15"
+    }
+   ]
+  },
+  {
+   "@id": "loc:1",
+   "@type": [
+    "LandmarksOrHistoricalBuildings",
+    "TouristAttraction"
+   ],
+   "identifier": "1",
+   "name": {
+    "@value": "Terme di Caracalla",
+    "@language": "it"
+   },
+   "alternateName": [
+    {
+     "@value": "Baths of Caracalla",
+     "@language": "en"
+    }
+   ],
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 41.8792,
+    "longitude": 12.4926
+   },
+   "address": "Viale delle Terme di Caracalla, 52, 00153 Roma RM",
+   "image": "img/locations/Baths_of_Caracalla.jpg",
+   "dcterms:created": {
+    "@value": "0216",
+    "@type": "xsd:gYear"
+   },
+   "lmml:builtYearLabel": "AD 216",
+   "lmml:builtEra": {
+    "@id": "era:ancient"
+   },
+   "lmml:featureType": {
+    "@value": "Ancient Roman Public Baths",
+    "@language": "en"
+   },
+   "lmml:architecturalStyle": {
+    "@value": "Imperial Roman Architecture",
+    "@language": "en"
+   },
+   "lmml:openingHoursNote": {
+    "@value": "Typically 9:00–19:00 in summer, shorter in winter (closed Mondays); ticketed",
+    "@language": "en"
+   },
+   "sameAs": "https://en.wikipedia.org/wiki/Baths_of_Caracalla"
+  },
+  {
+   "@id": "loc:2",
+   "@type": [
+    "LandmarksOrHistoricalBuildings",
+    "TouristAttraction"
+   ],
+   "identifier": "2",
+   "name": {
+    "@value": "Fontana di Trevi",
+    "@language": "it"
+   },
+   "alternateName": [
+    {
+     "@value": "Trevi Fountain",
+     "@language": "en"
+    }
+   ],
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 41.9009,
+    "longitude": 12.4833
+   },
+   "address": "Piazza di Trevi, 00187 Roma RM",
+   "image": "img/locations/Trevi_Fountain.jpg",
+   "dcterms:created": {
+    "@value": "1762",
+    "@type": "xsd:gYear"
+   },
+   "lmml:builtYearLabel": "1762",
+   "lmml:builtEra": {
+    "@id": "era:baroque"
+   },
+   "lmml:featureType": {
+    "@value": "Baroque Monumental Fountain",
+    "@language": "en"
+   },
+   "lmml:architecturalStyle": {
+    "@value": "Late Baroque",
+    "@language": "en"
+   },
+   "lmml:openingHoursNote": {
+    "@value": "Open 24 hours — public fountain, free access",
+    "@language": "en"
+   },
+   "sameAs": "https://en.wikipedia.org/wiki/Trevi_Fountain"
+  },
+  {
+   "@id": "loc:3",
+   "@type": [
+    "LandmarksOrHistoricalBuildings",
+    "TouristAttraction"
+   ],
+   "identifier": "3",
+   "name": {
+    "@value": "Musei Capitolini",
+    "@language": "it"
+   },
+   "alternateName": [
+    {
+     "@value": "Capitoline Museums",
+     "@language": "en"
+    }
+   ],
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 41.8929,
+    "longitude": 12.4826
+   },
+   "address": "Piazza del Campidoglio, 1, 00186 Roma RM",
+   "image": "img/locations/Capitoline_Museums.jpg",
+   "dcterms:created": {
+    "@value": "1536",
+    "@type": "xsd:gYear"
+   },
+   "lmml:builtYearLabel": "1536",
+   "lmml:builtEra": {
+    "@id": "era:renaissance"
+   },
+   "lmml:featureType": {
+    "@value": "Municipal Palace and Museum Complex",
+    "@language": "en"
+   },
+   "lmml:architecturalStyle": {
+    "@value": "Renaissance / Mannerist",
+    "@language": "en"
+   },
+   "lmml:openingHoursNote": {
+    "@value": "Typically 9:30–19:30 daily (closed 25 Dec, 1 Jan); ticketed",
+    "@language": "en"
+   },
+   "sameAs": "https://en.wikipedia.org/wiki/Capitoline_Museums"
+  },
+  {
+   "@id": "loc:4",
+   "@type": [
+    "LandmarksOrHistoricalBuildings",
+    "TouristAttraction"
+   ],
+   "identifier": "4",
+   "name": {
+    "@value": "Parco degli Acquedotti",
+    "@language": "it"
+   },
+   "alternateName": [
+    {
+     "@value": "Park of the Aqueducts",
+     "@language": "en"
+    }
+   ],
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 41.8542,
+    "longitude": 12.5518
+   },
+   "address": "Via Appia Nuova, 00178 Roma RM",
+   "image": "img/locations/Park%20of%20the%20Aqueducts.jpg",
+   "dcterms:created": {
+    "@value": "0052",
+    "@type": "xsd:gYear"
+   },
+   "lmml:builtYearLabel": "AD 52",
+   "lmml:builtEra": {
+    "@id": "era:ancient"
+   },
+   "lmml:featureType": {
+    "@value": "Archaeological Public Park",
+    "@language": "en"
+   },
+   "lmml:architecturalStyle": {
+    "@value": "Ancient Roman Aqueduct Systems",
+    "@language": "en"
+   },
+   "lmml:openingHoursNote": {
+    "@value": "Open 24 hours — public park, free access",
+    "@language": "en"
+   },
+   "sameAs": "https://en.wikipedia.org/wiki/Parco_degli_Acquedotti"
+  },
+  {
+   "@id": "loc:5",
+   "@type": [
+    "LandmarksOrHistoricalBuildings",
+    "TouristAttraction"
+   ],
+   "identifier": "5",
+   "name": {
+    "@value": "Basilica di Santa Maria in Cosmedin",
+    "@language": "it"
+   },
+   "alternateName": [
+    {
+     "@value": "Basilica of Saint Mary in Cosmedin",
+     "@language": "en"
+    }
+   ],
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 41.8881,
+    "longitude": 12.4817
+   },
+   "address": "Piazza della Bocca della Verità, 18, 00186 Roma RM",
+   "image": "img/locations/Basilica_of_Saint_Mary_in_Cosmedin.jpg",
+   "dcterms:created": {
+    "@value": "1123",
+    "@type": "xsd:gYear"
+   },
+   "lmml:builtYearLabel": "1123",
+   "lmml:builtEra": {
+    "@id": "era:ancient"
+   },
+   "lmml:featureType": {
+    "@value": "Minor Basilica and Portico",
+    "@language": "en"
+   },
+   "lmml:architecturalStyle": {
+    "@value": "Romanesque / Medieval",
+    "@language": "en"
+   },
+   "lmml:openingHoursNote": {
+    "@value": "Typically 9:30–17:50 daily; free entry",
+    "@language": "en"
+   },
+   "subjectOf": [
+    {
+     "@id": "https://en.wikipedia.org/wiki/Bocca_della_Verit%C3%A0",
+     "@type": "WebPage"
+    }
+   ]
+  },
+  {
+   "@id": "loc:6",
+   "@type": [
+    "LandmarksOrHistoricalBuildings",
+    "TouristAttraction"
+   ],
+   "identifier": "6",
+   "name": {
+    "@value": "Villa Medici",
+    "@language": "it"
+   },
+   "alternateName": [
+    {
+     "@value": "Villa Medici",
+     "@language": "en"
+    }
+   ],
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 41.9083,
+    "longitude": 12.4828
+   },
+   "address": "Viale della Trinità dei Monti, 1, 00187 Roma RM",
+   "image": "img/locations/Villa_Medici.jpg",
+   "dcterms:created": {
+    "@value": "1544",
+    "@type": "xsd:gYear"
+   },
+   "lmml:builtYearLabel": "1544",
+   "lmml:builtEra": {
+    "@id": "era:renaissance"
+   },
+   "lmml:featureType": {
+    "@value": "Mannerist Palace and Renaissance Gardens",
+    "@language": "en"
+   },
+   "lmml:architecturalStyle": {
+    "@value": "Late Renaissance / Mannerism",
+    "@language": "en"
+   },
+   "lmml:openingHoursNote": {
+    "@value": "Guided tours only, Tue–Sun; closed Mondays — check official site for slots",
+    "@language": "en"
+   },
+   "sameAs": "https://en.wikipedia.org/wiki/Villa_Medici"
+  },
+  {
+   "@id": "loc:7",
+   "@type": [
+    "LandmarksOrHistoricalBuildings",
+    "TouristAttraction"
+   ],
+   "identifier": "7",
+   "name": {
+    "@value": "Palazzo della Civiltà Italiana",
+    "@language": "it"
+   },
+   "alternateName": [
+    {
+     "@value": "Palace of Italian Civilization",
+     "@language": "en"
+    }
+   ],
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 41.8372,
+    "longitude": 12.4653
+   },
+   "address": "Quadrato della Concordia, 3, 00144 Roma RM (EUR)",
+   "image": "img/locations/Palace_of_Italian_civilization.jpg",
+   "dcterms:created": {
+    "@value": "1943",
+    "@type": "xsd:gYear"
+   },
+   "lmml:builtYearLabel": "1943",
+   "lmml:builtEra": {
+    "@id": "era:contemporary"
+   },
+   "lmml:featureType": {
+    "@value": "Rationalist Monumental Building",
+    "@language": "en"
+   },
+   "lmml:architecturalStyle": {
+    "@value": "Italian Rationalism / Fascist Architecture",
+    "@language": "en"
+   },
+   "lmml:openingHoursNote": {
+    "@value": "Private headquarters (Fendi) — exterior viewing only, not open to the public",
+    "@language": "en"
+   },
+   "sameAs": "https://en.wikipedia.org/wiki/Palazzo_della_Civilt%C3%A0_Italiana"
+  },
+  {
+   "@id": "loc:8",
+   "@type": [
+    "LandmarksOrHistoricalBuildings",
+    "TouristAttraction"
+   ],
+   "identifier": "8",
+   "name": {
+    "@value": "Piazza del Popolo",
+    "@language": "it"
+   },
+   "alternateName": [
+    {
+     "@value": "People's Square",
+     "@language": "en"
+    }
+   ],
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 41.9109,
+    "longitude": 12.4761
+   },
+   "address": "Piazza del Popolo, 00187 Roma RM",
+   "image": "img/locations/PIAZZA_DEL_POPOLO.jpg",
+   "dcterms:created": {
+    "@value": "1822",
+    "@type": "xsd:gYear"
+   },
+   "lmml:builtYearLabel": "1822",
+   "lmml:builtEra": {
+    "@id": "era:contemporary"
+   },
+   "lmml:featureType": {
+    "@value": "Neoclassical Urban Public Square",
+    "@language": "en"
+   },
+   "lmml:architecturalStyle": {
+    "@value": "Neoclassical",
+    "@language": "en"
+   },
+   "lmml:openingHoursNote": {
+    "@value": "Open 24 hours — public square, free access",
+    "@language": "en"
+   },
+   "sameAs": "https://en.wikipedia.org/wiki/Piazza_del_Popolo"
+  },
+  {
+   "@id": "loc:9",
+   "@type": [
+    "LandmarksOrHistoricalBuildings",
+    "TouristAttraction"
+   ],
+   "identifier": "9",
+   "name": {
+    "@value": "Chiesa del Gesù",
+    "@language": "it"
+   },
+   "alternateName": [
+    {
+     "@value": "Church of the Gesù",
+     "@language": "en"
+    }
+   ],
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 41.8959,
+    "longitude": 12.4798
+   },
+   "address": "Via degli Astalli, 16, 00186 Roma RM",
+   "image": "img/locations/Jesus_Church.jpg",
+   "dcterms:created": {
+    "@value": "1584",
+    "@type": "xsd:gYear"
+   },
+   "lmml:builtYearLabel": "1584",
+   "lmml:builtEra": {
+    "@id": "era:renaissance"
+   },
+   "lmml:featureType": {
+    "@value": "Jesuit Mother Church",
+    "@language": "en"
+   },
+   "lmml:architecturalStyle": {
+    "@value": "Counter-Reformation / Baroque",
+    "@language": "en"
+   },
+   "lmml:openingHoursNote": {
+    "@value": "Typically 7:00–19:30 daily; free entry",
+    "@language": "en"
+   },
+   "sameAs": "https://en.wikipedia.org/wiki/Church_of_the_Ges%C3%B9"
+  },
+  {
+   "@id": "loc:10",
+   "@type": [
+    "LandmarksOrHistoricalBuildings",
+    "TouristAttraction"
+   ],
+   "identifier": "10",
+   "name": {
+    "@value": "Colosseo",
+    "@language": "it"
+   },
+   "alternateName": [
+    {
+     "@value": "Colosseum",
+     "@language": "en"
+    }
+   ],
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 41.8902,
+    "longitude": 12.4922
+   },
+   "address": "Piazza del Colosseo, 1, 00184 Roma RM",
+   "image": "img/locations/Colosseo.jpg",
+   "dcterms:created": {
+    "@value": "0080",
+    "@type": "xsd:gYear"
+   },
+   "lmml:builtYearLabel": "AD 80",
+   "lmml:builtEra": {
+    "@id": "era:ancient"
+   },
+   "lmml:featureType": {
+    "@value": "Imperial Roman Amphitheater",
+    "@language": "en"
+   },
+   "lmml:architecturalStyle": {
+    "@value": "Ancient Roman / Flavian Dynasty",
+    "@language": "en"
+   },
+   "lmml:openingHoursNote": {
+    "@value": "Opens 8:30 daily, closing time varies by season (16:30–19:15); closed 25 Dec, 1 Jan; ticketed",
+    "@language": "en"
+   },
+   "sameAs": "https://en.wikipedia.org/wiki/Colosseum"
+  },
+  {
+   "@id": "loc:11",
+   "@type": [
+    "LandmarksOrHistoricalBuildings",
+    "TouristAttraction"
+   ],
+   "identifier": "11",
+   "name": {
+    "@value": "Foro Romano",
+    "@language": "it"
+   },
+   "alternateName": [
+    {
+     "@value": "Roman Forum",
+     "@language": "en"
+    }
+   ],
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 41.8925,
+    "longitude": 12.4853
+   },
+   "address": "Via della Salara Vecchia, 5/6, 00186 Roma RM",
+   "image": "img/locations/Forum_Romain.jpg",
+   "dcterms:created": {
+    "@value": "-0509",
+    "@type": "xsd:gYear"
+   },
+   "lmml:builtYearLabel": "509 BC",
+   "lmml:builtEra": {
+    "@id": "era:ancient"
+   },
+   "lmml:featureType": {
+    "@value": "Ancient Civic and Religious Center",
+    "@language": "en"
+   },
+   "lmml:architecturalStyle": {
+    "@value": "Classical Roman / Republican and Imperial Ruins",
+    "@language": "en"
+   },
+   "lmml:openingHoursNote": {
+    "@value": "Opens 9:00 daily, closing time varies by season (16:30–19:15); closed 25 Dec, 1 Jan; ticketed",
+    "@language": "en"
+   },
+   "sameAs": "https://en.wikipedia.org/wiki/Roman_Forum"
+  },
+  {
+   "@id": "loc:12",
+   "@type": [
+    "LandmarksOrHistoricalBuildings",
+    "TouristAttraction"
+   ],
+   "identifier": "12",
+   "name": {
+    "@value": "Palazzo Barberini",
+    "@language": "it"
+   },
+   "alternateName": [
+    {
+     "@value": "Barberini Palace",
+     "@language": "en"
+    }
+   ],
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 41.9042,
+    "longitude": 12.4903
+   },
+   "address": "Via delle Quattro Fontane, 13, 00184 Roma RM",
+   "image": "img/locations/Palazzo_Barberini.jpg",
+   "dcterms:created": {
+    "@value": "1633",
+    "@type": "xsd:gYear"
+   },
+   "lmml:builtYearLabel": "1633",
+   "lmml:builtEra": {
+    "@id": "era:baroque"
+   },
+   "lmml:featureType": {
+    "@value": "High Baroque Palace",
+    "@language": "en"
+   },
+   "lmml:architecturalStyle": {
+    "@value": "High Baroque",
+    "@language": "en"
+   },
+   "lmml:openingHoursNote": {
+    "@value": "Typically 10:00–18:00, closed Mondays; ticketed (Galleria Nazionale d'Arte Antica)",
+    "@language": "en"
+   },
+   "sameAs": "https://en.wikipedia.org/wiki/Palazzo_Barberini"
+  },
+  {
+   "@id": "loc:13",
+   "@type": [
+    "LandmarksOrHistoricalBuildings",
+    "TouristAttraction"
+   ],
+   "identifier": "13",
+   "name": {
+    "@value": "Pantheon",
+    "@language": "it"
+   },
+   "alternateName": [
+    {
+     "@value": "Pantheon",
+     "@language": "en"
+    }
+   ],
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 41.8986,
+    "longitude": 12.4768
+   },
+   "address": "Piazza della Rotonda, 00186 Roma RM",
+   "image": "img/locations/Pantheon.jpg",
+   "dcterms:created": {
+    "@value": "0126",
+    "@type": "xsd:gYear"
+   },
+   "lmml:builtYearLabel": "AD 126",
+   "lmml:builtEra": {
+    "@id": "era:ancient"
+   },
+   "lmml:featureType": {
+    "@value": "Ancient Roman Temple / Basilica",
+    "@language": "en"
+   },
+   "lmml:architecturalStyle": {
+    "@value": "Imperial Roman / Hadrianic Innovation",
+    "@language": "en"
+   },
+   "lmml:openingHoursNote": {
+    "@value": "Typically 9:00–19:00 daily; ticketed since 2023",
+    "@language": "en"
+   },
+   "sameAs": "https://en.wikipedia.org/wiki/Pantheon,_Rome"
+  },
+  {
+   "@id": "loc:14",
+   "@type": [
+    "LandmarksOrHistoricalBuildings",
+    "TouristAttraction"
+   ],
+   "identifier": "14",
+   "name": {
+    "@value": "Piazza di Spagna",
+    "@language": "it"
+   },
+   "alternateName": [
+    {
+     "@value": "Spanish Steps (Square)",
+     "@language": "en"
+    }
+   ],
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 41.9059,
+    "longitude": 12.4823
+   },
+   "address": "Piazza di Spagna, 00187 Roma RM",
+   "image": "img/locations/Spanish_Steps%29.jpg",
+   "dcterms:created": {
+    "@value": "1725",
+    "@type": "xsd:gYear"
+   },
+   "lmml:builtYearLabel": "1725",
+   "lmml:builtEra": {
+    "@id": "era:baroque"
+   },
+   "lmml:featureType": {
+    "@value": "Monumental Baroque Staircase and Square",
+    "@language": "en"
+   },
+   "lmml:architecturalStyle": {
+    "@value": "Late Baroque",
+    "@language": "en"
+   },
+   "lmml:openingHoursNote": {
+    "@value": "Open 24 hours — public square and staircase, free access",
+    "@language": "en"
+   },
+   "sameAs": "https://en.wikipedia.org/wiki/Piazza_di_Spagna"
+  },
+  {
+   "@id": "loc:15",
+   "@type": [
+    "LandmarksOrHistoricalBuildings",
+    "TouristAttraction"
+   ],
+   "identifier": "15",
+   "name": {
+    "@value": "Ponte Sant'Angelo",
+    "@language": "it"
+   },
+   "alternateName": [
+    {
+     "@value": "Bridge of Holy Angel",
+     "@language": "en"
+    }
+   ],
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 41.9031,
+    "longitude": 12.4663
+   },
+   "address": "Ponte Sant'Angelo, 00186 Roma RM",
+   "image": "img/locations/Ponte_s._Angelo.jpg",
+   "dcterms:created": {
+    "@value": "0134",
+    "@type": "xsd:gYear"
+   },
+   "lmml:builtYearLabel": "AD 134",
+   "lmml:builtEra": {
+    "@id": "era:ancient"
+   },
+   "lmml:featureType": {
+    "@value": "Ancient Roman Bridge with Baroque Sculptures",
+    "@language": "en"
+   },
+   "lmml:architecturalStyle": {
+    "@value": "Ancient Roman foundation with Baroque additions",
+    "@language": "en"
+   },
+   "lmml:openingHoursNote": {
+    "@value": "Open 24 hours — pedestrian bridge, free access",
+    "@language": "en"
+   },
+   "sameAs": "https://en.wikipedia.org/wiki/Ponte_Sant%27Angelo"
+  },
+  {
+   "@id": "loc:16",
+   "@type": [
+    "LandmarksOrHistoricalBuildings",
+    "TouristAttraction"
+   ],
+   "identifier": "16",
+   "name": {
+    "@value": "Piazza Venezia",
+    "@language": "it"
+   },
+   "alternateName": [
+    {
+     "@value": "Venice Square",
+     "@language": "en"
+    }
+   ],
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 41.8958,
+    "longitude": 12.4825
+   },
+   "address": "Piazza Venezia, 00186 Roma RM",
+   "image": "img/locations/Pizza_Venezia.jpg",
+   "dcterms:created": {
+    "@value": "1911",
+    "@type": "xsd:gYear"
+   },
+   "lmml:builtYearLabel": "1911",
+   "lmml:builtEra": {
+    "@id": "era:contemporary"
+   },
+   "lmml:featureType": {
+    "@value": "Central Urban Traffic Hub and Plaza",
+    "@language": "en"
+   },
+   "lmml:architecturalStyle": {
+    "@value": "Renaissance / Eclectic Neoclassical",
+    "@language": "en"
+   },
+   "lmml:openingHoursNote": {
+    "@value": "Open 24 hours — public square, free access",
+    "@language": "en"
+   },
+   "sameAs": "https://en.wikipedia.org/wiki/Piazza_Venezia"
+  },
+  {
+   "@id": "loc:17",
+   "@type": [
+    "LandmarksOrHistoricalBuildings",
+    "TouristAttraction"
+   ],
+   "identifier": "17",
+   "name": {
+    "@value": "Piazza Navona",
+    "@language": "it"
+   },
+   "alternateName": [
+    {
+     "@value": "Navona Square",
+     "@language": "en"
+    }
+   ],
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 41.8992,
+    "longitude": 12.4731
+   },
+   "address": "Piazza Navona, 00186 Roma RM",
+   "image": "img/locations/Piazza_Navona.jpg",
+   "dcterms:created": {
+    "@value": "0086",
+    "@type": "xsd:gYear"
+   },
+   "lmml:builtYearLabel": "AD 86",
+   "lmml:builtEra": {
+    "@id": "era:ancient"
+   },
+   "lmml:featureType": {
+    "@value": "Baroque Public Square",
+    "@language": "en"
+   },
+   "lmml:architecturalStyle": {
+    "@value": "High Baroque",
+    "@language": "en"
+   },
+   "lmml:openingHoursNote": {
+    "@value": "Open 24 hours — public square, free access",
+    "@language": "en"
+   },
+   "sameAs": "https://en.wikipedia.org/wiki/Piazza_Navona"
+  },
+  {
+   "@id": "loc:18",
+   "@type": [
+    "LandmarksOrHistoricalBuildings",
+    "TouristAttraction"
+   ],
+   "identifier": "18",
+   "name": {
+    "@value": "Auditorium Parco della Musica",
+    "@language": "it"
+   },
+   "alternateName": [
+    {
+     "@value": "Music Park Auditorium",
+     "@language": "en"
+    }
+   ],
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 41.9292,
+    "longitude": 12.4708
+   },
+   "address": "Viale Pietro de Coubertin, 30, 00196 Roma RM",
+   "image": "img/locations/Parco_della_Musica_di_Roma.jpg",
+   "dcterms:created": {
+    "@value": "2002",
+    "@type": "xsd:gYear"
+   },
+   "lmml:builtYearLabel": "2002",
+   "lmml:builtEra": {
+    "@id": "era:contemporary"
+   },
+   "lmml:featureType": {
+    "@value": "Contemporary Music Complex",
+    "@language": "en"
+   },
+   "lmml:architecturalStyle": {
+    "@value": "Contemporary / High-Tech Modernism",
+    "@language": "en"
+   },
+   "lmml:openingHoursNote": {
+    "@value": "Grounds generally open daily; concert hall access depends on event schedule",
+    "@language": "en"
+   },
+   "sameAs": "https://en.wikipedia.org/wiki/Parco_della_Musica"
+  },
+  {
+   "@id": "loc:19",
+   "@type": [
+    "LandmarksOrHistoricalBuildings",
+    "TouristAttraction"
+   ],
+   "identifier": "19",
+   "name": {
+    "@value": "Villa Borghese",
+    "@language": "it"
+   },
+   "alternateName": [
+    {
+     "@value": "Borghese Gardens",
+     "@language": "en"
+    }
+   ],
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 41.9142,
+    "longitude": 12.4853
+   },
+   "address": "Piazzale Napoleone I, 00197 Roma RM (Villa Borghese gardens)",
+   "image": "img/locations/Villa_Borghese.jpg",
+   "dcterms:created": {
+    "@value": "1605",
+    "@type": "xsd:gYear"
+   },
+   "lmml:builtYearLabel": "1605",
+   "lmml:builtEra": {
+    "@id": "era:baroque"
+   },
+   "lmml:featureType": {
+    "@value": "Renaissance Landscape Garden and Park",
+    "@language": "en"
+   },
+   "lmml:architecturalStyle": {
+    "@value": "17th Century Landscape Design / English Garden Adaptations",
+    "@language": "en"
+   },
+   "lmml:openingHoursNote": {
+    "@value": "Gardens open dawn–dusk, free; Galleria Borghese museum by timed reservation, closed Mondays",
+    "@language": "en"
+   },
+   "sameAs": "https://en.wikipedia.org/wiki/Villa_Borghese_gardens"
+  },
+  {
+   "@id": "loc:20",
+   "@type": [
+    "LandmarksOrHistoricalBuildings",
+    "TouristAttraction"
+   ],
+   "identifier": "20",
+   "name": {
+    "@value": "Tempietto di Bramante",
+    "@language": "it"
+   },
+   "alternateName": [
+    {
+     "@value": "Tempietto di San Pietro in Montorio",
+     "@language": "it"
+    },
+    {
+     "@value": "Bramante's Tempietto",
+     "@language": "en"
+    }
+   ],
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 41.8881,
+    "longitude": 12.4654
+   },
+   "address": "Piazza di San Pietro in Montorio, 2, 00153 Roma RM",
+   "image": "img/locations/Tempietto_di_San_Pietro.jpg",
+   "dcterms:created": {
+    "@value": "1502",
+    "@type": "xsd:gYear"
+   },
+   "lmml:builtYearLabel": "1502",
+   "lmml:builtEra": {
+    "@id": "era:renaissance"
+   },
+   "lmml:featureType": {
+    "@value": "Commemorative Circular Martyrdom Chapel",
+    "@language": "en"
+   },
+   "lmml:architecturalStyle": {
+    "@value": "High Renaissance",
+    "@language": "en"
+   },
+   "lmml:openingHoursNote": {
+    "@value": "Typically 9:30–12:30 and 14:00–16:00, closed Wednesdays; free entry",
+    "@language": "en"
+   },
+   "sameAs": "https://en.wikipedia.org/wiki/Tempietto_del_Bramante"
+  },
+  {
+   "@id": "act:1-la-dolce-vita",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:la-dolce-vita"
+   },
+   "location": {
+    "@id": "loc:1"
+   },
+   "description": {
+    "@value": "Sylvia and Marcello wandering through the majestic brick ruins at night.",
+    "@language": "en"
+   },
+   "image": "img/La_Dolce_Vita/caracalla.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Low-angle wide shot tracking forward, facing the massive standing caldarium walls.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:1-la-grande-bellezza",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:la-grande-bellezza"
+   },
+   "location": {
+    "@id": "loc:1"
+   },
+   "description": {
+    "@value": "Jep Gambardella encounters a giraffe controlled by an illusionist among the towering arches.",
+    "@language": "en"
+   },
+   "image": "img/La_Grande_Bellezza/caracalla.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Stationary long shot, framing the central tepidarium vaults under surreal purple evening gel-lighting.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:2-roman-holiday",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:roman-holiday"
+   },
+   "location": {
+    "@id": "loc:2"
+   },
+   "description": {
+    "@value": "Princess Ann and Joe pause near the fountain during their day of unsupervised freedom across the city.",
+    "@language": "en"
+   },
+   "image": "img/Roman_Holiday/fontana_di_trevi.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Wide establishing shot of the fountain facade, actors framed small against the monumental travertine backdrop.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:2-la-dolce-vita",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:la-dolce-vita"
+   },
+   "location": {
+    "@id": "loc:2"
+   },
+   "description": {
+    "@value": "Sylvia wades into the fountain at night, calling Marcello to join her, in the film's most iconic sequence.",
+    "@language": "en"
+   },
+   "image": "img/La_Dolce_Vita/fontana_di_trevi.png",
+   "lmml:cameraOrientation": {
+    "@value": "Wide shot of the full fountain facade, actors small against the illuminated travertine and flowing water.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:2-to-rome-with-love",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:to-rome-with-love"
+   },
+   "location": {
+    "@id": "loc:2"
+   },
+   "description": {
+    "@value": "One of the film's four intersecting stories brings its characters wandering past the fountain amid the city's tourist bustle.",
+    "@language": "en"
+   },
+   "image": "img/To_Rome_with_Love/fontana_di_trevi.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Wide handheld shot capturing the crowd and fountain together.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:3-the-talented-mr-ripley",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:the-talented-mr-ripley"
+   },
+   "location": {
+    "@id": "loc:3"
+   },
+   "description": {
+    "@value": "Marge searches the museum galleries, tension mounting as she pieces together Dickie's disappearance.",
+    "@language": "en"
+   },
+   "image": "img/The_Talented_Mr_Ripley/musei_capitolini.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Handheld medium shot following Marge through the sculpture halls.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:3-la-grande-bellezza",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:la-grande-bellezza"
+   },
+   "location": {
+    "@id": "loc:3"
+   },
+   "description": {
+    "@value": "Jep wanders the sculpture galleries at night, alone with the marble busts of ancient Rome.",
+    "@language": "en"
+   },
+   "image": "img/La_Grande_Bellezza/musei_capitolini.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Slow tracking shot down the gallery, statues lit in cold museum light against the dark background.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:4-the-talented-mr-ripley",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:the-talented-mr-ripley"
+   },
+   "location": {
+    "@id": "loc:4"
+   },
+   "description": {
+    "@value": "A tense pursuit sequence winds along the ancient aqueduct's arches on the city's outskirts.",
+    "@language": "en"
+   },
+   "image": "img/The_Talented_Mr_Ripley/parco_degli_acquedotti.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Wide tracking shot along the arcade, figures small against the scale of the ruins.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:4-to-rome-with-love",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:to-rome-with-love"
+   },
+   "location": {
+    "@id": "loc:4"
+   },
+   "description": {
+    "@value": "A quieter interlude away from the city center, characters walking and talking beneath the aqueduct arches.",
+    "@language": "en"
+   },
+   "image": "img/To_Rome_with_Love/parco_degli_acquedotti.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Wide static shot with the characters small against the line of arches.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:4-la-grande-bellezza",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:la-grande-bellezza"
+   },
+   "location": {
+    "@id": "loc:4"
+   },
+   "description": {
+    "@value": "Jep takes one of his contemplative early-morning walks beneath the ancient aqueduct arches, a recurring visual motif in the film.",
+    "@language": "en"
+   },
+   "image": "img/La_Grande_Bellezza/parco_degli_acquedotti.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Wide tracking shot along the line of arches, the lone figure dwarfed by the ancient structure.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:5-roman-holiday",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:roman-holiday"
+   },
+   "location": {
+    "@id": "loc:5"
+   },
+   "description": {
+    "@value": "Joe pretends the Bocca della Verità has bitten off his hand, frightening Ann in one of the film's most quoted moments.",
+    "@language": "en"
+   },
+   "image": "img/Roman_Holiday/basilica_di_santa_maria_in_cosmedin.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Medium two-shot at the mouth of the ancient marble mask, capturing both actors' reactions in one take.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:6-la-grande-bellezza",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:la-grande-bellezza"
+   },
+   "location": {
+    "@id": "loc:6"
+   },
+   "description": {
+    "@value": "A private garden party scene set within the villa's grounds, part of Rome's rarefied high society Jep moves through.",
+    "@language": "en"
+   },
+   "image": "img/La_Grande_Bellezza/villa_medici.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Wide crane shot descending over the formal gardens and party guests.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:7-la-dolce-vita",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:la-dolce-vita"
+   },
+   "location": {
+    "@id": "loc:7"
+   },
+   "description": {
+    "@value": "The film's closing sequence unfolds at dawn amid the stark, rationalist architecture of the EUR district.",
+    "@language": "en"
+   },
+   "image": "img/La_Dolce_Vita/palazzo_della_civilta_italiana.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Wide static shot emphasizing the building's severe geometric facade against the early morning sky.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:8-la-dolce-vita",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:la-dolce-vita"
+   },
+   "location": {
+    "@id": "loc:8"
+   },
+   "description": {
+    "@value": "Marcello and his companions pass through the piazza during one of the film's late-night wanderings.",
+    "@language": "en"
+   },
+   "image": "img/La_Dolce_Vita/piazza_del_popolo.png",
+   "lmml:cameraOrientation": {
+    "@value": "Wide shot of the piazza's obelisk and twin churches as figures cross in the foreground.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:8-to-rome-with-love",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:to-rome-with-love"
+   },
+   "location": {
+    "@id": "loc:8"
+   },
+   "description": {
+    "@value": "Characters cross the piazza amid the film's roving anthology structure, the obelisk and churches framing the scene.",
+    "@language": "en"
+   },
+   "image": "img/To_Rome_with_Love/piazza_del_popolo.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Wide establishing shot of the piazza with figures crossing in the foreground.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:9-roman-holiday",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:roman-holiday"
+   },
+   "location": {
+    "@id": "loc:9"
+   },
+   "description": {
+    "@value": "A brief stop during the couple's wandering tour of the city's churches and piazzas.",
+    "@language": "en"
+   },
+   "image": "img/Roman_Holiday/chiesa_del_gesu.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Passing wide shot as the Vespa crosses in front of the facade.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:10-roman-holiday",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:roman-holiday"
+   },
+   "location": {
+    "@id": "loc:10"
+   },
+   "description": {
+    "@value": "The Vespa tour pauses beneath the ancient amphitheater as Ann takes in the sights of the city.",
+    "@language": "en"
+   },
+   "image": "img/Roman_Holiday/colosseo.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Low wide shot framing the Colosseum's arches behind the moving vehicle.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:10-to-rome-with-love",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:to-rome-with-love"
+   },
+   "location": {
+    "@id": "loc:10"
+   },
+   "description": {
+    "@value": "A stop on one of the characters' wanderings through the city's most iconic sights.",
+    "@language": "en"
+   },
+   "image": "img/To_Rome_with_Love/colosseo.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Wide shot pairing the amphitheater's arches with the characters in the foreground.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:11-roman-holiday",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:roman-holiday"
+   },
+   "location": {
+    "@id": "loc:11"
+   },
+   "description": {
+    "@value": "Ann and Joe wander among the ancient ruins early in their unplanned day out together.",
+    "@language": "en"
+   },
+   "image": "img/Roman_Holiday/forum_romano.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Wide tracking shot following the pair through the scattered columns and fallen stone.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:11-the-talented-mr-ripley",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:the-talented-mr-ripley"
+   },
+   "location": {
+    "@id": "loc:11"
+   },
+   "description": {
+    "@value": "A pursuit and confrontation play out among the scattered ruins of the ancient forum.",
+    "@language": "en"
+   },
+   "image": "img/The_Talented_Mr_Ripley/forum_romano.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Wide tracking shot weaving between the standing columns.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:12-roman-holiday",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:roman-holiday"
+   },
+   "location": {
+    "@id": "loc:12"
+   },
+   "description": {
+    "@value": "The Palazzo's grounds double for the fictional foreign embassy where Princess Ann is officially staying.",
+    "@language": "en"
+   },
+   "image": "img/Roman_Holiday/palazzo_barberini.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Static establishing shot of the facade and gated courtyard.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:13-roman-holiday",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:roman-holiday"
+   },
+   "location": {
+    "@id": "loc:13"
+   },
+   "description": {
+    "@value": "The couple pauses in the piazza to admire the ancient temple during their day of wandering.",
+    "@language": "en"
+   },
+   "image": "img/Roman_Holiday/pantheon.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Wide shot of the portico and piazza, actors small in frame against the columns.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:14-roman-holiday",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:roman-holiday"
+   },
+   "location": {
+    "@id": "loc:14"
+   },
+   "description": {
+    "@value": "Ann eats gelato on the steps, one of the most recognizable images from the film.",
+    "@language": "en"
+   },
+   "image": "img/Roman_Holiday/piazza_di_spagna.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Medium shot seated on the steps, capturing the sweep of the staircase behind her.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:14-the-talented-mr-ripley",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:the-talented-mr-ripley"
+   },
+   "location": {
+    "@id": "loc:14"
+   },
+   "description": {
+    "@value": "Marge and Peter cross paths on the steps while investigating Dickie's disappearance.",
+    "@language": "en"
+   },
+   "image": "img/The_Talented_Mr_Ripley/piazza_di_spagna.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Medium tracking shot descending the staircase alongside the characters.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:14-to-rome-with-love",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:to-rome-with-love"
+   },
+   "location": {
+    "@id": "loc:14"
+   },
+   "description": {
+    "@value": "Characters pause on the steps as one of the anthology's storylines unfolds.",
+    "@language": "en"
+   },
+   "image": "img/To_Rome_with_Love/piazza_di_spagna.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Medium shot on the steps, the staircase sweeping upward behind them.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:15-roman-holiday",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:roman-holiday"
+   },
+   "location": {
+    "@id": "loc:15"
+   },
+   "description": {
+    "@value": "The Vespa tour crosses the bridge as part of the couple's spontaneous ride through the city.",
+    "@language": "en"
+   },
+   "image": "img/Roman_Holiday/ponte_sant'angelo.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Tracking shot alongside the moving Vespa, the bridge's statues passing in the background.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:15-the-talented-mr-ripley",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:the-talented-mr-ripley"
+   },
+   "location": {
+    "@id": "loc:15"
+   },
+   "description": {
+    "@value": "A tense rendezvous on the bridge, its statues lit against the evening sky, as the net closes around Tom.",
+    "@language": "en"
+   },
+   "image": "img/The_Talented_Mr_Ripley/ponte_sant'angelo.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Medium tracking shot alongside the balustrade, the Castel Sant'Angelo visible in the background.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:15-ce-ancora-domani",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:ce-ancora-domani"
+   },
+   "location": {
+    "@id": "loc:15"
+   },
+   "description": {
+    "@value": "Delia crosses the bridge on one of her daily walks through a wounded, black-and-white post-war Rome.",
+    "@language": "en"
+   },
+   "image": "img/C'e'_Ancora_Domani/ponte_sant'angelo.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Black-and-white wide shot following the character on foot across the bridge.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:16-roman-holiday",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:roman-holiday"
+   },
+   "location": {
+    "@id": "loc:16"
+   },
+   "description": {
+    "@value": "The chaotic Vespa chase sequence, with press and police in pursuit, passes through this junction.",
+    "@language": "en"
+   },
+   "image": "img/Roman_Holiday/piazza_venezia.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Fast tracking shot at street level, following the Vespa through traffic.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:16-to-rome-with-love",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:to-rome-with-love"
+   },
+   "location": {
+    "@id": "loc:16"
+   },
+   "description": {
+    "@value": "A comic set-piece plays out in the bustling square at the heart of the city.",
+    "@language": "en"
+   },
+   "image": "img/To_Rome_with_Love/piazza_venezia.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Wide shot capturing the monument and surrounding traffic circle.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:17-the-talented-mr-ripley",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:the-talented-mr-ripley"
+   },
+   "location": {
+    "@id": "loc:17"
+   },
+   "description": {
+    "@value": "Marge confronts Tom in the piazza, the Baroque fountains framing their fraught exchange.",
+    "@language": "en"
+   },
+   "image": "img/The_Talented_Mr_Ripley/piazza_navona.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Medium two-shot with the Fountain of the Four Rivers visible over the actors' shoulders.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:17-to-rome-with-love",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:to-rome-with-love"
+   },
+   "location": {
+    "@id": "loc:17"
+   },
+   "description": {
+    "@value": "Characters gather in the piazza, the Baroque fountains providing a lively backdrop to the scene.",
+    "@language": "en"
+   },
+   "image": "img/To_Rome_with_Love/piazza_navona.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Wide shot of the piazza with the fountain in frame.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:18-to-rome-with-love",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:to-rome-with-love"
+   },
+   "location": {
+    "@id": "loc:18"
+   },
+   "description": {
+    "@value": "A modern counterpoint to the rest of the film's historic settings, used for one of the anthology's storylines.",
+    "@language": "en"
+   },
+   "image": "img/To_Rome_with_Love/auditorium_parco_della_musica.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Wide shot emphasizing the auditorium's curved lead-clad shells.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:19-to-rome-with-love",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:to-rome-with-love"
+   },
+   "location": {
+    "@id": "loc:19"
+   },
+   "description": {
+    "@value": "A quiet walk through the park's gardens, a pause from the bustle of the city center.",
+    "@language": "en"
+   },
+   "image": "img/To_Rome_with_Love/villa_borghese.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Wide shot along a tree-lined path.",
+    "@language": "en"
+   }
+  },
+  {
+   "@id": "act:20-la-grande-bellezza",
+   "@type": "FilmAction",
+   "object": {
+    "@id": "film:la-grande-bellezza"
+   },
+   "location": {
+    "@id": "loc:20"
+   },
+   "description": {
+    "@value": "A grieving mother searches frantically for her daughter inside the hidden, perfectly circular stone courtyard.",
+    "@language": "en"
+   },
+   "image": "img/La_Grande_Bellezza/tempietto_di_bramante.JPG",
+   "lmml:cameraOrientation": {
+    "@value": "Perfectly centered static wide shot, framing the circular columned temple dead-center to create absolute symmetry.",
+    "@language": "en"
+   }
+  }
+ ]
+}
