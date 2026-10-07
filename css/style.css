@@ -1121,3 +1121,51 @@ body {
   .vocab-table th:nth-child(2), .vocab-table td:nth-child(2) { min-width: 12rem; }
   .metadata-table th:first-child, .metadata-table td:first-child { min-width: 8.5rem; }
 }
+
+/* Phones: 100vh is taller than the visible area while the browser toolbar is
+   showing, which pushes the bottom Previous/Next bar off-screen. Use the
+   dynamic viewport height where supported. */
+@supports (height: 100dvh) {
+  .tour { height: 100dvh !important; }
+}
+
+@media (max-width: 900px) {
+  /* Tour page: less map, more reading room */
+  .map-pane { height: 40%; flex: 0 0 auto; }
+  .content-pane { height: auto; flex: 1; min-height: 0; }
+  .map-pane .nav { padding: 0.4rem 0.75rem; }
+}
+
+@media (max-width: 640px) {
+  /* Tour page text + "Location Profile" tables: remove stacked padding, let the
+     key/value table use the full width and wrap its text. */
+  .content { padding: 0.9rem; }
+  .content__sections { padding: 0; gap: 1rem; }
+  .content__title { font-size: 1.6rem; overflow-wrap: anywhere; }
+  .content__meta { max-width: 100%; overflow-x: auto; }
+  .content__meta table { width: 100%; font-size: 0.8rem; }
+  .content__meta td { padding: 0.5rem 0.55rem; vertical-align: top; overflow-wrap: anywhere; }
+  .content__meta .content__meta-label { width: 38%; font-size: 0.7rem; }
+}
+
+@media (max-width: 640px) {
+  /* Themes pad the section card and the meta box separately; on a phone that
+     stacks into a narrow column, so flatten it. */
+  .tour[data-theme] .content__section { padding: 0.8rem; }
+  .tour[data-theme="black-and-white"] .content__section { padding: 1rem 0; }
+  .tour[data-theme] .content__meta { padding: 0; }
+}
+@media (max-width: 640px) {
+  .content__meta td.content__meta-label { overflow-wrap: normal; word-break: normal; hyphens: auto; font-size: 0.68rem; letter-spacing: 0.02em; width: 36%; }
+}
+
+@media (max-width: 900px) {
+  /* Map page: compact header and a horizontally scrolling filmstrip so the map
+     gets most of the screen. */
+  .tour[data-theme] #map-sidebar .sidebar__title { font-size: 1.1rem; padding: 0.5rem 1rem 0; }
+  .tour[data-theme] #map-sidebar .sidebar__subtitle { font-size: 0.9rem; padding: 0.1rem 1rem 0.5rem; }
+  #map-sidebar { height: auto; flex: 0 0 auto; }
+  #map-sidebar .filmstrip-nav { flex: 0 0 auto; flex-direction: row; overflow-x: auto; overflow-y: hidden; padding: 6px; gap: 6px; -webkit-overflow-scrolling: touch; }
+  #map-sidebar .filmstrip-chip { width: 150px; flex: 0 0 150px; height: 64px; }
+  #view-panel-map-overview .map-col { flex: 1; min-height: 0; }
+}
