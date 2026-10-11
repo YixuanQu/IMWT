@@ -454,15 +454,56 @@
     });
   }
 
+  /* The tone and competence texts often restate a fact that the length text (mid/long)
+     also contains, so joining the three pieces could print the same sentence twice.
+     Drop from the length text any sentence whose core is already said by the other two. */
+  function sentenceCore(sentence) {
+    return sentence.toLowerCase()
+      .replace(/^.*?:\s+/, "")                                   // "Here's something cool about X: ..."
+      .replace(/^(in short|taken together, this is why|read against [^,]*),\s*/, "")
+      .replace(/\s+—.*$/, "")                                      // "... — no art history degree ..."
+      .replace(/[^a-z0-9 ]/g, "").replace(/\s+/g, " ").trim().slice(0, 60);
+  }
+  function withoutRepeats(text, others) {
+    if (!text) return text;
+    const said = others.filter(Boolean).map(sentenceCore);
+    return text.split(/(?<=[.!?])(?<!\bSt\.)(?<!\bU\.S\.)\s+/).filter(function (sentence) {
+      const core = sentenceCore(sentence);
+      return !said.some(function (o) { return o && (o.indexOf(core) === 0 || core.indexOf(o) === 0); });
+    }).join(" ");
+  }
+
+  /* Walking distance to the next stop of the active narrative (straight-line distance
+     x 1.3 for real streets, at 4.5 km/h), with a Google Maps walking-directions link. */
+  function nextStopHtml(loc) {
+    const order = getVisitOrder();
+    const idx = order.indexOf(loc.id);
+    if (idx === -1) return "";
+    if (idx === order.length - 1) return '<p class="content__text content__next">This is the last stop of the route.</p>';
+    const next = locations.find(function (l) { return l.id === order[idx + 1]; });
+    if (!next) return "";
+    const R = 6371, toRad = Math.PI / 180;
+    const [lat1, lon1] = loc.coordinates, [lat2, lon2] = next.coordinates;
+    const dLat = (lat2 - lat1) * toRad, dLon = (lon2 - lon1) * toRad;
+    const h = Math.sin(dLat / 2) ** 2 + Math.cos(lat1 * toRad) * Math.cos(lat2 * toRad) * Math.sin(dLon / 2) ** 2;
+    const km = 2 * R * Math.asin(Math.sqrt(h)) * 1.3;
+    const minutes = Math.max(5, Math.round(km / 4.5 * 60 / 5) * 5);
+    const distance = km < 1 ? Math.round(km * 10) * 100 + " m" : km.toFixed(1) + " km";
+    const how = km > 3 ? "about " + distance + "; better by bus, metro or taxi" : "about " + distance + ", roughly " + minutes + " minutes on foot";
+    const url = "https://www.google.com/maps/dir/?api=1&origin=" + lat1 + "," + lon1 + "&destination=" + lat2 + "," + lon2 + "&travelmode=" + (km > 3 ? "transit" : "walking");
+    return '<p class="content__text content__next"><strong>Next stop:</strong> ' + escapeHtml(next.name) + ' (' + how + '). <a href="' + url + '" target="_blank" rel="noopener">Directions</a></p>';
+  }
+
   /* Builds only the text block (tone tags, paragraph, Read More/Less, difficulty buttons). */
   function buildTextSection(loc, animate) {
     const toneTags = TONE_LEVELS.map(function (t) {
       return '<button type="button" class="desc-tag' + (state.audienceTone === t ? ' is-active' : '') + '" data-loc-control="tone" data-value="' + t + '">' + TONE_LABELS[t] + '</button>';
     }).join('');
 
-    const textParts = [loc.tone[state.audienceTone], loc.content[state.detailLevel]];
-    if (loc.competence) textParts.push(loc.competence[state.competence]);
-    const combinedText = textParts.filter(Boolean).map(escapeHtml).join(' ');
+    const toneText = loc.tone[state.audienceTone];
+    const competenceText = loc.competence ? loc.competence[state.competence] : "";
+    const contentText = withoutRepeats(loc.content[state.detailLevel], [toneText, competenceText]);
+    const combinedText = [toneText, contentText, competenceText].filter(Boolean).map(escapeHtml).join(' ');
 
     const dIdx = DETAIL_LEVELS.indexOf(state.detailLevel);
     let detailBtns = "";
@@ -580,7 +621,7 @@
       const mapsQuery = officialName + ', ' + loc.address;
       const mapsTarget = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(mapsQuery);
       const qrSrc = 'https://api.qrserver.com/v1/create-qr-code/?size=140x140&margin=0&data=' + encodeURIComponent(mapsTarget);
-      html += '<section class="content__section content__section--onsite content__onsite fade-in"><h2 class="content__section-title">On-Site</h2><div class="content__onsite-row"><img class="content__qr" src="' + qrSrc + '" alt="QR code opening this location in Google Maps" width="100" height="100" /><div class="content__onsite-text"><p class="content__text">Scan to open in Google Maps and get directions.</p><p class="content__text content__text--muted">Address: ' + escapeHtml(loc.address) + '</p><p class="content__text content__text--muted">Hours: ' + escapeHtml(loc.openingHours) + '</p></div></div></section>';
+      html += '<section class="content__section content__section--onsite content__onsite fade-in"><h2 class="content__section-title">On-Site</h2><div class="content__onsite-row"><img class="content__qr" src="' + qrSrc + '" alt="QR code opening this location in Google Maps" width="100" height="100" /><div class="content__onsite-text"><p class="content__text">Scan to open in Google Maps and get directions.</p><p class="content__text content__text--muted">Address: ' + escapeHtml(loc.address) + '</p><p class="content__text content__text--muted">Hours: ' + escapeHtml(loc.openingHours) + '</p></div></div>' + nextStopHtml(loc) + '</section>';
     }
     html += '</div>'; 
     contentEl.innerHTML = html;

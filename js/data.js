@@ -33,7 +33,7 @@ const locations = [
         "movieTitle": "La Dolce Vita",
         "director": "Federico Fellini",
         "year": 1960,
-        "scene": "Sylvia and Marcello wandering through the majestic brick ruins at night.",
+        "scene": "The party in the film's second episode is set at a nightclub in the Baths of Caracalla, where Sylvia dances wildly with Frankie. Most of it was shot on a set at Cinecittà, so the real ruins may barely appear on screen.",
         "specificImageUrl": "img/La_Dolce_Vita/caracalla.JPG",
         "cameraOrientation": "Low-angle wide shot tracking forward, facing the massive standing caldarium walls."
       },
@@ -41,7 +41,7 @@ const locations = [
         "movieTitle": "La Grande Bellezza",
         "director": "Paolo Sorrentino",
         "year": 2013,
-        "scene": "Jep Gambardella encounters a giraffe controlled by an illusionist among the towering arches.",
+        "scene": "Jep watches his magician friend try to make a giraffe disappear among the ruins, the most Felliniesque moment of the film.",
         "specificImageUrl": "img/La_Grande_Bellezza/caracalla.JPG",
         "cameraOrientation": "Stationary long shot, framing the central tepidarium vaults under surreal purple evening gel-lighting."
       }
@@ -49,10 +49,10 @@ const locations = [
     "content": {
       "brief": "Rome's second-largest ancient bath complex, big enough for 1,600 bathers at once.",
       "mid": "At its peak it could accommodate roughly 1,600 bathers at once, with a frigidarium, tepidarium, caldarium, gymnasia, libraries and gardens spread across some ten hectares. The baths stayed in use until the Ostrogoths cut the aqueducts feeding them during the siege of 537, after which they fell into ruin.",
-      "long": "At its peak it could accommodate roughly 1,600 bathers at once, with a frigidarium, tepidarium, caldarium, gymnasia, libraries and gardens spread across some ten hectares. The baths stayed in use until the Ostrogoths cut the aqueducts feeding them during the siege of 537, after which they fell into ruin. Since 1937 the towering brick ruins have hosted open-air opera, including Verdi's Aida, though the use of large mechanized sets was banned in 2001 to protect the ancient fabric It was the second-largest bath complex ever built in Rome, after the later Baths of Diocletian, and its surviving vaulted halls still rank among the most awe-inspiring ruins of the ancient city."
+      "long": "At its peak it could accommodate roughly 1,600 bathers at once, with a frigidarium, tepidarium, caldarium, gymnasia, libraries and gardens spread across some ten hectares. The baths stayed in use until the Ostrogoths cut the aqueducts feeding them during the siege of 537, after which they fell into ruin. Since 1937 the towering brick ruins have hosted open-air opera, including Verdi's Aida, though performances were halted in the 1990s to protect the ruins and only came back in 2001 on a lighter, separate stage. It was the second-largest bath complex ever built in Rome, after the later Baths of Diocletian, and its surviving vaulted halls still rank among the most awe-inspiring ruins of the ancient city."
     },
     "tone": {
-      "young": "Here's something cool about Terme di Caracalla: since 1937 the towering brick ruins have hosted open-air opera, including Verdi's Aida, though the use of large mechanized sets was banned in 2001 to protect the ancient fabric.",
+      "young": "Here's something cool about Terme di Caracalla: since 1937 the towering brick ruins have hosted open-air opera, including Verdi's Aida, though performances were halted in the 1990s to protect the ruins and only came back in 2001 on a lighter, separate stage.",
       "adult": "Baths of Caracalla has a story worth knowing before you walk up to it: begun around AD 206 under Emperor Septimius Severus and completed in AD 216 by his son Caracalla.",
       "scholar": "Baths of Caracalla, an example of imperial Roman Architecture: begun around AD 206 under Emperor Septimius Severus and completed in AD 216 by his son Caracalla."
     },
@@ -88,7 +88,7 @@ const locations = [
         "movieTitle": "Roman Holiday",
         "director": "William Wyler",
         "year": 1953,
-        "scene": "Princess Ann and Joe pause near the fountain during their day of unsupervised freedom across the city.",
+        "scene": "After slipping out of Joe's flat, Ann wanders on her own into the piazza and stops at the fountain; her famous haircut happens at a barber's a few streets away.",
         "specificImageUrl": "img/Roman_Holiday/fontana_di_trevi.JPG",
         "cameraOrientation": "Wide establishing shot of the fountain facade, actors framed small against the monumental travertine backdrop."
       },
@@ -96,7 +96,7 @@ const locations = [
         "movieTitle": "La Dolce Vita",
         "director": "Federico Fellini",
         "year": 1960,
-        "scene": "Sylvia wades into the fountain at night, calling Marcello to join her, in the film's most iconic sequence.",
+        "scene": "Sylvia wades into the fountain at night and calls Marcello to join her, the film's most famous sequence.",
         "specificImageUrl": "img/La_Dolce_Vita/fontana_di_trevi.png",
         "cameraOrientation": "Wide shot of the full fountain facade, actors small against the illuminated travertine and flowing water."
       },
@@ -104,7 +104,7 @@ const locations = [
         "movieTitle": "To Rome with Love",
         "director": "Woody Allen",
         "year": 2012,
-        "scene": "One of the film's four intersecting stories brings its characters wandering past the fountain amid the city's tourist bustle.",
+        "scene": "Hayley and Michelangelo visit the fountain during the montage of their growing romance.",
         "specificImageUrl": "img/To_Rome_with_Love/fontana_di_trevi.JPG",
         "cameraOrientation": "Wide handheld shot capturing the crowd and fountain together."
       }
@@ -112,7 +112,7 @@ const locations = [
     "content": {
       "brief": "Rome's largest Baroque fountain, thirty years in the making.",
       "mid": "It marks the terminus of the Aqua Virgo, an aqueduct completed in 19 BC under Augustus, and its central figure is Oceanus riding a shell chariot pulled by sea-horses through a scheme called the \"Taming of the Waters\". Salvi won the papal design competition of 1732 only after public outrage that the first choice, Alessandro Galilei, was a Florentine rather than a Roman.",
-      "long": "It marks the terminus of the Aqua Virgo, an aqueduct completed in 19 BC under Augustus, and its central figure is Oceanus riding a shell chariot pulled by sea-horses through a scheme called the \"Taming of the Waters\". Salvi won the papal design competition of 1732 only after public outrage that the first choice, Alessandro Galilei, was a Florentine rather than a Roman. Tradition holds that a coin tossed over the shoulder into the basin guarantees a return to Rome, a custom that now nets the city roughly a million euros a year for charity It is Rome's largest Baroque fountain and among the most recognisable fountains in the world."
+      "long": "It marks the terminus of the Aqua Virgo, an aqueduct completed in 19 BC under Augustus, and its central figure is Oceanus riding a shell chariot pulled by sea-horses through a scheme called the \"Taming of the Waters\". Salvi won the papal design competition of 1732 only after public outrage that the first choice, Alessandro Galilei, was a Florentine rather than a Roman. Tradition holds that a coin tossed over the shoulder into the basin guarantees a return to Rome, a custom that now nets the city roughly a million euros a year for charity. It is Rome's largest Baroque fountain and among the most recognisable fountains in the world."
     },
     "tone": {
       "young": "Here's something cool about Fontana di Trevi: tradition holds that a coin tossed over the shoulder into the basin guarantees a return to Rome, a custom that now nets the city roughly a million euros a year for charity.",
@@ -151,7 +151,7 @@ const locations = [
         "movieTitle": "The Talented Mr. Ripley",
         "director": "Anthony Minghella",
         "year": 1999,
-        "scene": "Marge searches the museum galleries, tension mounting as she pieces together Dickie's disappearance.",
+        "scene": "Left behind by Dickie and Freddie, Tom wanders alone across Piazza del Campidoglio, looking at the sculptures and down over the Roman Forum.",
         "specificImageUrl": "img/The_Talented_Mr_Ripley/musei_capitolini.JPG",
         "cameraOrientation": "Handheld medium shot following Marge through the sculpture halls."
       },
@@ -159,7 +159,7 @@ const locations = [
         "movieTitle": "La Grande Bellezza",
         "director": "Paolo Sorrentino",
         "year": 2013,
-        "scene": "Jep wanders the sculpture galleries at night, alone with the marble busts of ancient Rome.",
+        "scene": "Stefano, who keeps the keys to Rome's palaces, takes Jep and Ramona on a night visit; the statues of the Palazzo Nuovo appear out of the dark.",
         "specificImageUrl": "img/La_Grande_Bellezza/musei_capitolini.JPG",
         "cameraOrientation": "Slow tracking shot down the gallery, statues lit in cold museum light against the dark background."
       }
@@ -167,7 +167,7 @@ const locations = [
     "content": {
       "brief": "Widely considered the world's oldest public museum, founded in 1471.",
       "mid": "The piazza and its two flanking palaces were redesigned from 1536 by Michelangelo, commissioned for the ceremonial visit of Holy Roman Emperor Charles V, though the Palazzo Nuovo that completes his trapezoidal plan wasn't finished until decades after his death. The museum is generally considered the oldest public museum in the world, its collection open to visitors since long before the concept of a national museum existed elsewhere in Europe.",
-      "long": "The piazza and its two flanking palaces were redesigned from 1536 by Michelangelo, commissioned for the ceremonial visit of Holy Roman Emperor Charles V, though the Palazzo Nuovo that completes his trapezoidal plan wasn't finished until decades after his death. The museum is generally considered the oldest public museum in the world, its collection open to visitors since long before the concept of a national museum existed elsewhere in Europe. Its holdings today range from the Capitoline Wolf to Bernini's bust of Medusa and Caravaggio's Fortune Teller It set the template for the modern idea that art and antiquities belong to the public, not just to popes and princes."
+      "long": "The piazza and its two flanking palaces were redesigned from 1536 by Michelangelo, commissioned for the ceremonial visit of Holy Roman Emperor Charles V, though the Palazzo Nuovo that completes his trapezoidal plan wasn't finished until decades after his death. The museum is generally considered the oldest public museum in the world, its collection open to visitors since long before the concept of a national museum existed elsewhere in Europe. Its holdings today range from the Capitoline Wolf to Bernini's bust of Medusa and Caravaggio's Fortune Teller. It set the template for the modern idea that art and antiquities belong to the public, not just to popes and princes."
     },
     "tone": {
       "young": "Here's something cool about Musei Capitolini: its holdings today range from the Capitoline Wolf to Bernini's bust of Medusa and Caravaggio's Fortune Teller.",
@@ -206,7 +206,7 @@ const locations = [
         "movieTitle": "The Talented Mr. Ripley",
         "director": "Anthony Minghella",
         "year": 1999,
-        "scene": "A tense pursuit sequence winds along the ancient aqueduct's arches on the city's outskirts.",
+        "scene": "After killing Freddie, Tom drives the body out of the city and leaves it among the ruins of the aqueduct.",
         "specificImageUrl": "img/The_Talented_Mr_Ripley/parco_degli_acquedotti.JPG",
         "cameraOrientation": "Wide tracking shot along the arcade, figures small against the scale of the ruins."
       },
@@ -214,7 +214,7 @@ const locations = [
         "movieTitle": "To Rome with Love",
         "director": "Woody Allen",
         "year": 2012,
-        "scene": "A quieter interlude away from the city center, characters walking and talking beneath the aqueduct arches.",
+        "scene": "The arches of the Aqua Claudia appear behind a car scene shot with the sun low behind the aqueduct.",
         "specificImageUrl": "img/To_Rome_with_Love/parco_degli_acquedotti.JPG",
         "cameraOrientation": "Wide static shot with the characters small against the line of arches."
       },
@@ -222,18 +222,18 @@ const locations = [
         "movieTitle": "La Grande Bellezza",
         "director": "Paolo Sorrentino",
         "year": 2013,
-        "scene": "Jep takes one of his contemplative early-morning walks beneath the ancient aqueduct arches, a recurring visual motif in the film.",
+        "scene": "The performance artist Talia Concept headbutts one of the aqueduct's stone piers in front of an audience that includes Jep.",
         "specificImageUrl": "img/La_Grande_Bellezza/parco_degli_acquedotti.JPG",
         "cameraOrientation": "Wide tracking shot along the line of arches, the lone figure dwarfed by the ancient structure."
       }
     ],
     "content": {
       "brief": "A public park strung with the arches of six centuries of Roman aqueducts.",
-      "mid": "The park also carries the remains of the Anio Novus, Aqua Marcia and the later Renaissance-era Aqua Felice, making it a rare place where roughly six centuries of Roman water engineering stand side by side. The aqueducts once carried water for miles into the city from springs in the Apennine foothills, using nothing but gravity and precisely calculated gradients.",
-      "long": "The park also carries the remains of the Anio Novus, Aqua Marcia and the later Renaissance-era Aqua Felice, making it a rare place where roughly six centuries of Roman water engineering stand side by side. The aqueducts once carried water for miles into the city from springs in the Apennine foothills, using nothing but gravity and precisely calculated gradients. Today the arches march across open parkland on Rome's southeastern edge, a public park since the 1960s and now a favourite backdrop for photographers and joggers alike It's one of the few places where you can see the sheer scale of Roman infrastructure without a single modern building in the frame."
+      "mid": "The park also carries the remains of the Anio Novus, Aqua Marcia and the later Renaissance-era Aqua Felice, making it a rare place where more than seventeen centuries of Roman water engineering stand side by side. The aqueducts once carried water for miles into the city from springs in the Apennine foothills, using nothing but gravity and precisely calculated gradients.",
+      "long": "The park also carries the remains of the Anio Novus, Aqua Marcia and the later Renaissance-era Aqua Felice, making it a rare place where more than seventeen centuries of Roman water engineering stand side by side. The aqueducts once carried water for miles into the city from springs in the Apennine foothills, using nothing but gravity and precisely calculated gradients. Today the arches march across open parkland on Rome's southeastern edge, protected since 1988 as part of the Appia Antica Regional Park and now a favourite backdrop for photographers and joggers alike. It's one of the few places where you can see the sheer scale of Roman infrastructure without a single modern building in the frame."
     },
     "tone": {
-      "young": "Here's something cool about Parco degli Acquedotti: today the arches march across open parkland on Rome's southeastern edge, a public park since the 1960s and now a favourite backdrop for photographers and joggers alike.",
+      "young": "Here's something cool about Parco degli Acquedotti: today the arches march across open parkland on Rome's southeastern edge, protected since 1988 as part of the Appia Antica Regional Park and now a favourite backdrop for photographers and joggers alike.",
       "adult": "Park of the Aqueducts has a story worth knowing before you walk up to it: named for the ancient aqueducts that cross it, chiefly the Aqua Claudia, begun under Caligula and completed by Claudius in AD 52.",
       "scholar": "Park of the Aqueducts, an example of ancient Roman Aqueduct Systems: named for the ancient aqueducts that cross it, chiefly the Aqua Claudia, begun under Caligula and completed by Claudius in AD 52."
     },
@@ -277,12 +277,12 @@ const locations = [
     "content": {
       "brief": "A 12th-century church best known for the mask in its porch, the Bocca della Verità.",
       "mid": "The portico houses the Bocca della Verità, a large ancient marble mask — probably once a drain cover — that medieval legend claimed would bite off the hand of anyone who told a lie while holding it inside. The church's Greek Byzantine roots gave it the name \"in Cosmedin,\" adapted from the Greek word for \"ornate\" or \"beautiful\".",
-      "long": "The portico houses the Bocca della Verità, a large ancient marble mask — probably once a drain cover — that medieval legend claimed would bite off the hand of anyone who told a lie while holding it inside. The church's Greek Byzantine roots gave it the name \"in Cosmedin,\" adapted from the Greek word for \"ornate\" or \"beautiful\". The Bocca della Verità now draws a daily queue of visitors long before most of them ever see the church behind it It's one of Rome's best-preserved medieval churches, tucked in the shadow of its own far more famous doorstep attraction."
+      "long": "The portico houses the Bocca della Verità, a large ancient marble mask — probably once a drain cover — that medieval legend claimed would bite off the hand of anyone who told a lie while holding it inside. The church's Greek Byzantine roots gave it the name \"in Cosmedin,\" adapted from the Greek word for \"ornate\" or \"beautiful\". The Bocca della Verità now draws a daily queue of visitors long before most of them ever see the church behind it. It's one of Rome's best-preserved medieval churches, tucked in the shadow of its own far more famous doorstep attraction."
     },
     "tone": {
       "young": "Here's something cool about Basilica di Santa Maria in Cosmedin: the Bocca della Verità now draws a daily queue of visitors long before most of them ever see the church behind it.",
-      "adult": "Basilica of Saint Mary in Cosmedin has a story worth knowing before you walk up to it: traces its origins to the 6th century, when Greek refugees from Byzantine iconoclasm founded a diaconia here; the current Romanesque form, including the bell tower, dates largely from the 12th century.",
-      "scholar": "Basilica of Saint Mary in Cosmedin, an example of romanesque / Medieval: traces its origins to the 6th century, when Greek refugees from Byzantine iconoclasm founded a diaconia here; the current Romanesque form, including the bell tower, dates largely from the 12th century."
+      "adult": "Basilica of Saint Mary in Cosmedin has a story worth knowing before you walk up to it: traces its origins to the 6th century, as a diaconia, a church welfare centre, later enlarged in the 8th century for Greek refugees fleeing Byzantine iconoclasm; the current Romanesque form, including the bell tower, dates largely from the 12th century.",
+      "scholar": "Basilica of Saint Mary in Cosmedin, an example of romanesque / Medieval: traces its origins to the 6th century, as a diaconia, a church welfare centre, later enlarged in the 8th century for Greek refugees fleeing Byzantine iconoclasm; the current Romanesque form, including the bell tower, dates largely from the 12th century."
     },
     "competence": {
       "introductory": "In short, it's one of Rome's best-preserved medieval churches, tucked in the shadow of its own far more famous doorstep attraction — no art history degree required to appreciate that.",
@@ -316,7 +316,7 @@ const locations = [
         "movieTitle": "La Grande Bellezza",
         "director": "Paolo Sorrentino",
         "year": 2013,
-        "scene": "A private garden party scene set within the villa's grounds, part of Rome's rarefied high society Jep moves through.",
+        "scene": "At dawn, after the night tour of palaces and museums, Jep, Ramona and Stefano walk through the villa's gardens, home of the French Academy.",
         "specificImageUrl": "img/La_Grande_Bellezza/villa_medici.JPG",
         "cameraOrientation": "Wide crane shot descending over the formal gardens and party guests."
       }
@@ -324,16 +324,16 @@ const locations = [
     "content": {
       "brief": "A Renaissance villa on the Pincian Hill, home to the French Academy since 1803.",
       "mid": "In 1803, Napoleon relocated the French Academy in Rome here — an institution founded in 1666 under Louis XIV to send the winners of the Prix de Rome to study antiquity and the Renaissance masters in Rome. The Academy had moved through several Roman palaces before Villa Medici became its permanent home, and its roster of resident fellows has included Ingres, Berlioz, Debussy and Fragonard.",
-      "long": "In 1803, Napoleon relocated the French Academy in Rome here — an institution founded in 1666 under Louis XIV to send the winners of the Prix de Rome to study antiquity and the Renaissance masters in Rome. The Academy had moved through several Roman palaces before Villa Medici became its permanent home, and its roster of resident fellows has included Ingres, Berlioz, Debussy and Fragonard. It remains an active residency for French and international artists, with its Renaissance gardens and hilltop views over Rome open to the public by guided tour It's a rare case of a Medici family villa still doing exactly the kind of work it was built for: housing artists."
+      "long": "In 1803, Napoleon relocated the French Academy in Rome here — an institution founded in 1666 under Louis XIV to send the winners of the Prix de Rome to study antiquity and the Renaissance masters in Rome. The Academy had moved through several Roman palaces before Villa Medici became its permanent home, and its roster of resident fellows has included Ingres, Berlioz, Debussy and Fragonard. It remains an active residency for French and international artists, with its Renaissance gardens and hilltop views over Rome open to the public by guided tour. Built as a cardinal's country villa, it has now been a home for artists for more than two centuries."
     },
     "tone": {
       "young": "Here's something cool about Villa Medici: it remains an active residency for French and international artists, with its Renaissance gardens and hilltop views over Rome open to the public by guided tour.",
-      "adult": "Villa Medici has a story worth knowing before you walk up to it: built in 1544 by architect Annibale Lippi for Cardinal Giovanni Ricci da Montepulciano, then bought in 1576 by Cardinal Ferdinando de' Medici.",
-      "scholar": "Villa Medici, an example of late Renaissance / Mannerism: built in 1544 by architect Annibale Lippi for Cardinal Giovanni Ricci da Montepulciano, then bought in 1576 by Cardinal Ferdinando de' Medici."
+      "adult": "Villa Medici has a story worth knowing before you walk up to it: begun in 1544 and rebuilt from 1564 by architect Annibale Lippi for Cardinal Giovanni Ricci da Montepulciano, then bought in 1576 by Cardinal Ferdinando de' Medici.",
+      "scholar": "Villa Medici, an example of late Renaissance / Mannerism: begun in 1544 and rebuilt from 1564 by architect Annibale Lippi for Cardinal Giovanni Ricci da Montepulciano, then bought in 1576 by Cardinal Ferdinando de' Medici."
     },
     "competence": {
-      "introductory": "In short, it's a rare case of a Medici family villa still doing exactly the kind of work it was built for: housing artists — no art history degree required to appreciate that.",
-      "average": "Taken together, this is why it's a rare case of a Medici family villa still doing exactly the kind of work it was built for: housing artists.",
+      "introductory": "In short, it's a rare case of a Medici family villa still doing exactly the kind of work it was built for: a home for artists for more than two centuries — no art history degree required to appreciate that.",
+      "average": "Taken together, this is why built as a cardinal's country villa, it has now been a home for artists for more than two centuries.",
       "advanced": "Read against the wider arc of Roman architectural history, it's a rare case of a Medici family villa still doing exactly the kind of work it was built for: housing artists, a point worth weighing against how the site is used and read today."
     }
   },
@@ -363,15 +363,15 @@ const locations = [
         "movieTitle": "La Dolce Vita",
         "director": "Federico Fellini",
         "year": 1960,
-        "scene": "The film's closing sequence unfolds at dawn amid the stark, rationalist architecture of the EUR district.",
+        "scene": "Fellini used the modernist EUR district for some of the film, but the Palazzo della Civiltà Italiana itself is not clearly visible on screen. The film actually ends on a beach near Fregene.",
         "specificImageUrl": "img/La_Dolce_Vita/palazzo_della_civilta_italiana.JPG",
         "cameraOrientation": "Wide static shot emphasizing the building's severe geometric facade against the early morning sky."
       }
     ],
     "content": {
       "brief": "A stark travertine cube built for a 1942 world's fair that never happened.",
-      "mid": "It was conceived as the centrepiece of the EUR district, a new quarter Mussolini commissioned for a 1942 World's Fair that never took place because of the Second World War. Its facade repeats a single arch motif 216 times across six rows on each of its four identical sides, stripping the Colosseum's arcade down to pure, ornament-free geometry.",
-      "long": "It was conceived as the centrepiece of the EUR district, a new quarter Mussolini commissioned for a 1942 World's Fair that never took place because of the Second World War. Its facade repeats a single arch motif 216 times across six rows on each of its four identical sides, stripping the Colosseum's arcade down to pure, ornament-free geometry. Romans nicknamed it the \"Colosseo Quadrato\" — the Square Colosseum — and it now houses the headquarters of the fashion house Fendi It's one of the most complete surviving statements of Fascist-era Rationalist architecture, built to look ancient and modern at once."
+      "mid": "It was conceived as the centrepiece of the EUR district, a new quarter Mussolini commissioned for a 1942 World's Fair that never took place because of the Second World War. Its facade repeats a single arch motif in six rows of nine on each of its four identical sides, 216 arches in all, stripping the Colosseum's arcade down to pure, ornament-free geometry.",
+      "long": "It was conceived as the centrepiece of the EUR district, a new quarter Mussolini commissioned for a 1942 World's Fair that never took place because of the Second World War. Its facade repeats a single arch motif in six rows of nine on each of its four identical sides, 216 arches in all, stripping the Colosseum's arcade down to pure, ornament-free geometry. Romans nicknamed it the \"Colosseo Quadrato\" — the Square Colosseum — and it now houses the headquarters of the fashion house Fendi. It's one of the most complete surviving statements of Fascist-era Rationalist architecture, built to look ancient and modern at once."
     },
     "tone": {
       "young": "Here's something cool about Palazzo della Civiltà Italiana: romans nicknamed it the \"Colosseo Quadrato\" — the Square Colosseum — and it now houses the headquarters of the fashion house Fendi.",
@@ -410,7 +410,7 @@ const locations = [
         "movieTitle": "La Dolce Vita",
         "director": "Federico Fellini",
         "year": 1960,
-        "scene": "Marcello and his companions pass through the piazza during one of the film's late-night wanderings.",
+        "scene": "In the first episode, Marcello and Maddalena drive her Cadillac into the piazza at night and offer a woman a ride home.",
         "specificImageUrl": "img/La_Dolce_Vita/piazza_del_popolo.png",
         "cameraOrientation": "Wide shot of the piazza's obelisk and twin churches as figures cross in the foreground."
       },
@@ -418,7 +418,7 @@ const locations = [
         "movieTitle": "To Rome with Love",
         "director": "Woody Allen",
         "year": 2012,
-        "scene": "Characters cross the piazza amid the film's roving anthology structure, the obelisk and churches framing the scene.",
+        "scene": "Milly, lost in the city, asks a passer-by for directions and gets a long, overly precise answer.",
         "specificImageUrl": "img/To_Rome_with_Love/piazza_del_popolo.JPG",
         "cameraOrientation": "Wide establishing shot of the piazza with figures crossing in the foreground."
       }
@@ -426,7 +426,7 @@ const locations = [
     "content": {
       "brief": "A grand Neoclassical square, redesigned by Giuseppe Valadier in the early 1800s.",
       "mid": "At its centre stands an Egyptian obelisk brought to Rome under Augustus, flanked at the square's southern entrance by twin Baroque churches, Santa Maria dei Miracoli and Santa Maria in Montesanto, built to frame the view down Via del Corso. For centuries the piazza was the first sight travellers had of Rome after entering through the northern city gate, making its design a kind of grand architectural welcome mat.",
-      "long": "At its centre stands an Egyptian obelisk brought to Rome under Augustus, flanked at the square's southern entrance by twin Baroque churches, Santa Maria dei Miracoli and Santa Maria in Montesanto, built to frame the view down Via del Corso. For centuries the piazza was the first sight travellers had of Rome after entering through the northern city gate, making its design a kind of grand architectural welcome mat. It's now one of the largest and most open public squares in the historic centre, ringed by cafés and used for concerts and public gatherings It shows how an 18th-century urban planner could take a functional city gateway and turn it into deliberate theatre."
+      "long": "At its centre stands an Egyptian obelisk brought to Rome under Augustus, flanked at the square's southern entrance by twin Baroque churches, Santa Maria dei Miracoli and Santa Maria in Montesanto, built to frame the view down Via del Corso. For centuries the piazza was the first sight travellers had of Rome after entering through the northern city gate, making its design a kind of grand architectural welcome mat. It's now one of the largest and most open public squares in the historic centre, ringed by cafés and used for concerts and public gatherings. It shows how an early 19th-century architect could take a functional city gateway and turn it into deliberate theatre."
     },
     "tone": {
       "young": "Here's something cool about Piazza del Popolo: it's now one of the largest and most open public squares in the historic centre, ringed by cafés and used for concerts and public gatherings.",
@@ -434,9 +434,9 @@ const locations = [
       "scholar": "People's Square, an example of neoclassical: given its current Neoclassical form by architect Giuseppe Valadier between 1811 and 1822."
     },
     "competence": {
-      "introductory": "In short, it shows how an 18th-century urban planner could take a functional city gateway and turn it into deliberate theatre — no art history degree required to appreciate that.",
-      "average": "Taken together, this is why it shows how an 18th-century urban planner could take a functional city gateway and turn it into deliberate theatre.",
-      "advanced": "Read against the wider arc of Roman architectural history, it shows how an 18th-century urban planner could take a functional city gateway and turn it into deliberate theatre, a point worth weighing against how the site is used and read today."
+      "introductory": "In short, it shows how an early 19th-century architect could take a functional city gateway and turn it into deliberate theatre — no art history degree required to appreciate that.",
+      "average": "Taken together, this is why it shows how an early 19th-century architect could take a functional city gateway and turn it into deliberate theatre.",
+      "advanced": "Read against the wider arc of Roman architectural history, it shows how an early 19th-century architect could take a functional city gateway and turn it into deliberate theatre, a point worth weighing against how the site is used and read today."
     }
   },
   {
@@ -465,7 +465,7 @@ const locations = [
         "movieTitle": "Roman Holiday",
         "director": "William Wyler",
         "year": 1953,
-        "scene": "A brief stop during the couple's wandering tour of the city's churches and piazzas.",
+        "scene": "During the Vespa chase, Joe and Ann ride down Via del Plebiscito past the church, with Irving following in his car.",
         "specificImageUrl": "img/Roman_Holiday/chiesa_del_gesu.JPG",
         "cameraOrientation": "Passing wide shot as the Vespa crosses in front of the facade."
       }
@@ -473,7 +473,7 @@ const locations = [
     "content": {
       "brief": "The mother church of the Jesuits, and the model for Baroque church facades everywhere.",
       "mid": "It was commissioned as the mother church of the newly founded Society of Jesus, funded by the wealthy Cardinal Alessandro Farnese after the Jesuits' own founder, Ignatius of Loyola, first envisioned it in 1551. Its facade is widely considered the first true Baroque church front in architectural history, and it became the direct model for Jesuit churches built across Europe and the Americas.",
-      "long": "It was commissioned as the mother church of the newly founded Society of Jesus, funded by the wealthy Cardinal Alessandro Farnese after the Jesuits' own founder, Ignatius of Loyola, first envisioned it in 1551. Its facade is widely considered the first true Baroque church front in architectural history, and it became the direct model for Jesuit churches built across Europe and the Americas. The ceiling fresco inside, Giovanni Battista Gaulli's Triumph of the Name of Jesus, completed in 1679, uses illusionistic painting to make painted figures appear to spill out of their frame into real space A single church here effectively set the visual language an entire religious order used to build churches on four continents."
+      "long": "It was commissioned as the mother church of the newly founded Society of Jesus, funded by the wealthy Cardinal Alessandro Farnese after the Jesuits' own founder, Ignatius of Loyola, first envisioned it in 1551. Its facade is widely considered the first true Baroque church front in architectural history, and it became the direct model for Jesuit churches built across Europe and the Americas. The ceiling fresco inside, Giovanni Battista Gaulli's Triumph of the Name of Jesus, completed in 1679, uses illusionistic painting to make painted figures appear to spill out of their frame into real space. A single church here effectively set the visual language an entire religious order used to build churches on four continents."
     },
     "tone": {
       "young": "Here's something cool about Chiesa del Gesù: the ceiling fresco inside, Giovanni Battista Gaulli's Triumph of the Name of Jesus, completed in 1679, uses illusionistic painting to make painted figures appear to spill out of their frame into real space.",
@@ -512,7 +512,7 @@ const locations = [
         "movieTitle": "Roman Holiday",
         "director": "William Wyler",
         "year": 1953,
-        "scene": "The Vespa tour pauses beneath the ancient amphitheater as Ann takes in the sights of the city.",
+        "scene": "Joe takes Ann to the Colosseum on the Vespa; the amphitheatre also appears briefly in the opening credits.",
         "specificImageUrl": "img/Roman_Holiday/colosseo.JPG",
         "cameraOrientation": "Low wide shot framing the Colosseum's arches behind the moving vehicle."
       },
@@ -520,7 +520,7 @@ const locations = [
         "movieTitle": "To Rome with Love",
         "director": "Woody Allen",
         "year": 2012,
-        "scene": "A stop on one of the characters' wanderings through the city's most iconic sights.",
+        "scene": "Jack and Monica look at the Colosseum at sunset from Via dei Fori Imperiali during a sightseeing montage.",
         "specificImageUrl": "img/To_Rome_with_Love/colosseo.JPG",
         "cameraOrientation": "Wide shot pairing the amphitheater's arches with the characters in the foreground."
       }
@@ -528,7 +528,7 @@ const locations = [
     "content": {
       "brief": "The largest amphitheatre ever built, opened by Emperor Titus in AD 80.",
       "mid": "It could hold an estimated 50,000 to 80,000 spectators across four tiers, with a retractable awning system and an underground network of chambers and tunnels for staging animals and gladiators. Successive earthquakes, particularly in 847 and 1349, brought down large sections of the outer ring, and for centuries the ruins were quarried for building stone used across Rome.",
-      "long": "It could hold an estimated 50,000 to 80,000 spectators across four tiers, with a retractable awning system and an underground network of chambers and tunnels for staging animals and gladiators. Successive earthquakes, particularly in 847 and 1349, brought down large sections of the outer ring, and for centuries the ruins were quarried for building stone used across Rome. It remains the largest amphitheatre ever built and one of the most visited monuments on Earth No single building does more to define the popular image of ancient Rome."
+      "long": "It could hold an estimated 50,000 to 80,000 spectators across four tiers, with a retractable awning system and an underground network of chambers and tunnels for staging animals and gladiators. Successive earthquakes, particularly in 847 and 1349, brought down large sections of the outer ring, and for centuries the ruins were quarried for building stone used across Rome. It remains the largest amphitheatre ever built and one of the most visited monuments on Earth. No single building does more to define the popular image of ancient Rome."
     },
     "tone": {
       "young": "Here's something cool about Colosseo: it remains the largest amphitheatre ever built and one of the most visited monuments on Earth.",
@@ -567,7 +567,7 @@ const locations = [
         "movieTitle": "Roman Holiday",
         "director": "William Wyler",
         "year": 1953,
-        "scene": "Ann and Joe wander among the ancient ruins early in their unplanned day out together.",
+        "scene": "On the night she escapes the embassy, Joe finds Ann asleep on a low wall on Via dell'Arco di Settimio, overlooking the Forum.",
         "specificImageUrl": "img/Roman_Holiday/forum_romano.JPG",
         "cameraOrientation": "Wide tracking shot following the pair through the scattered columns and fallen stone."
       },
@@ -575,7 +575,7 @@ const locations = [
         "movieTitle": "The Talented Mr. Ripley",
         "director": "Anthony Minghella",
         "year": 1999,
-        "scene": "A pursuit and confrontation play out among the scattered ruins of the ancient forum.",
+        "scene": "The Forum is seen only from above, when Tom looks down over the ruins from the Capitoline Hill.",
         "specificImageUrl": "img/The_Talented_Mr_Ripley/forum_romano.JPG",
         "cameraOrientation": "Wide tracking shot weaving between the standing columns."
       }
@@ -583,7 +583,7 @@ const locations = [
     "content": {
       "brief": "The political and religious heart of ancient Rome for roughly a thousand years.",
       "mid": "It served as the political, religious, judicial and commercial heart of ancient Rome, home to the Senate house (Curia Julia), the Temple of Saturn, the Temple of Vesta, and triumphal arches including the Arch of Titus. As the Empire declined the Forum was gradually abandoned, buried under centuries of silt and debris, and by the Middle Ages much of it had become pastureland known as the Campo Vaccino — the \"cow field\".",
-      "long": "It served as the political, religious, judicial and commercial heart of ancient Rome, home to the Senate house (Curia Julia), the Temple of Saturn, the Temple of Vesta, and triumphal arches including the Arch of Titus. As the Empire declined the Forum was gradually abandoned, buried under centuries of silt and debris, and by the Middle Ages much of it had become pastureland known as the Campo Vaccino — the \"cow field\". Systematic excavation only began in the 18th and 19th centuries, and archaeological work here continues today Walking through it means walking through the literal ground on which Roman political life — Senate debates, elections, triumphs, funerals — actually happened."
+      "long": "It served as the political, religious, judicial and commercial heart of ancient Rome, home to the Senate house (Curia Julia), the Temple of Saturn, the Temple of Vesta, and triumphal arches including the Arch of Titus. As the Empire declined the Forum was gradually abandoned, buried under centuries of silt and debris, and by the Middle Ages much of it had become pastureland known as the Campo Vaccino — the \"cow field\". Systematic excavation only began in the 18th and 19th centuries, and archaeological work here continues today. Walking through it means walking through the literal ground on which Roman political life — Senate debates, elections, triumphs, funerals — actually happened."
     },
     "tone": {
       "young": "Here's something cool about Foro Romano: systematic excavation only began in the 18th and 19th centuries, and archaeological work here continues today.",
@@ -622,7 +622,7 @@ const locations = [
         "movieTitle": "Roman Holiday",
         "director": "William Wyler",
         "year": 1953,
-        "scene": "The Palazzo's grounds double for the fictional foreign embassy where Princess Ann is officially staying.",
+        "scene": "The palace's exterior stands in for the embassy where Princess Ann is staying; the interiors were filmed at Palazzo Colonna.",
         "specificImageUrl": "img/Roman_Holiday/palazzo_barberini.JPG",
         "cameraOrientation": "Static establishing shot of the facade and gated courtyard."
       }
@@ -630,7 +630,7 @@ const locations = [
     "content": {
       "brief": "A Baroque palace shaped by three of the era's greatest architects at once.",
       "mid": "It was built for the family of Pope Urban VIII, and its grand salon ceiling was frescoed by Pietro da Cortona with the Triumph of Divine Providence, one of the most ambitious illusionistic ceilings of the Baroque era. Having three of the era's greatest architects contribute to one building is almost unheard of, and traces of each — Maderno's plan, Borromini's oval staircase, Bernini's square one — are still visible.",
-      "long": "It was built for the family of Pope Urban VIII, and its grand salon ceiling was frescoed by Pietro da Cortona with the Triumph of Divine Providence, one of the most ambitious illusionistic ceilings of the Baroque era. Having three of the era's greatest architects contribute to one building is almost unheard of, and traces of each — Maderno's plan, Borromini's oval staircase, Bernini's square one — are still visible. The palace now houses the Galleria Nazionale d'Arte Antica, with works by Raphael, Caravaggio and Holbein It's effectively a built argument for how differently three geniuses could interpret the same commission."
+      "long": "It was built for the family of Pope Urban VIII, and its grand salon ceiling was frescoed by Pietro da Cortona with the Triumph of Divine Providence, one of the most ambitious illusionistic ceilings of the Baroque era. Having three of the era's greatest architects contribute to one building is almost unheard of, and traces of each — Maderno's plan, Borromini's oval staircase, Bernini's square one — are still visible. The palace now houses the Galleria Nazionale d'Arte Antica, with works by Raphael, Caravaggio and Holbein. It's effectively a built argument for how differently three geniuses could interpret the same commission."
     },
     "tone": {
       "young": "Here's something cool about Palazzo Barberini: the palace now houses the Galleria Nazionale d'Arte Antica, with works by Raphael, Caravaggio and Holbein.",
@@ -669,7 +669,7 @@ const locations = [
         "movieTitle": "Roman Holiday",
         "director": "William Wyler",
         "year": 1953,
-        "scene": "The couple pauses in the piazza to admire the ancient temple during their day of wandering.",
+        "scene": "Joe and Ann sit at a café facing the Pantheon, where Ann orders champagne.",
         "specificImageUrl": "img/Roman_Holiday/pantheon.JPG",
         "cameraOrientation": "Wide shot of the portico and piazza, actors small in frame against the columns."
       }
@@ -677,7 +677,7 @@ const locations = [
     "content": {
       "brief": "The best-preserved building to survive from ancient Rome, dome and all.",
       "mid": "Its dome remains the largest unreinforced concrete dome in the world, with a 9-metre oculus at its apex as the only source of light. In AD 609 the building was converted into a Christian church, Santa Maria ad Martyres, a change of use that is the main reason it survived intact while most other ancient Roman buildings were stripped for stone.",
-      "long": "Its dome remains the largest unreinforced concrete dome in the world, with a 9-metre oculus at its apex as the only source of light. In AD 609 the building was converted into a Christian church, Santa Maria ad Martyres, a change of use that is the main reason it survived intact while most other ancient Roman buildings were stripped for stone. The Renaissance painter Raphael is buried inside, alongside two Italian kings It is the best-preserved building to survive from ancient Rome, and its dome directly influenced architects from Brunelleschi to Michelangelo to the designers of the U.S. Capitol."
+      "long": "Its dome remains the largest unreinforced concrete dome in the world, with a 9-metre oculus at its apex as the only source of light. In AD 609 the building was converted into a Christian church, Santa Maria ad Martyres, a change of use that is the main reason it survived intact while most other ancient Roman buildings were stripped for stone. The Renaissance painter Raphael is buried inside, alongside two Italian kings. It is the best-preserved building to survive from ancient Rome, and its dome directly influenced architects from Brunelleschi to Michelangelo to the designers of the U.S. Capitol."
     },
     "tone": {
       "young": "Here's something cool about Pantheon: the Renaissance painter Raphael is buried inside, alongside two Italian kings.",
@@ -716,7 +716,7 @@ const locations = [
         "movieTitle": "Roman Holiday",
         "director": "William Wyler",
         "year": 1953,
-        "scene": "Ann eats gelato on the steps, one of the most recognizable images from the film.",
+        "scene": "Ann buys a gelato and eats it on the steps, where Joe pretends to run into her by chance.",
         "specificImageUrl": "img/Roman_Holiday/piazza_di_spagna.JPG",
         "cameraOrientation": "Medium shot seated on the steps, capturing the sweep of the staircase behind her."
       },
@@ -724,7 +724,7 @@ const locations = [
         "movieTitle": "The Talented Mr. Ripley",
         "director": "Anthony Minghella",
         "year": 1999,
-        "scene": "Marge and Peter cross paths on the steps while investigating Dickie's disappearance.",
+        "scene": "Marge and Meredith meet at the 'Dinelli' café at the foot of the steps, a set built in front of a real shop; Tom later picks Marge up here on his Vespa.",
         "specificImageUrl": "img/The_Talented_Mr_Ripley/piazza_di_spagna.JPG",
         "cameraOrientation": "Medium tracking shot descending the staircase alongside the characters."
       },
@@ -732,7 +732,7 @@ const locations = [
         "movieTitle": "To Rome with Love",
         "director": "Woody Allen",
         "year": 2012,
-        "scene": "Characters pause on the steps as one of the anthology's storylines unfolds.",
+        "scene": "The film ends here, with a band on the steps playing 'Volare'.",
         "specificImageUrl": "img/To_Rome_with_Love/piazza_di_spagna.JPG",
         "cameraOrientation": "Medium shot on the steps, the staircase sweeping upward behind them."
       }
@@ -740,7 +740,7 @@ const locations = [
     "content": {
       "brief": "A 135-step Baroque staircase linking two of Rome's most photographed piazzas.",
       "mid": "It was funded by a bequest from the French diplomat Étienne Gueffier, and links the piazza below to the French church of Trinità dei Monti above. The square below takes its name from the Spanish Embassy to the Holy See, which has stood here since the 17th century, even though the steps themselves were paid for with French money.",
-      "long": "It was funded by a bequest from the French diplomat Étienne Gueffier, and links the piazza below to the French church of Trinità dei Monti above. The square below takes its name from the Spanish Embassy to the Holy See, which has stood here since the 17th century, even though the steps themselves were paid for with French money. The poet John Keats died in a small room overlooking the steps in 1821, now preserved as the Keats-Shelley House museum It remains one of the largest and widest outdoor staircases in Europe, and one of Rome's most photographed gathering spots."
+      "long": "It was funded by a bequest from the French diplomat Étienne Gueffier, and links the piazza below to the French church of Trinità dei Monti above. The square below takes its name from the Spanish Embassy to the Holy See, which has stood here since the 17th century, even though the steps themselves were paid for with French money. The poet John Keats died in a small room overlooking the steps in 1821, now preserved as the Keats-Shelley House museum. It remains one of the largest and widest outdoor staircases in Europe, and one of Rome's most photographed gathering spots."
     },
     "tone": {
       "young": "Here's something cool about Piazza di Spagna: the poet John Keats died in a small room overlooking the steps in 1821, now preserved as the Keats-Shelley House museum.",
@@ -779,7 +779,7 @@ const locations = [
         "movieTitle": "Roman Holiday",
         "director": "William Wyler",
         "year": 1953,
-        "scene": "The Vespa tour crosses the bridge as part of the couple's spontaneous ride through the city.",
+        "scene": "The bridge appears in the opening credits; later Joe and Ann dance at the party on a barge moored below Castel Sant'Angelo.",
         "specificImageUrl": "img/Roman_Holiday/ponte_sant'angelo.JPG",
         "cameraOrientation": "Tracking shot alongside the moving Vespa, the bridge's statues passing in the background."
       },
@@ -787,7 +787,7 @@ const locations = [
         "movieTitle": "The Talented Mr. Ripley",
         "director": "Anthony Minghella",
         "year": 1999,
-        "scene": "A tense rendezvous on the bridge, its statues lit against the evening sky, as the net closes around Tom.",
+        "scene": "Tom and Meredith cross the bridge in a horse-drawn carriage after a night at the opera.",
         "specificImageUrl": "img/The_Talented_Mr_Ripley/ponte_sant'angelo.JPG",
         "cameraOrientation": "Medium tracking shot alongside the balustrade, the Castel Sant'Angelo visible in the background."
       },
@@ -803,7 +803,7 @@ const locations = [
     "content": {
       "brief": "A Roman bridge from AD 134, later lined with ten Bernini angels.",
       "mid": "In 1669, Pope Clement IX had Gian Lorenzo Bernini's workshop add ten monumental angel statues along its parapets, each carrying a different instrument of Christ's Passion. The mausoleum it leads to was later fortified into the Castel Sant'Angelo, and the bridge became the traditional route for pilgrims approaching St. Peter's.",
-      "long": "In 1669, Pope Clement IX had Gian Lorenzo Bernini's workshop add ten monumental angel statues along its parapets, each carrying a different instrument of Christ's Passion. The mausoleum it leads to was later fortified into the Castel Sant'Angelo, and the bridge became the traditional route for pilgrims approaching St. Peter's. It has been closed to vehicle traffic for decades and is now a pedestrian bridge with sweeping views of the castle and the river Few bridges anywhere carry 1,900 years of continuous use, let alone a matching set of Bernini angels."
+      "long": "In 1669, Pope Clement IX had Gian Lorenzo Bernini's workshop add ten monumental angel statues along its parapets, each carrying a different instrument of Christ's Passion. The mausoleum it leads to was later fortified into the Castel Sant'Angelo, and the bridge became the traditional route for pilgrims approaching St. Peter's. It has been closed to vehicle traffic for decades and is now a pedestrian bridge with sweeping views of the castle and the river. Few bridges anywhere carry 1,900 years of continuous use, let alone a matching set of Bernini angels."
     },
     "tone": {
       "young": "Here's something cool about Ponte Sant'Angelo: it has been closed to vehicle traffic for decades and is now a pedestrian bridge with sweeping views of the castle and the river.",
@@ -842,7 +842,7 @@ const locations = [
         "movieTitle": "Roman Holiday",
         "director": "William Wyler",
         "year": 1953,
-        "scene": "The chaotic Vespa chase sequence, with press and police in pursuit, passes through this junction.",
+        "scene": "Ann accidentally sets off on the Vespa in the square, with Joe jumping on behind her.",
         "specificImageUrl": "img/Roman_Holiday/piazza_venezia.JPG",
         "cameraOrientation": "Fast tracking shot at street level, following the Vespa through traffic."
       },
@@ -850,15 +850,15 @@ const locations = [
         "movieTitle": "To Rome with Love",
         "director": "Woody Allen",
         "year": 2012,
-        "scene": "A comic set-piece plays out in the bustling square at the heart of the city.",
+        "scene": "The film opens here, with a traffic warden directing cars in the square and talking straight to the camera.",
         "specificImageUrl": "img/To_Rome_with_Love/piazza_venezia.JPG",
         "cameraOrientation": "Wide shot capturing the monument and surrounding traffic circle."
       }
     ],
     "content": {
       "brief": "A busy traffic hub anchored by one of Rome's first Renaissance palaces.",
-      "mid": "The square's current open, roughly circular shape is largely the result of a major urban clearance carried out from the 1880s through 1911, to make room for the Monument to Victor Emmanuel II — the Vittoriano — completed in 1911 and finished with further elements through the 1930s. Palazzo Venezia briefly served as the Venetian embassy to the Papal States, giving both the palace and the square their name.",
-      "long": "The square's current open, roughly circular shape is largely the result of a major urban clearance carried out from the 1880s through 1911, to make room for the Monument to Victor Emmanuel II — the Vittoriano — completed in 1911 and finished with further elements through the 1930s. Palazzo Venezia briefly served as the Venetian embassy to the Papal States, giving both the palace and the square their name. The square now functions as one of central Rome's busiest traffic junctions, radiating out toward the Colosseum, the Capitoline Hill and Via del Corso It shows two very different eras of Roman urban ambition — a quiet 15th-century cardinal's palace and a triumphant 19th-century national monument — sharing the same small square."
+      "mid": "The square's current open, roughly circular shape is largely the result of a major urban clearance carried out from the 1880s through 1911, to make room for the Monument to Victor Emmanuel II — the Vittoriano — completed in 1911 and finished with further elements through the 1930s. From 1564 to 1797 Palazzo Venezia housed the embassy of the Republic of Venice to the Papal States, giving both the palace and the square their name.",
+      "long": "The square's current open, roughly circular shape is largely the result of a major urban clearance carried out from the 1880s through 1911, to make room for the Monument to Victor Emmanuel II — the Vittoriano — completed in 1911 and finished with further elements through the 1930s. From 1564 to 1797 Palazzo Venezia housed the embassy of the Republic of Venice to the Papal States, giving both the palace and the square their name. The square now functions as one of central Rome's busiest traffic junctions, radiating out toward the Colosseum, the Capitoline Hill and Via del Corso. It shows two very different eras of Roman urban ambition — a quiet 15th-century cardinal's palace and a triumphant 19th-century national monument — sharing the same small square."
     },
     "tone": {
       "young": "Here's something cool about Piazza Venezia: the square now functions as one of central Rome's busiest traffic junctions, radiating out toward the Colosseum, the Capitoline Hill and Via del Corso.",
@@ -897,7 +897,7 @@ const locations = [
         "movieTitle": "The Talented Mr. Ripley",
         "director": "Anthony Minghella",
         "year": 1999,
-        "scene": "Marge confronts Tom in the piazza, the Baroque fountains framing their fraught exchange.",
+        "scene": "Dickie introduces Tom to Freddie, who pulls up in a red convertible by the Fountain of the Four Rivers.",
         "specificImageUrl": "img/The_Talented_Mr_Ripley/piazza_navona.JPG",
         "cameraOrientation": "Medium two-shot with the Fountain of the Four Rivers visible over the actors' shoulders."
       },
@@ -905,7 +905,7 @@ const locations = [
         "movieTitle": "To Rome with Love",
         "director": "Woody Allen",
         "year": 2012,
-        "scene": "Characters gather in the piazza, the Baroque fountains providing a lively backdrop to the scene.",
+        "scene": "Sally, Jack and Monica walk through the piazza at night after a home-cooked dinner.",
         "specificImageUrl": "img/To_Rome_with_Love/piazza_navona.JPG",
         "cameraOrientation": "Wide shot of the piazza with the fountain in frame."
       }
@@ -913,7 +913,7 @@ const locations = [
     "content": {
       "brief": "A Baroque square that still traces the oval of an ancient Roman stadium.",
       "mid": "Its present Baroque appearance dates mainly from the 17th century, crowned by Gian Lorenzo Bernini's Fountain of the Four Rivers, commissioned by Pope Innocent X in 1651. The ancient stadium once hosted athletic contests for an audience of some 30,000 people; its arena floor now lies several metres below the modern piazza.",
-      "long": "Its present Baroque appearance dates mainly from the 17th century, crowned by Gian Lorenzo Bernini's Fountain of the Four Rivers, commissioned by Pope Innocent X in 1651. The ancient stadium once hosted athletic contests for an audience of some 30,000 people; its arena floor now lies several metres below the modern piazza. The square today draws street artists, café crowds and, in December, one of Rome's largest Christmas markets It's a rare case of an ancient Roman building's exact shape surviving intact into the present, simply by being built over rather than demolished."
+      "long": "Its present Baroque appearance dates mainly from the 17th century, crowned by Gian Lorenzo Bernini's Fountain of the Four Rivers, commissioned by Pope Innocent X in 1651. The ancient stadium once hosted athletic contests for an audience of some 30,000 people; its arena floor now lies several metres below the modern piazza. The square today draws street artists, café crowds and, in December, one of Rome's largest Christmas markets. It's a rare case of an ancient Roman building's exact shape surviving intact into the present, simply by being built over rather than demolished."
     },
     "tone": {
       "young": "Here's something cool about Piazza Navona: the square today draws street artists, café crowds and, in December, one of Rome's largest Christmas markets.",
@@ -952,7 +952,7 @@ const locations = [
         "movieTitle": "To Rome with Love",
         "director": "Woody Allen",
         "year": 2012,
-        "scene": "A modern counterpoint to the rest of the film's historic settings, used for one of the anthology's storylines.",
+        "scene": "Jack takes Monica to the auditorium, and they sit together inside Renzo Piano's building.",
         "specificImageUrl": "img/To_Rome_with_Love/auditorium_parco_della_musica.JPG",
         "cameraOrientation": "Wide shot emphasizing the auditorium's curved lead-clad shells."
       }
@@ -960,7 +960,7 @@ const locations = [
     "content": {
       "brief": "Renzo Piano's music complex, home to Rome's National Academy of Santa Cecilia.",
       "mid": "The complex consists of three separate concert halls — Sala Santa Cecilia, Sala Sinopoli and Sala Petrassi, seating roughly 2,800, 1,200 and 700 people respectively — clad in lead and joined at the base by a shared lobby, plus an open-air amphitheatre. Construction crews uncovered the remains of an ancient Roman villa on the site, which archaeologists excavated and partly incorporated into the finished complex.",
-      "long": "The complex consists of three separate concert halls — Sala Santa Cecilia, Sala Sinopoli and Sala Petrassi, seating roughly 2,800, 1,200 and 700 people respectively — clad in lead and joined at the base by a shared lobby, plus an open-air amphitheatre. Construction crews uncovered the remains of an ancient Roman villa on the site, which archaeologists excavated and partly incorporated into the finished complex. It is home to Italy's National Academy of Santa Cecilia and now carries the name of composer Ennio Morricone in its title It's widely considered the most significant piece of urban renewal Rome had seen since the 1960s, and one of the largest cultural complexes in Europe."
+      "long": "The complex consists of three separate concert halls — Sala Santa Cecilia, Sala Sinopoli and Sala Petrassi, seating roughly 2,800, 1,200 and 700 people respectively — clad in lead and joined at the base by a shared lobby, plus an open-air amphitheatre. Construction crews uncovered the remains of an ancient Roman villa on the site, which archaeologists excavated and partly incorporated into the finished complex. It is home to Italy's National Academy of Santa Cecilia and now carries the name of composer Ennio Morricone in its title. It's widely considered the most significant piece of urban renewal Rome had seen since the 1960s, and one of the largest cultural complexes in Europe."
     },
     "tone": {
       "young": "Here's something cool about Auditorium Parco della Musica: it is home to Italy's National Academy of Santa Cecilia and now carries the name of composer Ennio Morricone in its title.",
@@ -999,7 +999,7 @@ const locations = [
         "movieTitle": "To Rome with Love",
         "director": "Woody Allen",
         "year": 2012,
-        "scene": "A quiet walk through the park's gardens, a pause from the bustle of the city center.",
+        "scene": "Jack and Monica's affair continues on a walk through the gardens, near the Temple of Asclepius.",
         "specificImageUrl": "img/To_Rome_with_Love/villa_borghese.JPG",
         "cameraOrientation": "Wide shot along a tree-lined path."
       }
@@ -1007,7 +1007,7 @@ const locations = [
     "content": {
       "brief": "Rome's green heart, laid out as a cardinal's private garden in 1605.",
       "mid": "The grounds were designed to display Scipione's growing art collection alongside sweeping gardens, fountains and follies in the fashionable style of a Roman villa suburbana. The estate remained private property of the Borghese family for nearly three centuries.",
-      "long": "The grounds were designed to display Scipione's growing art collection alongside sweeping gardens, fountains and follies in the fashionable style of a Roman villa suburbana. The estate remained private property of the Borghese family for nearly three centuries. The Italian state acquired it in 1901 and opened the park to the public in 1903; the Galleria Borghese, housing Bernini sculptures and Caravaggio paintings, still stands at its centre It's the green heart of central Rome, and its art collection is often ranked among the finest small museums in the world."
+      "long": "The grounds were designed to display Scipione's growing art collection alongside sweeping gardens, fountains and follies in the fashionable style of a Roman villa suburbana. The estate remained private property of the Borghese family for nearly three centuries. The Italian state acquired it in 1901 and opened the park to the public in 1903; the Galleria Borghese, housing Bernini sculptures and Caravaggio paintings, still stands at its centre. It's the green heart of central Rome, and its art collection is often ranked among the finest small museums in the world."
     },
     "tone": {
       "young": "Here's something cool about Villa Borghese: the Italian state acquired it in 1901 and opened the park to the public in 1903; the Galleria Borghese, housing Bernini sculptures and Caravaggio paintings, still stands at its centre.",
@@ -1046,7 +1046,7 @@ const locations = [
         "movieTitle": "La Grande Bellezza",
         "director": "Paolo Sorrentino",
         "year": 2013,
-        "scene": "A grieving mother searches frantically for her daughter inside the hidden, perfectly circular stone courtyard.",
+        "scene": "Jep meets a mother looking for her small daughter, who has hidden inside the Tempietto.",
         "specificImageUrl": "img/La_Grande_Bellezza/tempietto_di_bramante.JPG",
         "cameraOrientation": "Perfectly centered static wide shot, framing the circular columned temple dead-center to create absolute symmetry."
       }
@@ -1054,7 +1054,7 @@ const locations = [
     "content": {
       "brief": "A tiny circular temple that art historians call architecturally perfect.",
       "mid": "It stands in the courtyard of San Pietro in Montorio on the Janiculan Hill, on the spot traditionally believed to mark St. Peter's crucifixion, ringed by sixteen granite columns — sixteen being, per the ancient architectural writer Vitruvius, an especially harmonious number. Though barely four metres across, it is generally credited as the building that introduced High Renaissance architecture to Rome.",
-      "long": "It stands in the courtyard of San Pietro in Montorio on the Janiculan Hill, on the spot traditionally believed to mark St. Peter's crucifixion, ringed by sixteen granite columns — sixteen being, per the ancient architectural writer Vitruvius, an especially harmonious number. Though barely four metres across, it is generally credited as the building that introduced High Renaissance architecture to Rome. Its design directly influenced Bramante's own later plans for the dome of St. Peter's Basilica, carried forward after his death by Michelangelo Art historians routinely call it one of the most perfectly proportioned small buildings ever constructed."
+      "long": "It stands in the courtyard of San Pietro in Montorio on the Janiculan Hill, on the spot traditionally believed to mark St. Peter's crucifixion, ringed by sixteen granite columns — sixteen being, per the ancient architectural writer Vitruvius, an especially harmonious number. Though barely four metres across, it is generally credited as the building that introduced High Renaissance architecture to Rome. Its design directly influenced Bramante's own later plans for the dome of St. Peter's Basilica, carried forward after his death by Michelangelo. Art historians routinely call it one of the most perfectly proportioned small buildings ever constructed."
     },
     "tone": {
       "young": "Here's something cool about Tempietto di Bramante: its design directly influenced Bramante's own later plans for the dome of St. Peter's Basilica, carried forward after his death by Michelangelo.",

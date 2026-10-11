@@ -1384,7 +1384,7 @@
     "@id": "loc:1"
    },
    "description": {
-    "@value": "Sylvia and Marcello wandering through the majestic brick ruins at night.",
+    "@value": "The party in the film's second episode is set at a nightclub in the Baths of Caracalla, where Sylvia dances wildly with Frankie. Most of it was shot on a set at Cinecittà, so the real ruins may barely appear on screen.",
     "@language": "en"
    },
    "image": "img/La_Dolce_Vita/caracalla.JPG",
@@ -1403,7 +1403,7 @@
     "@id": "loc:1"
    },
    "description": {
-    "@value": "Jep Gambardella encounters a giraffe controlled by an illusionist among the towering arches.",
+    "@value": "Jep watches his magician friend try to make a giraffe disappear among the ruins, the most Felliniesque moment of the film.",
     "@language": "en"
    },
    "image": "img/La_Grande_Bellezza/caracalla.JPG",
@@ -1422,7 +1422,7 @@
     "@id": "loc:2"
    },
    "description": {
-    "@value": "Princess Ann and Joe pause near the fountain during their day of unsupervised freedom across the city.",
+    "@value": "After slipping out of Joe's flat, Ann wanders on her own into the piazza and stops at the fountain; her famous haircut happens at a barber's a few streets away.",
     "@language": "en"
    },
    "image": "img/Roman_Holiday/fontana_di_trevi.JPG",
@@ -1441,7 +1441,7 @@
     "@id": "loc:2"
    },
    "description": {
-    "@value": "Sylvia wades into the fountain at night, calling Marcello to join her, in the film's most iconic sequence.",
+    "@value": "Sylvia wades into the fountain at night and calls Marcello to join her, the film's most famous sequence.",
     "@language": "en"
    },
    "image": "img/La_Dolce_Vita/fontana_di_trevi.png",
@@ -1460,7 +1460,7 @@
     "@id": "loc:2"
    },
    "description": {
-    "@value": "One of the film's four intersecting stories brings its characters wandering past the fountain amid the city's tourist bustle.",
+    "@value": "Hayley and Michelangelo visit the fountain during the montage of their growing romance.",
     "@language": "en"
    },
    "image": "img/To_Rome_with_Love/fontana_di_trevi.JPG",
@@ -1479,7 +1479,7 @@
     "@id": "loc:3"
    },
    "description": {
-    "@value": "Marge searches the museum galleries, tension mounting as she pieces together Dickie's disappearance.",
+    "@value": "Left behind by Dickie and Freddie, Tom wanders alone across Piazza del Campidoglio, looking at the sculptures and down over the Roman Forum.",
     "@language": "en"
    },
    "image": "img/The_Talented_Mr_Ripley/musei_capitolini.JPG",
@@ -1498,7 +1498,7 @@
     "@id": "loc:3"
    },
    "description": {
-    "@value": "Jep wanders the sculpture galleries at night, alone with the marble busts of ancient Rome.",
+    "@value": "Stefano, who keeps the keys to Rome's palaces, takes Jep and Ramona on a night visit; the statues of the Palazzo Nuovo appear out of the dark.",
     "@language": "en"
    },
    "image": "img/La_Grande_Bellezza/musei_capitolini.JPG",
@@ -1517,7 +1517,7 @@
     "@id": "loc:4"
    },
    "description": {
-    "@value": "A tense pursuit sequence winds along the ancient aqueduct's arches on the city's outskirts.",
+    "@value": "After killing Freddie, Tom drives the body out of the city and leaves it among the ruins of the aqueduct.",
     "@language": "en"
    },
    "image": "img/The_Talented_Mr_Ripley/parco_degli_acquedotti.JPG",
@@ -1536,7 +1536,7 @@
     "@id": "loc:4"
    },
    "description": {
-    "@value": "A quieter interlude away from the city center, characters walking and talking beneath the aqueduct arches.",
+    "@value": "The arches of the Aqua Claudia appear behind a car scene shot with the sun low behind the aqueduct.",
     "@language": "en"
    },
    "image": "img/To_Rome_with_Love/parco_degli_acquedotti.JPG",
@@ -1555,7 +1555,7 @@
     "@id": "loc:4"
    },
    "description": {
-    "@value": "Jep takes one of his contemplative early-morning walks beneath the ancient aqueduct arches, a recurring visual motif in the film.",
+    "@value": "The performance artist Talia Concept headbutts one of the aqueduct's stone piers in front of an audience that includes Jep.",
     "@language": "en"
    },
    "image": "img/La_Grande_Bellezza/parco_degli_acquedotti.JPG",
@@ -1593,7 +1593,7 @@
     "@id": "loc:6"
    },
    "description": {
-    "@value": "A private garden party scene set within the villa's grounds, part of Rome's rarefied high society Jep moves through.",
+    "@value": "At dawn, after the night tour of palaces and museums, Jep, Ramona and Stefano walk through the villa's gardens, home of the French Academy.",
     "@language": "en"
    },
    "image": "img/La_Grande_Bellezza/villa_medici.JPG",
@@ -1612,7 +1612,7 @@
     "@id": "loc:7"
    },
    "description": {
-    "@value": "The film's closing sequence unfolds at dawn amid the stark, rationalist architecture of the EUR district.",
+    "@value": "Fellini used the modernist EUR district for some of the film, but the Palazzo della Civiltà Italiana itself is not clearly visible on screen. The film actually ends on a beach near Fregene.",
     "@language": "en"
    },
    "image": "img/La_Dolce_Vita/palazzo_della_civilta_italiana.JPG",
@@ -1631,7 +1631,7 @@
     "@id": "loc:8"
    },
    "description": {
-    "@value": "Marcello and his companions pass through the piazza during one of the film's late-night wanderings.",
+    "@value": "In the first episode, Marcello and Maddalena drive her Cadillac into the piazza at night and offer a woman a ride home.",
     "@language": "en"
    },
    "image": "img/La_Dolce_Vita/piazza_del_popolo.png",
@@ -1650,7 +1650,7 @@
     "@id": "loc:8"
    },
    "description": {
-    "@value": "Characters cross the piazza amid the film's roving anthology structure, the obelisk and churches framing the scene.",
+    "@value": "Milly, lost in the city, asks a passer-by for directions and gets a long, overly precise answer.",
     "@language": "en"
    },
    "image": "img/To_Rome_with_Love/piazza_del_popolo.JPG",
@@ -1669,7 +1669,7 @@
     "@id": "loc:9"
    },
    "description": {
-    "@value": "A brief stop during the couple's wandering tour of the city's churches and piazzas.",
+    "@value": "During the Vespa chase, Joe and Ann ride down Via del Plebiscito past the church, with Irving following in his car.",
     "@language": "en"
    },
    "image": "img/Roman_Holiday/chiesa_del_gesu.JPG",
@@ -1688,7 +1688,7 @@
     "@id": "loc:10"
    },
    "description": {
-    "@value": "The Vespa tour pauses beneath the ancient amphitheater as Ann takes in the sights of the city.",
+    "@value": "Joe takes Ann to the Colosseum on the Vespa; the amphitheatre also appears briefly in the opening credits.",
     "@language": "en"
    },
    "image": "img/Roman_Holiday/colosseo.JPG",
@@ -1707,7 +1707,7 @@
     "@id": "loc:10"
    },
    "description": {
-    "@value": "A stop on one of the characters' wanderings through the city's most iconic sights.",
+    "@value": "Jack and Monica look at the Colosseum at sunset from Via dei Fori Imperiali during a sightseeing montage.",
     "@language": "en"
    },
    "image": "img/To_Rome_with_Love/colosseo.JPG",
@@ -1726,7 +1726,7 @@
     "@id": "loc:11"
    },
    "description": {
-    "@value": "Ann and Joe wander among the ancient ruins early in their unplanned day out together.",
+    "@value": "On the night she escapes the embassy, Joe finds Ann asleep on a low wall on Via dell'Arco di Settimio, overlooking the Forum.",
     "@language": "en"
    },
    "image": "img/Roman_Holiday/forum_romano.JPG",
@@ -1745,7 +1745,7 @@
     "@id": "loc:11"
    },
    "description": {
-    "@value": "A pursuit and confrontation play out among the scattered ruins of the ancient forum.",
+    "@value": "The Forum is seen only from above, when Tom looks down over the ruins from the Capitoline Hill.",
     "@language": "en"
    },
    "image": "img/The_Talented_Mr_Ripley/forum_romano.JPG",
@@ -1764,7 +1764,7 @@
     "@id": "loc:12"
    },
    "description": {
-    "@value": "The Palazzo's grounds double for the fictional foreign embassy where Princess Ann is officially staying.",
+    "@value": "The palace's exterior stands in for the embassy where Princess Ann is staying; the interiors were filmed at Palazzo Colonna.",
     "@language": "en"
    },
    "image": "img/Roman_Holiday/palazzo_barberini.JPG",
@@ -1783,7 +1783,7 @@
     "@id": "loc:13"
    },
    "description": {
-    "@value": "The couple pauses in the piazza to admire the ancient temple during their day of wandering.",
+    "@value": "Joe and Ann sit at a café facing the Pantheon, where Ann orders champagne.",
     "@language": "en"
    },
    "image": "img/Roman_Holiday/pantheon.JPG",
@@ -1802,7 +1802,7 @@
     "@id": "loc:14"
    },
    "description": {
-    "@value": "Ann eats gelato on the steps, one of the most recognizable images from the film.",
+    "@value": "Ann buys a gelato and eats it on the steps, where Joe pretends to run into her by chance.",
     "@language": "en"
    },
    "image": "img/Roman_Holiday/piazza_di_spagna.JPG",
@@ -1821,7 +1821,7 @@
     "@id": "loc:14"
    },
    "description": {
-    "@value": "Marge and Peter cross paths on the steps while investigating Dickie's disappearance.",
+    "@value": "Marge and Meredith meet at the 'Dinelli' café at the foot of the steps, a set built in front of a real shop; Tom later picks Marge up here on his Vespa.",
     "@language": "en"
    },
    "image": "img/The_Talented_Mr_Ripley/piazza_di_spagna.JPG",
@@ -1840,7 +1840,7 @@
     "@id": "loc:14"
    },
    "description": {
-    "@value": "Characters pause on the steps as one of the anthology's storylines unfolds.",
+    "@value": "The film ends here, with a band on the steps playing 'Volare'.",
     "@language": "en"
    },
    "image": "img/To_Rome_with_Love/piazza_di_spagna.JPG",
@@ -1859,7 +1859,7 @@
     "@id": "loc:15"
    },
    "description": {
-    "@value": "The Vespa tour crosses the bridge as part of the couple's spontaneous ride through the city.",
+    "@value": "The bridge appears in the opening credits; later Joe and Ann dance at the party on a barge moored below Castel Sant'Angelo.",
     "@language": "en"
    },
    "image": "img/Roman_Holiday/ponte_sant'angelo.JPG",
@@ -1878,7 +1878,7 @@
     "@id": "loc:15"
    },
    "description": {
-    "@value": "A tense rendezvous on the bridge, its statues lit against the evening sky, as the net closes around Tom.",
+    "@value": "Tom and Meredith cross the bridge in a horse-drawn carriage after a night at the opera.",
     "@language": "en"
    },
    "image": "img/The_Talented_Mr_Ripley/ponte_sant'angelo.JPG",
@@ -1916,7 +1916,7 @@
     "@id": "loc:16"
    },
    "description": {
-    "@value": "The chaotic Vespa chase sequence, with press and police in pursuit, passes through this junction.",
+    "@value": "Ann accidentally sets off on the Vespa in the square, with Joe jumping on behind her.",
     "@language": "en"
    },
    "image": "img/Roman_Holiday/piazza_venezia.JPG",
@@ -1935,7 +1935,7 @@
     "@id": "loc:16"
    },
    "description": {
-    "@value": "A comic set-piece plays out in the bustling square at the heart of the city.",
+    "@value": "The film opens here, with a traffic warden directing cars in the square and talking straight to the camera.",
     "@language": "en"
    },
    "image": "img/To_Rome_with_Love/piazza_venezia.JPG",
@@ -1954,7 +1954,7 @@
     "@id": "loc:17"
    },
    "description": {
-    "@value": "Marge confronts Tom in the piazza, the Baroque fountains framing their fraught exchange.",
+    "@value": "Dickie introduces Tom to Freddie, who pulls up in a red convertible by the Fountain of the Four Rivers.",
     "@language": "en"
    },
    "image": "img/The_Talented_Mr_Ripley/piazza_navona.JPG",
@@ -1973,7 +1973,7 @@
     "@id": "loc:17"
    },
    "description": {
-    "@value": "Characters gather in the piazza, the Baroque fountains providing a lively backdrop to the scene.",
+    "@value": "Sally, Jack and Monica walk through the piazza at night after a home-cooked dinner.",
     "@language": "en"
    },
    "image": "img/To_Rome_with_Love/piazza_navona.JPG",
@@ -1992,7 +1992,7 @@
     "@id": "loc:18"
    },
    "description": {
-    "@value": "A modern counterpoint to the rest of the film's historic settings, used for one of the anthology's storylines.",
+    "@value": "Jack takes Monica to the auditorium, and they sit together inside Renzo Piano's building.",
     "@language": "en"
    },
    "image": "img/To_Rome_with_Love/auditorium_parco_della_musica.JPG",
@@ -2011,7 +2011,7 @@
     "@id": "loc:19"
    },
    "description": {
-    "@value": "A quiet walk through the park's gardens, a pause from the bustle of the city center.",
+    "@value": "Jack and Monica's affair continues on a walk through the gardens, near the Temple of Asclepius.",
     "@language": "en"
    },
    "image": "img/To_Rome_with_Love/villa_borghese.JPG",
@@ -2030,7 +2030,7 @@
     "@id": "loc:20"
    },
    "description": {
-    "@value": "A grieving mother searches frantically for her daughter inside the hidden, perfectly circular stone courtyard.",
+    "@value": "Jep meets a mother looking for her small daughter, who has hidden inside the Tempietto.",
     "@language": "en"
    },
    "image": "img/La_Grande_Bellezza/tempietto_di_bramante.JPG",
