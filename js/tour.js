@@ -23,7 +23,7 @@
     currentView: getStartView() // "map-overview" | "tour" | "about" | "documentation" | "disclaimer"
   };
 
-  /* Read ?loc=N from the URL (defaults to 1) */
+  /* Read ?loc=N from the URL (null when absent/invalid: the active narrative then picks its own first stop) */
   function getStartId() {
     const params = new URLSearchParams(window.location.search);
     const raw = params.get("loc");
@@ -105,12 +105,12 @@
 
   // Attach to window so onclick in sidebar can reach it
   window.enterTour = function(id) {
-    // Timeline always contains all 20 locations, so entering here from "View More"
-    // always lands on the same, guaranteed-complete detail experience.
+    // The Map page only lists and plots the stops of the active "By Narratives" route,
+    // so the clicked stop is always part of it: keep the route and re-render for it.
     state.currentId = id;
     state.appearanceIndex = 0;
     switchView('tour');
-    selectNarrative('timeline');
+    selectNarrative(state.narrativeId);
   };
 
   function renderSidebar() {
@@ -596,13 +596,6 @@
       };
       html += renderMetaTable(profileData);
     }
-    if (loc.historicalTimeline && loc.historicalTimeline.length > 0) {
-      html += '<div class="timeline">';
-      loc.historicalTimeline.forEach(function (item) {
-        html += '<div class="timeline__item"><span class="timeline__year">' + escapeHtml(item.year) + '</span><div class="timeline__body"><div class="timeline__dot"></div><div class="timeline__line"></div><span class="timeline__event">' + escapeHtml(item.event) + '</span></div></div>';
-      });
-      html += '</div>';
-    }
     html += '</section>';
 
     // 2. Featured In — movie screenshot immediately followed by its movie info table
@@ -681,7 +674,7 @@
     applyTheme(state.theme); // sync initial label/active state
   }
 
-  /* ---------- Narrative route dropdown (Timeline / City / Art / Film Tour) ---------- */
+  /* ---------- About dropdown (Documentation / Disclaimer / About Us) ---------- */
   function setupAboutDropdown() {
     const dropdown = document.getElementById("aboutDropdown");
     const toggle = document.getElementById("aboutDropdownToggle");
@@ -766,25 +759,6 @@
     label.textContent = "By Narratives";
     menu.querySelectorAll("button").forEach(function (btn) {
       btn.classList.toggle("is-active", btn.dataset.value === state.narrativeId);
-    });
-  }
-
-  /* ---------- Segmented Buttons ---------- */
-  function setupSegmented(group, currentValue, onChange) {
-    const container = document.querySelector('.segmented[data-group="' + group + '"]');
-    if (!container) return;
-    const buttons = container.querySelectorAll("button");
-    function highlight(value) {
-      buttons.forEach(function (btn) {
-        btn.classList.toggle("is-active", btn.dataset.value === value);
-      });
-    }
-    highlight(currentValue);
-    buttons.forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        highlight(btn.dataset.value);
-        onChange(btn.dataset.value);
-      });
     });
   }
 
