@@ -153,7 +153,6 @@
       center: [41.8992, 12.4840],
       zoom: 14
     });
-    L.control.zoom({ position: "topright" }).addTo(overviewMap);
     addBaseLayer(overviewMap);
 
     locations.forEach(function (loc) {
@@ -259,12 +258,7 @@
       marker.setIcon(markerIcon(routePos + 1, isActive)); // 1-indexed route position, not raw id
     });
 
-    // Guard against Leaflet's "Invalid LatLng object: (NaN, NaN)" crash: panning/flying
-    // a map whose container is currently hidden (display:none gives it zero width and
-    // height) breaks Leaflet's internal pixel-origin math. This happens on first load,
-    // since the page starts on the Map-overview view, not Tour, so #tour-map is hidden
-    // until the visitor actually switches to the Tour view (which calls invalidateSize()
-    // + updateMap() again once the container has real dimensions — see switchView()).
+ 
     const mapContainer = document.getElementById("tour-map");
     if (!mapContainer || mapContainer.offsetWidth === 0 || mapContainer.offsetHeight === 0) {
       return;
